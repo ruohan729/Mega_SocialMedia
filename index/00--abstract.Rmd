@@ -6,7 +6,7 @@ Scholle IPN is a global manufacturing company that has experienced variability i
 \bigskip
 \bigskip
 
-**Keywords**: Time Series, Machine Learning, sARIMA, Regression with ARIMA Errors, XGBoost, Long Short-Term Memory (LSTM), Ensemble, Social Media, Linear Regression
+**Keywords**: Time Series, Machine Learning, sARIMA, Regression with ARIMA Errors, XGBoost, Long Short-Term Memory (LSTM), Ensemble, Social Media, Linear Regression.
 
 \bigskip 
 \bigskip

@@ -34,6 +34,10 @@ When using Google Trends, it is important to consider that trend values are calc
 
 ## Modeling Framework {#methodology-modeling .unnumbered}
 
+The following metrics are going to be used to measure the forecasting models we will build using social media variables.  
+Symmetric Mean Absolute Percent Error (sMAPE) - A measure based on percentage (or relative) errors. 
+
+
 **Metrics**
 
 Transform `dose` into a `factor`. Only three dosage levels are present.

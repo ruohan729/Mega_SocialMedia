@@ -1,12 +1,13 @@
 # Conclusion {.unnumbered}
 
-This section includes a concise summary of the findings. Your summary might be organized by the research objectives or hypotheses. Make sure you address the extent to which research objectives are achieved, and if they are not achieved, explain why. Make sure to interpret your findings in a way that acknowledges the limitations of the research. That is, do not extrapolate the insights derived from your research to situations you have not examined.
+In summary, we learned that including social media variables is helpful in predicting Coca-Cola bag orders, and it also provided a comparable results to the Scholle Coca-Cola baseline model.  For the individual models, the best results came when the social media variables were differenced or when the dimensions were reduced leading to increased predictive power.  When comparing the two challenger models, the XGBoost model did a better job of capturing seasonality than the regression with ARIMA errors model, as well as the LSTM RNN.  In addition, the XGBoost approach allows us to point out the most important variables.
+As for an ensemble approach to modeling, this technique proved to be a strong approach to produce better forecasts.  For our project, the random forest ensemble returned the best RMSE and sMAPE values.  For the ensemble models among the different teams, a linear regression model produced an output that was incrementally better than any individual model.
 
-_While increasing dosage leads to larger incisor length, the choice of delivery mechanism  between Orange Juice and Vitamin C does not seem to make a difference. However, at very low levels, Orange Juice appears more effective, displaying higher average growth._
 
 
 
 
 # Recommendations {.unnumbered}
 
-Includes guidelines as to ways in which your results should or could be used in practice. You may discuss other uses of your results, if there are any. The ways to extend your analysis and the benefits of doing so might be included in this section as well. 
+For this project, we focused our data collection on only a handful of quick service restaurants and competitors.  Collecting social media data from Coca-Cola’s competitors presents an opportunity to look at how people engage with and view these beverage companies at an industry level. Hence it may bring better accuracy in predicting the Coca-Cola bag sales for Scholle IPN.
+ 

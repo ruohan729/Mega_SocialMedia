@@ -815,334 +815,502 @@ value that fit the distribution of the rest of the dataset.
 
 \textbf{Metrics}
 
-Transform \texttt{dose} into a \texttt{factor}. Only three dosage levels
-are present.
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{data}\NormalTok{(ToothGrowth)}
-\KeywordTok{colnames}\NormalTok{(ToothGrowth) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"length"}\NormalTok{, }\StringTok{"supplement"}\NormalTok{, }\StringTok{"dose"}\NormalTok{)}
-\NormalTok{ToothGrowth}\OperatorTok{$}\NormalTok{dose <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(ToothGrowth}\OperatorTok{$}\NormalTok{dose)}
-\end{Highlighting}
-\end{Shaded}
-We are most interested in discovering which treatment leads to the
-optimal tooth growth. In this vein, we use \texttt{aggregate} function
-to transform our data and compute the average tooth \texttt{length} by
-both \texttt{supplement} type and \texttt{dose} size.
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{groupedTooth <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(ToothGrowth, }\DataTypeTok{by=}\NormalTok{ToothGrowth[,}\DecValTok{2}\OperatorTok{:}\DecValTok{3}\NormalTok{], }\DataTypeTok{FUN=}\NormalTok{mean)[,}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+The following metrics are going to be used to measure the forecasting
+models we will build using social media variables.
 
-\KeywordTok{kable}\NormalTok{(groupedTooth, }\DataTypeTok{align =} \StringTok{"r"}\NormalTok{, }\DataTypeTok{caption =} \StringTok{"Average tooth length"}\NormalTok{,}
-      \DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }\DataTypeTok{longtable =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{longtable}{r|r|r}
-\caption{\label{tab:group}Average tooth length}\\
-\hline
-supplement & dose & length\\
-\hline
-OJ & 0.5 & 13.23\\
-\hline
-VC & 0.5 & 7.98\\
-\hline
-OJ & 1 & 22.70\\
-\hline
-VC & 1 & 16.77\\
-\hline
-OJ & 2 & 26.06\\
-\hline
-VC & 2 & 26.14\\
-\hline
-\end{longtable}
+*Symmetric Mean Absolute Percent Error (sMAPE) - A measure based on
+percentage (or relative) errors.
+
+*Root Mean Square Error (RMSE) - Standard deviation of the mean squared
+error.
+
+*Mean Accuracy - Measures the forecast accuracy.
+
+*Percentage (\%) Bias - Measures the percentage of times the dependent
+variable was over- or under-estimated.
+
+\textbf{Selection of Forecasting Models} In this section, we will
+describe the forecasting models we will use to determine if social media
+variables have any impact Coca-Cola bag order forecasts. We will build
+three types of models - baseline model, challenger models, and ensemble
+model. Each forecasting model will have a forecasting window of 18
+months. The baseline model will be a forecasting model using only the
+monthly Coca-Cola bag orders. The challenger models will be a set of
+three different forecasting models that will utilize the social media
+variables. The ensemble model will be a model that combines all three
+challenger models. The baseline model will be used to compare how
+challenger models that utilize social media data fare against a
+forecasting model that does not utilize this data. The baseline model
+will be built by using a seasonal Arima model. A sliding-window cross
+validation of two-years, four-years, and six-years will be used to
+determine the optimal number of observations used for training the rest
+of our models. The challenger models selected for this project are:
+Regression with Arima errors, XGBoost, and Long Short-Term Memory
+(LSTM). Each challenger model will be trained using 48 months of
+training observations (see Baseline Model Results). In addition, each
+challenger model will be trained on two sets of social media variables.
+The first set of social media variables are the difference variables
+that were identified to be cross-correlated with Coca-Cola bag orders
+(see Dimension Reduction section). The second set of of social media
+variables are the principal components that were identified to be
+cross-correlated with Coca-Cola bag orders (see Dimension Reduction
+section). The Regression with Arima errors assumes that Coca-Cola bag
+sales does not only depend on the dependent variable, but also depend on
+external variables selected. The XGBoost model is a more complex
+`regularized boosting' technique that seeks a good bias-variance
+tradeoff to reduce overfitting. It allows cross-validation at each
+iteration of the boosting process and thus it is easy to get the exact
+optimum number of boosting iterations in a single run. The final
+challenger model, LSTM, is a special kind of recurrent neural network
+that is capable of learning long-term dependencies by using adaptive,
+non-linear gates to update cell state information. This model LSTM
+selectively chooses what it ``remembers'', and what to ``forget.'' In
+addition, LSTM selects how much of its memory it should output. The
+final model we will use is an ensemble model of all three challenger
+models. Please refer to the Ensemble Modeling section under Background
+for more information. We will compare how the challenger models and
+ensemble model perform against the baseline model using the metrics
+defined in the previous section.
+
 \newpage
 
 \section*{Math and Science notation}\label{math-sci}
 \addcontentsline{toc}{section}{Math and Science notation}
 
-\TeX~is the best way to typeset mathematics. Donald Knuth designed
-\TeX~when he got frustrated at how long it was taking the typesetters to
-finish his book, which contained a lot of mathematics. One nice feature
-of \emph{R Markdown} is its ability to read \LaTeX~code directly.
-
-Get around math mode's automatic italicizing in LaTeX by using the
-argument \texttt{\$\textbackslash{}mathrm\{formula\ here\}\$}, with your
-formula inside the curly brackets. (Notice the use of the backticks here
-which enclose text that acts as code.)
-
-So, \(\mathrm{Fe_2^{2+}Cr_2O_4}\) is written
-\texttt{\$\textbackslash{}mathrm\{Fe\_2\^{}\{2+\}Cr\_2O\_4\}\$}.
-
-The \noindent command below does what you'd expect: it forces the
-current line/paragraph to not indent. See below and examples of commonly
-used symbols:
-
-\noindent Exponent or Superscript written as \texttt{\$x\^{}2\$} becomes
-\(x^2\)
-
-\noindent Subscript written as \texttt{\$x\_1\$} becomes \(x_1\)
-
-\noindent Infinity written as \texttt{\$\textbackslash{}infty\$} becomes
-\(\infty\)
-
-\noindent alpha written as \texttt{\$\textbackslash{}alpha\$} becomes
-\(\alpha\)
-
-\noindent beta written as \texttt{\$\textbackslash{}beta\$} becomes
-\(\beta\)
-
-\noindent delta written as \texttt{\$\textbackslash{}delta\$} becomes
-\(\delta\)
-
-\noindent epsilon written as \texttt{\$\textbackslash{}epsilon\$}
-becomes \(\epsilon\)
-
-\noindent sigma written
-\texttt{\$\textbackslash{}sum\_\{i=1\}\^{}n\ f(x)\$} becomes
-\(\sum_{i=1}^n f(x)\)
-
-\subsection*{Math Examples}\label{math-examples}
-\addcontentsline{toc}{subsection}{Math Examples}
-
-An Ordinary Least Squares model, from \emph{Introductory Econometrics,
-6th edition} by Jeffrey M. Wooldridge, page 27.
-
-\[y_i = \beta_0 + \beta_1 x_i + \epsilon_i\]
-
-An infinite distributed lag (IDL) time series model, by Wooldridge, page
-633.
-
-\[ y_t = \alpha + \delta_0 z_t + \delta_1 z_{t-1} + \delta_2 z_{t-2} \ldots + \epsilon_t\]
-
-A vector autoregressive (VAR) model, by Wooldridge, page 657.
-
-\[ y_t = \delta_0 + \alpha_1 y_{t-1} + \gamma_1 z_{t-1} + \alpha_2 y_{t-2} + \gamma_2 z_{t-2} \ldots,\]
-\newpage
-ddfdf Determinant of a square matrix:
-
-\[\det\left|\,\begin{matrix}%
-c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-\,\vdots\hfill&\,\vdots\hfill&
-  \,\vdots\hfill&&\,\vdots\hfill\cr
-c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-\end{matrix}\right|>0\]
-\bigskip
-
-A regularization problem solved by Jerome Friedman, Trevor Hastie, Rob
-Tibshirani and Noah Simon, implemented in the
-\href{https://cran.r-project.org/web/packages/glmnet/index.html}{R
-package \texttt{glmnet}}.
-
-\[ \min_{\beta_0,\beta} \frac{1}{N}\sum_{i=1}^N w_il(y_i,\beta_0+\beta^Tx_i)+\lambda \left[(1-\alpha) ||\beta||_2^2/2+\alpha||\beta||_1\right]\]
-
-\bigskip
-
-From Lapidus and Pindar, Numerical Solution of Partial Differential
-Equations in Science and Engineering, page 54.
-
-\[\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0, \qquad\quad i=1,2,3.\]
-
-\bigskip
-
-From Lapidus and Pindar, page 145.
-
-\[\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big) = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).\]
-
-\subsection*{Additional R Markdown and bookdown
-resources}\label{additional-r-markdown-and-bookdown-resources}
-\addcontentsline{toc}{subsection}{Additional R Markdown and bookdown
-resources}
-\begin{itemize}
-\item
-  \emph{Bookdown} Online Book -
-  \url{https://bookdown.org/yihui/bookdown/}
-\item
-  \emph{Markdown} Info Sheet -
-  \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}
-\item
-  \emph{R Markdown} Reference Guide -
-  \url{https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf}
-\end{itemize}
 \chapter*{Findings}\label{findings}
 \addcontentsline{toc}{chapter}{Findings}
 
-Should be organized as follows:
-\begin{itemize}
-\tightlist
-\item
-  Results of descriptive analyses
-\item
-  Modeling results
-\item
-  Results of model performance and validation
-\end{itemize}
-\section*{Results of descriptive analyses}\label{findings-descriptive}
-\addcontentsline{toc}{section}{Results of descriptive analyses}
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{kable}\NormalTok{(}\KeywordTok{summary}\NormalTok{(ToothGrowth), }\DataTypeTok{align =} \StringTok{"r"}\NormalTok{, }\DataTypeTok{caption =} \StringTok{"Summary of ToothGrowth data"}\NormalTok{,}
-      \DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }\DataTypeTok{longtable =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{longtable}{l|r|r|r}
-\caption{\label{tab:summary}Summary of ToothGrowth data}\\
-\hline
-  &     length & supplement &  dose\\
-\hline
- & Min.   : 4.20 & OJ:30 & 0.5:20\\
-\hline
- & 1st Qu.:13.07 & VC:30 & 1  :20\\
-\hline
- & Median :19.25 & NA & 2  :20\\
-\hline
- & Mean   :18.81 & NA & NA\\
-\hline
- & 3rd Qu.:25.27 & NA & NA\\
-\hline
- & Max.   :33.90 & NA & NA\\
-\hline
+\section*{Baseline Model Results}\label{baseline-model-results}
+\addcontentsline{toc}{section}{Baseline Model Results}
+
+Before we test the impact of social media variables in forecasting
+Coca-Cola bag orders, we must first establish baseline metrics. We will
+use a seasonal Arima model that uses only the dependent variable to
+establish our baseline model. Our analysis found that the best seasonal
+Arima model had an order of (3,0,1)(1,0,0){[}12{]}. Cross validation
+with a sliding window of two-years, four-years, and six-years was then
+conducted. The purpose of cross validation is to establish the metric
+that the challenger models will be compared against and to find the
+point in the forecast horizon in which the predictions ``flatten out''.
+The chart below is a plot of the forecast horizon against each model's
+sMAPE values.
+
+{[}INSERT FIGURE{]}
+
+It is clear that the two-year window model is considerably worse than
+either the four-year and six-year sliding window models. When you look
+at a plot of each model against the average sMAPE value for each
+forecast window, you can see that the sMAPE values flatten out at the
+four year mark. There is no considerable improvement in sMAPE values
+between the four-year window model and the six-year window mode.
+Therefore, the best baseline model is the four-year sliding window
+model.
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+\begin{minipage}[b]{0.22\columnwidth}\centering\strut
+Sliding Window\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+sMAPE\strut
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\centering\strut
+RMSE\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Mean Accuracy\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Bias (\%)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.22\columnwidth}\centering\strut
+2 Year 4 Year 6 Year\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+12.79\% 13.93\% 14.14\%\strut
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\centering\strut
+1,066,599 1,215,263 1,066,599\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+86.56\% 86.64\% 86.49\%\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+50.00\% 38.89\% 38.89\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
 \end{longtable}
-Table \ref{tab:summary} above contains summary statistics of the
-\emph{Tooth Growth} data.
+\section*{Regression with ARIMA Errors
+Results}\label{regression-with-arima-errors-results}
+\addcontentsline{toc}{section}{Regression with ARIMA Errors Results}
 
-While the code is not displayed to create the graph below
-(\texttt{echo=FALSE}), it is displayed in the Appendix by referencing
-the \texttt{boxplot} chunk name..
-\begin{figure}
-\centering
-\includegraphics{UChicago-MScA-Capstone_files/figure-latex/boxplot-1.pdf}
-\caption{\label{fig:boxplot}Avg. length by supplement and dose}
-\end{figure}
-Figure \ref{fig:boxplot} was created with the \texttt{ggplot2} package.
-We can visually compare the average tooth growth by \texttt{supplement}
-and \texttt{dose}.
-
-\section*{Modeling results}\label{modeling-results}
-\addcontentsline{toc}{section}{Modeling results}
-
-First, use a \texttt{t.test()} to test \emph{if} dosage leads to growth
-of incisor length. From the results below, it appears every test rejects
-the null hypothesis.
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{test1 <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(length }\OperatorTok{~}\StringTok{ }\NormalTok{dose, ToothGrowth, dose }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{,}\DecValTok{1}\NormalTok{)) }
-\NormalTok{test2 <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(length }\OperatorTok{~}\StringTok{ }\NormalTok{dose, ToothGrowth, dose }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\NormalTok{test3 <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(length }\OperatorTok{~}\StringTok{ }\NormalTok{dose, ToothGrowth, dose }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)) }
-
-\NormalTok{testAgg <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Name =} \KeywordTok{c}\NormalTok{(}\StringTok{"Test 0.5-1"}\NormalTok{, }\StringTok{"Test 0.5-2"}\NormalTok{, }\StringTok{"Test 1-2"}\NormalTok{),}
-                  \DataTypeTok{Method =} \KeywordTok{c}\NormalTok{(test1}\OperatorTok{$}\NormalTok{method, test2}\OperatorTok{$}\NormalTok{method, test3}\OperatorTok{$}\NormalTok{method), }
-               \DataTypeTok{Pvalue =} \KeywordTok{c}\NormalTok{(test1}\OperatorTok{$}\NormalTok{p.value, test2}\OperatorTok{$}\NormalTok{p.value, test3}\OperatorTok{$}\NormalTok{p.value), }
-          \DataTypeTok{Tstat =} \KeywordTok{c}\NormalTok{(test1}\OperatorTok{$}\NormalTok{statistic, test2}\OperatorTok{$}\NormalTok{statistic, test3}\OperatorTok{$}\NormalTok{statistic))}
-
-\KeywordTok{kable}\NormalTok{(testAgg, }\DataTypeTok{digit =} \DecValTok{7}\NormalTok{, }\DataTypeTok{align =} \StringTok{"r"}\NormalTok{, }\DataTypeTok{caption =} \StringTok{"t-test results"}\NormalTok{, }
-      \DataTypeTok{format =} \StringTok{"latex"}\NormalTok{, }\DataTypeTok{longtable =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{longtable}{r|r|r|r}
-\caption{\label{tab:t-test}t-test results}\\
-\hline
-Name & Method & Pvalue & Tstat\\
-\hline
-Test 0.5-1 & Welch Two Sample t-test & 1.00e-07 & -6.476648\\
-\hline
-Test 0.5-2 & Welch Two Sample t-test & 0.00e+00 & -11.799046\\
-\hline
-Test 1-2 & Welch Two Sample t-test & 1.91e-05 & -4.900484\\
-\hline
+By evaluating the residuals and metrics above, we found that manually
+passing the ARIMA order (3,0,1)(1,0,0) {[}12{]} to the model gave us the
+best results. The residuals after the model demonstrates the white noise
+feature, meaning that the model has captured all the information from
+the time series data. When reviewing the forecast based on the
+regression with arima (3,0,1)(1,0,0){[}12{]} model, the results are
+relatively conservative.
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+\begin{minipage}[b]{0.27\columnwidth}\centering\strut
+Social Media Var\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+sMAPE\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
+RMSE\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Mean Accuracy\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Bias (\%)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.27\columnwidth}\centering\strut
+Differenced Social Media Variables Principal Components\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering\strut
+37.79\% 19.11\%\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
+3,107,383 1,381,487\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+65.05\% 80.33\%\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+55.55\% 38.89\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
 \end{longtable}
-Table \ref{tab:t-test}
+\section*{XGBoost Results}\label{xgboost-results}
+\addcontentsline{toc}{section}{XGBoost Results}
 
-\section*{Results of model performance and
-validation}\label{results-of-model-performance-and-validation}
-\addcontentsline{toc}{section}{Results of model performance and
-validation}
+For the XGBoost model, we introduced a month of year variable to allow
+the model to learn seasonality. XGBoost was implemented in Python using
+the parameters below before using grid search to identify the best
+tuning parameter.
 
-Next, subset the \texttt{ToothGrowth} data into seperate data sets
-defined by supplement dose of 0.5, 1, and 2 mg. This allow us to
-controlling for dose increases of \emph{economic} significance.
+After running the model, we are able to rank the features based on
+importance (see below.) {[}INSERT FIGURE{]}
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+\begin{minipage}[b]{0.27\columnwidth}\centering\strut
+Social Media Var\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+sMAPE\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
+RMSE\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Mean Accuracy\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Bias (\%)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.27\columnwidth}\centering\strut
+Differenced Social Media Variables Principal Components\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering\strut
+6.21\% 7.27\%\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
+597,983 701,980\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+93.88\% 93.01\%\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+27.78\% 38.89\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+\section*{Long Short-Term Memory
+Results}\label{long-short-term-memory-results}
+\addcontentsline{toc}{section}{Long Short-Term Memory Results}
 
-Subset tooth data into a separate \texttt{data.frame} for each dosage
-level. Then Execute the \texttt{t.test()} function for the dosage of 0.5
-mg and display the results.
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dose05 <-}\StringTok{ }\NormalTok{ToothGrowth[ToothGrowth}\OperatorTok{$}\NormalTok{dose }\OperatorTok{==}\StringTok{ }\FloatTok{0.5}\NormalTok{, ] }
-\NormalTok{ dose1 <-}\StringTok{ }\NormalTok{ToothGrowth[ToothGrowth}\OperatorTok{$}\NormalTok{dose }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, ]}
-\NormalTok{ dose2 <-}\StringTok{ }\NormalTok{ToothGrowth[ToothGrowth}\OperatorTok{$}\NormalTok{dose }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{, ]}
+We implemented LSTM in Python using the same set of variables as the
+previous models. Below is a model summary of LSTM prior to
+implementation: {[}INSERT FIGURE{]}
 
-\NormalTok{ test4 <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(length }\OperatorTok{~}\StringTok{ }\NormalTok{supplement, }\DataTypeTok{data =}\NormalTok{ dose05)}
-\NormalTok{ test5 <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(length }\OperatorTok{~}\StringTok{ }\NormalTok{supplement, }\DataTypeTok{data =}\NormalTok{ dose1)}
-\NormalTok{ test6 <-}\StringTok{ }\KeywordTok{t.test}\NormalTok{(length }\OperatorTok{~}\StringTok{ }\NormalTok{supplement, }\DataTypeTok{data =}\NormalTok{ dose2)}
-\end{Highlighting}
-\end{Shaded}
-Place the results of the analysis directly into your content with
-\textbf{\emph{inline code}} functions:
+Tuning the parameters is a vital part when deploying any Neural Network
+models, and LSTM is no exception. Listed below are a few key parameters
+we tweaked: Epochs - One Epoch is when an entire dataset is passed
+forward and backward through the neural network only once. Since one
+epoch is too big to feed to the computer at once we divide it in several
+smaller batches. (we need to quote this!) Optimizer - adam Loss function
+- mean squared error Activation function - since we scaled the train and
+test sets beforehand, we chose to leave the activation function default.
+Dropout - we had 4 dropout layers embedded in the model. Dropout is a
+regularization technique for neural network models proposed by
+Srivastava, et al. in their 2014 paper Dropout: A Simple Way to Prevent
+Neural Networks from Overfitting.
 
-With a very low p-value of 0.0064 and a corresponding t-statistic of
-3.1697, it appears that at low doses, \emph{Orange Juice} is the
-preferable delivery mechanism to \emph{Vitamin C} for Ascorbic Acid
-delivery.
+\section{{[}INSERT FIGURE{]}}\label{insert-figure}
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+Social Media Var & sMAPE & RMSE & Mean Accuracy & Bias
+(\%)\tabularnewline
+\midrule
+\endhead
+Differenced Social Media Variables & 11.8\% & 994,364 & 88.47\% &
+44.4\%\tabularnewline
+Principal Components & 38.89\% & 1,114,561 & 86.82\% &
+38.89\%\tabularnewline
+\bottomrule
+\end{longtable}
+\section*{Ensemble Model Results}\label{ensemble-model-results}
+\addcontentsline{toc}{section}{Ensemble Model Results}
 
-The p-value and t-statistic above have been directly extracted from the
-model object and printed inline. using the `r foo' syntax with quotes(')
-replaced by back-ticks (`).
+After building challenger models that utilize social media variables, we
+will now construct an ensemble model. Ensembling the three challenger
+models we built should produce more accurate Coca-Cola bag order
+predictions. We will use several ensemble models and compare these
+results against each individual challenger model. The ensemble models we
+will build are `average of all models', linear regression, and random
+forest.
 
+The average of all predictions ensemble model is the most interpretable
+of all the ensemble models as it simply takes the average of all
+predicted values among all challenger models. Meanwhile, the linear
+model ensemble model will assign a weight to each challenger model's
+results. The more that a model contributes to the predicted results, the
+more weight the linear model will assign it. Finally, the random forest
+ensemble model is the most complex among the three. This model will
+capture how each challenger model's specific weaknesses are in
+prediction. For the linear regression and random forest models, the
+predictions of the three challenger models will be used as training
+observations.
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+\begin{minipage}[b]{0.27\columnwidth}\centering\strut
+Model\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+sMAPE\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
+RMSE\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Mean Accuracy\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Bias (\%)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.27\columnwidth}\centering\strut
+Scholle Baseline Model Average of all Models Linear Regression Random
+Forest\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering\strut
+7.43\% 8.41\% 5.76\% 3.57\%\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
+667,832 809,139 545,211 356,563\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+92.84\% 91.53\% 94.22\% 96.37\%\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+27.78\% 33.33\% 50.00\% 44.44\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+The results show that the random forest ensemble model performs the best
+according to the sMAPE and RMSE metrics. However, since the linear model
+produced acceptable results and is the simpler ensemble model, this will
+be selected as the champion model. Below is a graph visualizing our
+individual model forecasts against the actual quantity (black).
+
+{[}INSERT FIGURE{]}
+
+\section*{Coca-Cola Ensemble Model
+Results}\label{coca-cola-ensemble-model-results}
+\addcontentsline{toc}{section}{Coca-Cola Ensemble Model Results}
+
+To further demonstrate the strength of ensemble modeling, this method
+was also used to combine the models generated by other capstone teams.
+Other teams were solving the same business problem, but using a
+different set of covariates (related products and economy). The idea is
+that ensembling all the team's models will compensate for each model's
+weaknesses and produce a strong overall model. The final model generated
+incremental gains from our best ensemble model. The results are outlined
+in the next section.
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+\begin{minipage}[b]{0.27\columnwidth}\centering\strut
+Model\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+sMAPE\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering\strut
+RMSE\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Mean Accuracy\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
+Bias (\%)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.27\columnwidth}\centering\strut
+Scholle Baseline Model Linear Regression (social media) Linear
+Regression Random Forest\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering\strut
+7.43\% 5.76\% 1.05\% 1.34\%\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering\strut
+667,832 545,211 93,662 119,437\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+92.84\% 94.22\% 98.95\% 98.64\%\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+27.78\% 50.00\% 44.44\% 50.00\%\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
 \chapter*{Conclusion}\label{conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-This section includes a concise summary of the findings. Your summary
-might be organized by the research objectives or hypotheses. Make sure
-you address the extent to which research objectives are achieved, and if
-they are not achieved, explain why. Make sure to interpret your findings
-in a way that acknowledges the limitations of the research. That is, do
-not extrapolate the insights derived from your research to situations
-you have not examined.
-
-\emph{While increasing dosage leads to larger incisor length, the choice
-of delivery mechanism between Orange Juice and Vitamin C does not seem
-to make a difference. However, at very low levels, Orange Juice appears
-more effective, displaying higher average growth.}
+In summary, we learned that including social media variables is helpful
+in predicting Coca-Cola bag orders, and it also provided a comparable
+results to the Scholle Coca-Cola baseline model. For the individual
+models, the best results came when the social media variables were
+differenced or when the dimensions were reduced leading to increased
+predictive power. When comparing the two challenger models, the XGBoost
+model did a better job of capturing seasonality than the regression with
+ARIMA errors model, as well as the LSTM RNN. In addition, the XGBoost
+approach allows us to point out the most important variables. As for an
+ensemble approach to modeling, this technique proved to be a strong
+approach to produce better forecasts. For our project, the random forest
+ensemble returned the best RMSE and sMAPE values. For the ensemble
+models among the different teams, a linear regression model produced an
+output that was incrementally better than any individual model.
 
 \chapter*{Recommendations}\label{recommendations}
 \addcontentsline{toc}{chapter}{Recommendations}
 
-Includes guidelines as to ways in which your results should or could be
-used in practice. You may discuss other uses of your results, if there
-are any. The ways to extend your analysis and the benefits of doing so
-might be included in this section as well.
+For this project, we focused our data collection on only a handful of
+quick service restaurants and competitors. Collecting social media data
+from Coca-Cola's competitors presents an opportunity to look at how
+people engage with and view these beverage companies at an industry
+level. Hence it may bring better accuracy in predicting the Coca-Cola
+bag sales for Scholle IPN.
 
 \appendix
 
-\chapter{The First Appendix}\label{the-first-appendix}
+\textbf{KPSS Test}
+\url{https://www.rdocumentation.org/packages/tseries/versions/0.10-46/topics/kpss.test}
+(Insert table of KPSS test results - before and after differencing)
 
-This first appendix includes all of the R chunks of code that were
-hidden throughout the document (using the \texttt{include\ =\ FALSE}
-chunk tag) to help with readibility and/or setup.
+\textbf{Data Cleansing} Scholle IPN Data The Scholle IPN data provides a
+variety of relevant data features that uninformed users can use to gain
+knowledge about Scholle IPN's product. Our team will use this data to
+find relevant trends that may be useful in forecasting. The table below
+describes the Scholle IPN metadata:
 
-\textbf{In section} \ref{pressure-plot}:
+Prior to searching for any relevant patterns in the Scholle IPN data, it
+is best practice to conduct preliminary data cleansing. First, we notice
+that there are 8,204 total orders in this dataset ranging from a
+delivery date of 10/1/2009 to 11/2/2018. It is important to note that
+this dataset is a combination of orders from all of Scholle IPN clients
+in their syrup bag product line. Of all the orders, 5,118 of the records
+lists `Coca-Cola' as the top business partner. Other issues include null
+values being present for the `Ship\_to\_State' variable and negative
+values for `quantity' variable.
 
-\textbf{In section \ref{ref-labels}:}
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{data}\NormalTok{(ToothGrowth)}
-\KeywordTok{colnames}\NormalTok{(ToothGrowth) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"length"}\NormalTok{, }\StringTok{"supplement"}\NormalTok{, }\StringTok{"dose"}\NormalTok{)}
-\NormalTok{ToothGrowth}\OperatorTok{$}\NormalTok{dose <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(ToothGrowth}\OperatorTok{$}\NormalTok{dose)}
+The following data cleansing steps were conducted to prepare the Scholle
+IPN data for monthly aggregation: \emph{Filter syrup bag orders for
+`Coca-Cola' top business partner.\\
+}Drop records with quantities of less than one thousand.\\
+\emph{Impute records with missing values in `Ship\_to\_State' with
+`Bayamon, PR'. }Drop records outside of the United States and Canada
+market. *Drop records that occurred after October 2018.
 
-\NormalTok{groupedTooth <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(ToothGrowth, }\DataTypeTok{by=}\NormalTok{ToothGrowth[,}\DecValTok{2}\OperatorTok{:}\DecValTok{3}\NormalTok{], }\DataTypeTok{FUN=}\NormalTok{mean)[,}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+Once the steps listed have been conducted, the primary data is left with
+only 4,875 records. The final step to data cleansing will be aggregating
+the records at the monthly level. The `Planned Delivery Date' field will
+be used to aggregate quantities at the desired level.
 
-\KeywordTok{library}\NormalTok{(ggplot2)}
- \KeywordTok{ggplot}\NormalTok{(ToothGrowth, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ supplement, }\DataTypeTok{y =}\NormalTok{ length)) }\OperatorTok{+}\StringTok{ }
-\StringTok{                     }\KeywordTok{geom_boxplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{fill=}\NormalTok{supplement)) }\OperatorTok{+}\StringTok{ }
-\StringTok{                     }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{dose) }\OperatorTok{+}\StringTok{ }
-\StringTok{                     }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{colour =} \KeywordTok{guide_legend}\NormalTok{(}\StringTok{"Color = Supplement"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
-\StringTok{                     }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x=}\StringTok{"Orange Juice or Vitamin C, grouped by dose"}\NormalTok{, }
-                          \DataTypeTok{y=}\StringTok{"Odontoblast Growth (microns)"}\NormalTok{)  }\OperatorTok{+}
-\StringTok{                     }\KeywordTok{theme_bw}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-\chapter{A Second Appendix, for
-example}\label{a-second-appendix-for-example}
+\textbf{Twitter Data Collection} The selected terms (Coca-Cola, Pepsi,
+McDonald's, Taco Bell, Jobs) will be used to collect user-generated
+tweets. The collection of this data will be done by using Twitter's
+Search API. Twitter posts containing the terms `coke', `pepsi',
+`mcdonalds', `taco bell', or `jobs' will be collected from the 15th of
+every month from July 2009 to December 2018. Twitter's Search API impose
+strict restrictions on query results depending on the account level
+purchased. For this project, a maximum of 500 user-generated tweets will
+be collected per month in the given date range. For example, for the
+month of December 2018, there will be 500 tweets collected related to
+Coca-Cola, Pepsi, McDonald's, Taco Bell, and jobs. This means that at
+any given month, the distribution of tweets across different terms can
+differ depending on what search term is trending. Since this project is
+concerned with the US and Canada markets, we need to add a series of
+Search API query constraints to ensure that collected tweets are mainly
+from users in these selected markets. The first constraint was to query
+results in the english language by filtering for user profiles with
+country codes of `us' or `ca'. The second constraint involves the time
+of day that the tweets were posted. Since Twitter Search API collects
+tweets in reverse chronological order given a date and time, a time
+constraint of 23:00 UTC (6 pm CST) was applied to the queries to ensure
+that collected tweets will fall in a time range when most people in the
+US and Canada are off normal working hours. This will provide a robust
+collection of tweets from a variety of different users across different
+regions of the US and Canada. The final output of these Twitter search
+queries will include the tweet content, tweet date and time, number of
+replies, number of retweets, and number of likes. The second approach to
+collecting Twitter data is to gather historical Twitter posts generated
+by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and
+Taco Bell from July 2009 to December 2018 using a separate web scraping
+tool. These selected Twitter accounts vary greatly in their online
+activity. While some accounts, like Taco Bell, reply frequently to their
+followers, other accounts tend to be less engaging and post
+infrequently. For the purpose of this project, only independent tweets
+posted by each Twitter account will be collected. This means that tweet
+replies to Twitter users will not be collected. The main benefit of this
+approach is that it allows us to focus on tweets that promote individual
+marketing campaigns. The final output of this data collection step will
+include tweet content, tweet date and time, number of replies, number of
+retweets, and number of likes.\\
+The total output of the Twitter data collection results are 56,528
+user-generated tweets and 24,442 company-generated tweets from July 2009
+to December 2018. For both datasets, tweets outside of October 2009 to
+October 2018 will be filtered out to prepare for time series modeling.
+The user-generated tweets will require additional pre-processing steps
+prior to monthly aggregation. The Twitter Search API collects tweets on
+a rule-based approach meaning it is probable that nonsensical tweets may
+be included in the raw data collected. For example, tweets referencing
+the drug `cocaine' (or `coke' in colloquial terms) were identified in
+the raw data. A series of natural language processing steps were
+conducted on the tweet's text to help screen out these ``noisy`` tweets.
+In addition, these steps will be important to prepare the tweet data for
+aggregation. Some of these processing steps include removing stopwords,
+creating n-grams, and tokenizing text. After conducting text processing
+steps, an R package was used to calculate the sentiment of a given
+tweet. This step will provide us with an additional feature that will
+inform business users about user sentiment on their product. After these
+pre-processing steps, the tweets will now be aggregated on a monthly
+level to generate the following independent variables for each search
+term (Coca-Cola, Pepsi, McDonald's, Taco Bell, ``Jobs''): total tweets
+per month, total replies per month, total likes per month, total
+retweets per month, and average sentiment per month. There are a total
+of 25 variables generated from this step. The company-generated tweets
+from Coca-Cola, Pepsi, McDonald's, and Taco Bell will be aggregated on a
+monthly level to generate the following independent variables for each
+Twitter account (Coca-Cola, Pepsi, McDonald's and Taco Bell): total
+tweets per month, total replies per month, total likes per month, total
+retweets per month. There are a total 16 variables generated from this
+step.
+
+\textbf{Google Trends Data} Google Trends data will also be collected to
+better anticipate the demand for Coca-Cola products. Although Google
+Trends is not a social media platform, it does provide its users with
+quantified information about the relative popularity of a search term
+over time. The monthly Google Trend values for the following terms will
+be collected: Coca-Cola, Pepsi, McDonald's, Taco Bell, and `Jobs'. Each
+topic will be queried individually with the date range October 2009 to
+October 2018. Google Trend values for each term will range between 0 to
+100, with 100 signifying the month in which the term was most popular.
+No additional preprocessing is required for Google Trends data. There
+are a total of five variables generated from this step.
+
+\textbf{Exploratory Data Analysis - Scholle IPN} The maximum quantity of
+bags ordered occurred in November 2011 with a total of 13,685,000 bag
+orders, while the minimum quantity of bags ordered occurred in January
+2011 with a total of 5,215,810 bag orders. After exploring the Scholle
+IPN data, it was also observed that the Columbus (OH), Atlanta (GA), and
+Dallas (TX) are the top cities where Coca-Cola bag orders were being
+delivered. Given that information, it is less surprising to observe that
+the top three states by quantity of bag order deliveries were Ohio,
+Georgia, and Texas. In terms of Coca-Cola bag products, the
+stock-keeping unit (SKU) 200258 and 200144 were the two most ordered
+SKU.
+
+\textbf{Exploratory Data Analysis - Social Media Variables} Similar to
+the Scholle IPN data, it is important to explore our covariates to
+identify any underlying trends that could be used to forecast Coca-Cola
+demand. For user-generated tweets, a total of 52,952 user-generated
+tweets were collected between October 2009 to October 2018. Among the
+four companies, McDonald's is the most talked about company over the
+given date range. When exploring which terms appear the most with each
+other, the term that appeared most commonly with Coca-Cola is Pepsi.
+
+\textbf{Sentiment Analysis} \url{https://github.com/trinker/sentimentr}
 
 \backmatter
 

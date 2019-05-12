@@ -1,0 +1,714 @@
+---
+author: 'Elijah Ampo, Ruohan Zhou, and Yingkun Zhu'
+date: 'May, 2019'
+institution: 'University of Chicago'
+division: 'Graham School'
+advisor: 'Arnab Bose'
+altadvisor: 'Dr. Sema Barlas'
+department: 'Continuing Liberal and Professional Studies'
+degree: 'Master of Science in Analytics'
+title: 'Forecasting Manufacturing Orders Using Social Media'
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+output: 
+  phoenixdown::capstone_pdf: default
+#  phoenixdown::capstone_gitbook: default
+#  phoenixdown::capstone_word: default
+#  phoenixdown::capstone_epub: default
+#
+# If you are creating a PDF you'll need to write your preliminary content as well as define some other parameters below.
+abstract: | 
+  `r if(knitr:::is_latex_output()) paste(readLines("00--abstract.Rmd"), collapse = '\n  ')` 
+executive: |  
+  `r if(knitr:::is_latex_output()) paste(readLines("00--executive-summary.Rmd"), collapse = '\n  ')` 
+#
+# Longer preliminary content, like the Abstract and Executive Summary above, is best organized in seperate files.
+# The inline r function is used above to paste the contents of those files, instead of requiring you one to type 
+# lengthy text directly into the yaml header. For shorter messages, typing directly into the YAML is easier. See below.
+# VERY IMPORTANT: A tab indent is needed on the line following the | .
+#
+#preface: |
+#  A preface is OPTIONAL. Use a preface if you want to explain your interest in the report topic and include anything about your #experience that readers should keep in mind. If you would rather not include a preface, comment it out or delete it from the YAML header #of the index.Rmd file.
+#
+#acknowledgements: |
+#  I want to thank a few people.
+#dedication: |
+#  You can have a dedication here if you wish.
+#
+# Download your specific bibliography database file, place it in the "bib" folder, and refer to it in the line below
+bibliography: bib/thesis.bib
+#
+# To change your Citation Style Language file, you can do so below. Though the default is apa style.
+csl: csl/apa.csl
+lot: true
+lof: true
+#
+# Add a "#" at the beginning of the following line if you'd like remove space between parapgraphs.
+space_between_paragraphs: true
+#
+# Dimensions below correspond to University of Chicago Masters of Science in Analytics requirements.
+geometry: "left=3.8cm, right=2.5cm, top=2.5cm, bottom=2.5cm"
+#
+  #header-includes:
+#- \usepackage{tikz}
+---
+
+
+
+<!--
+Above is the YAML (YAML Ain't Markup Language) header that includes a lot of metadata used to produce the document.  Be careful with spacing in this header!
+
+If you'd prefer to not include a Preface for example, simply delete lines 32-33 above or add a "#"" before them to comment out.  If you have other LaTeX packages you would like to include, delete the # before header-includes and list the packages after hyphens on new lines.
+
+If you'd like to include a comment that won't be produced in your resulting file enclose it in a block like this:
+-->
+
+<!--
+
+If you receive a duplicate label error after knitting, delete the extra .Rmd file and then knit again.
+-->
+
+<!-- You'll need to include the order that you'd like Rmd files to appear in the _bookdown.yml file for PDF files and also delete the # before rmd_files: there. Do not include 00(two-hyphens)prelim.Rmd,  00(two-hyphens)abstract.Rmd and 00(two-hyphens)executive summary.Rmdsince they are handled in the YAML above differently for the PDF version.
+-->
+
+<!-- The {.unnumbered} option here means that the introduction will be "Chapter 0." You can also use {-} for no numbers on chapters, which is the standard for each section.
+-->
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+```
+
+# Introduction {.unnumbered}
+
+Scholle IPN is a global manufacturing company based in Northlake, IL, with products focused primarily in bag-in-box packaging. The company is a pioneer in its industry by implementing a combination of qualitative observations and quantitative analyses in forecasting their products’ sales.  However, variability in these sales forecasts present challenges for Scholle IPN in raw material preparation, operational efficiency, and asset management.
+        
+## Problem Statement {.unnumbered}
+
+In this project, we will provide a forecasting solution to Scholle IPN using social media data.  This project will primarily focus on one of Scholle IPN’s main clients, Coca-Cola.    Coca-Cola uses Scholle IPN’s state-of-the art bags to store beverage products at quick service restaurant (QSR) partners worldwide.  Since 2014, Coca-Cola has accounted for 95.68% of Scholle’s syrup-related bag order shipments, so inaccurate forecasts of future orders could result in operational inefficiencies.  Minimizing these operational inefficiencies is important to maintain Scholle’s partnership with Coca-Cola.  In order to solve this business problem, we will examine whether we can substantially improve Scholle IPN’s Coca-Cola demand forecasts by using social media as the primary variable.
+
+
+## Research Purpose {.unnumbered}
+
+The purpose of this research is to forecast Coca-Cola bag orders by utilizing social media data.  When customer express their opinions in social media, businesses like Scholle IPN can gain valuable insights that can inform business decisions.  For example, if a McDonald’s promotion is generating discussion posts online, then Scholle IPN can potentially expect an increase in bag orders from Coca-Cola.  In order to make these online discussions actionable, we must first take into account additional considerations.  First, since social media posts are usually in the form of text, we will explore methods to convert text to numerical data.  Second, we will need to explore different ways to reduce the dimension of social media variables to account for its high dimensionality.  And finally, we will use these social media variables to forecast Coca-Cola bag orders using an ensemble approach.  Below is a list of research objectives for this project:
+
+* Convert text-based social media data to numerical data using natural language processing.
+* Reduce the dimension of social media variables using different methods.
+* Forecast Coca-Cola bag orders using an ensemble approach.
+
+## Variables and Scope {.unnumbered}
+
+The scope of this forecasting project will be limited to predicting the future monthly bag orders for Coca-Cola in the United States and Canada.  All variables will be aggregated or averaged at the monthly level.  The forecasting window for this project will be 18 months for all models to accommodate Scholle’s business needs.  The main social media variables used to predict Coca-Cola bag orders will be collected from Twitter and Google Trends.  For Twitter, we will focus our project on the following variables: tweet text, number of likes, number of retweets, and number of replies.  For Google Trends, monthly trend values for selected topics will be extracted at the monthly level.  Additional data retrieval rules were applied to ensure that Twitter and Google Trends data are from the United States and Canada (see Appendix A).
+
+## Writing Tips {.unnumbered}
+
+* Develop an outline of what you are going to write for each section before you start writing
+* Good writing follows a general format: introduction, body, and conclusion. This rule applies to the entire project, to each section, and to each paragraph
+* Each paragraph presents only one idea and follows the **MEAL** rule
+    + **M**ain: start the paragraph with the _Main_ idea
+    + **E**xplain the concepts and define the terms
+    + **A**nalyze the idea
+    + **L**ink: conclude the paragraph and _Link_ it to the next paragraph 
+* Make sure to define any concepts or terms that reader might be unfamiliar with right before or after they are used
+
+**More info**
+
+And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there. 
+
+**Spacing and Markdown**
+
+Be careful with your spacing in _Markdown_ documents.  While white-space largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+
+
+
+
+### Line breaks {.unnumbered}
+
+Make sure to add white space between lines if you'd like to start a new paragraph.  Look at what happens below in the outputted document if you don't:
+
+Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
+This should be a new paragraph.
+
+*Now for the correct way:* 
+
+Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
+
+This should be a new paragraph.
+
+
+
+
+<!--chapter:end:index.Rmd-->
+
+<!--
+This is for including Chapter 1.  Notice that it's also good practice to name your chunk.  This will help you debug potential issues as you knit.  The chunk above is called intro and the one below is called background.  Feel free to change the name of the Rmd file as you wish, but don't forget to change it here from 01-background.Rmd.
+-->
+
+<!--
+The {#background} text after the chapter declaration will allow us to link throughout the document back to the beginning of of the background section.  These labels will automatically be generated (if not specified) by changing the spaces to hyphens and capital letters to lowercase.  Look for the reference to this label at the beginning of Chapter 2.
+-->
+
+# Background {#background .unnumbered}
+
+### Social Media Variables {.unnumbered} 
+
+For this forecasting project, we will focus on collecting social media data on relevant topics.  These relevant topics are Coca-Cola, Pepsi, McDonald’s, Taco Bell, and “jobs”.  Coca-Cola was selected because it is their product’s demand that Scholle IPN is interested in forecasting.  Pepsi was selected due to its position as the main competitor for Coca-Cola.  Meanwhile, McDonald’s and Taco Bell were chosen because they are the top quick service restaurant partners for Coca-Cola and Pepsi based on 2018 annual sales revenue. The topic ‘jobs’ was selected to gather job-related tweets intended to capture economic activity in the United States and Canada.  Relationships between social media activity on these topics and the quantity of Coca-Cola bag ordered can be useful information for our forecasting models.
+Twitter data will be a combination of user-level tweets and company-level tweets, while Google Trend data will be a monthly trend value for our selected terms.  User-level tweets are Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald’s, Taco Bell, and “jobs.”  Company-level tweets are Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald’s, and Taco Bell.  Meanwhile, Google Trends is a popularity measure for Coca-Cola and other relevant terms based on their search frequency over time. 
+
+
+### Sentiment Analysis {.unnumbered} 
+
+One method of quantifying text-based social media data for our forecasting models is by implementing sentiment analysis.  This is a technique in natural language processing that we will use for each tweet to generate a numerical value signifying whether consumers have a positive or negative outlook on Coca-Cola, Pepsi, McDonald’s, Taco Bell, or jobs.  We can then average sentiment scores by month for each relevant term, and use this as an additional predictor to forecast Coca-Cola bag orders.  For this project, we will only calculate sentiment scores for user-generated tweets because we assume that tweets generated by the official company accounts are all positive.
+Prior to conducting sentiment analysis, text processing steps must be conducted on tweets. The following steps were conducted on the tweets:
+
+* Remove stop words on tweets
+* Tokenize tweets
+* Lemmatize tweets   
+
+The R package sentimentR was used to calculate sentiment scores for each tweet. This package takes into account additional information such as valence shifters and de-amplifiers resulting in a more accurate sentiment score (see Appendix A).  The sentiment scores for each selected term’s collective tweets per month will be averaged at the monthly level to generate the monthly average sentiment variable.  
+    
+### Stationarity and Differencing {.unnumbered} 
+
+An important step to consider when forecasting is to remove trends and seasonality from variables in order to make it stationary.  When time series data is stationary displaying a stable mean and stable variance over time, it is less likely to produce spurious relationships and misleading results.  Statistical tests (KPSS test) were conducted on each variable to determine its stationarity (see Appendix A).  After testing, it was determined that the dependent variable, monthly quantity of Coca-Cola bag orders, was stationary.  This means that this variable requires no further transformations.  However, the independent variables showed varying results and require additional processing.  One way of transforming time series data to become stationary is the method of differencing.  Differencing is the method of subtracting the value of the current time step from the value of previous time step(s).  This method was applied to all social media variables to ensure that they were all stationary.  The visual below demonstrates how the method of differencing is able to remove trends from the monthly total user tweets.  The top half of the visual are time plots of the pre-differenced variables, while the bottom are time plots of the differenced variables.
+
+
+
+
+\newpage
+
+### Code chunks {.unnumbered} 
+
+When you click the **Knit** button above a document will be generated that includes both content as well as the output of any embedded code chunks within the document. You can embed a code chunk as demonstrated below.
+
+The `sleep` data is a built-in **R** dataset (`Student-t` (1908) _The probable error of the mean_. Biometrika, 6, 20). It shows the effect of two soporific drugs (increase in hours of sleep compared to control) on 10 patients.
+
+Use the `kable` function to create quick, decent looking tables. Other packages for higher quality tables are [xtable](https://cran.r-project.org/web/packages/xtable/index.html) and [stargazar](https://cran.r-project.org/web/packages/stargazer/index.html). These are especially recommended for working with \LaTeX\ output.
+
+```{r sleep, echo=TRUE, fig.align='left'}
+data(sleep)
+sleep2 <- data.frame(sleep[1:10, 1], sleep[11:20, 1])
+colnames(sleep2) <- c("extra_sleep_drug1", "extra_sleep_drug2")
+kable(sleep2, row.names = TRUE, caption = "Sleep Data", 
+              format = "latex", longtable = TRUE)
+```
+
+### Linked tables and List of Tables {.unnumbered} 
+
+We linked Table \@ref(tab:sleep) above to the `List of Tables` section following the table of contents. For this to work properly, two steps are required.
+
+ 1. The code chunk of the table must be given a label argument. ie; `{r sleep, args}`. 
+ 2. Define a caption in the `kable` function (`caption = "Sleep Data"`) call. The caption will be passed to the **`List of Tables`** section and is required for an entry to appear.
+
+### More than R: Other Languages {.unnumbered} 
+
+R Markdown supports the following languages:
+
+```{r languages}
+names(knitr::knit_engines$get())
+```
+
+Of these, if you use **`python`**, first load `reticulate`.
+
+```{r load-recticulate, eval=FALSE}
+library(reticulate)
+pyPath <- py_discover_config()
+use_python(pyPath$python_versions[1])
+```
+
+Create a `conda` environment to store packages, install, and load one.
+
+```{r python-import, eval=FALSE}
+conda_create("r-reticulate")
+py_install("numpy")
+numpy <- import("numpy")
+```
+
+Define a python code chunk with arguments and run code: `{python, eval=FALSE, etc}`
+```{python python-use, eval=FALSE}
+import numpy as np
+print(np.reshape(np.arange(1,25), (4,3,2), "F"))
+```
+
+Please see the [Reticulate: R interface to Python](https://rstudio.github.io/reticulate/) for more specifics.
+
+Let's not forget about C++/Rcpp enables compilation of C++ into R functions.
+
+```{Rcpp Rcpp-function, eval=FALSE}
+#include <Rcpp.h>
+using namespace Rcpp;
+// [[Rcpp::export]]
+NumericVector humanPercent(NumericVector x) {
+  return x * 100;
+}
+```
+
+```{r r-Rcpp, eval=FALSE}
+humanPercent(x=0.0274)
+```
+
+Please see [Rcpp for Seamless R and C++ Integration](http://www.rcpp.org/), which is a very mature project and provides many examples. 
+
+\newpage
+
+### Including plots {#pressure-plot .unnumbered}
+
+You can also embed plots.  For example, here is a way to use the base **R** graphics package to produce a plot using the built-in `pressure` dataset. In this case, the **`echo=FALSE`** parameter was added to the code chunk to prevent printing the code.
+
+```{r pressureplot, echo=FALSE, fig.cap="Pressure Plot"}
+plot(pressure, type = "l", col="cornflowerblue", lwd = 2,
+               xlab = "Temperature (deg C)",
+               ylab = "Pressure (mm of Hg)",
+               main = "pressure data: Vapor Pressure of Mercury",
+               frame = FALSE)
+```
+
+
+ This is Figure \@ref(fig:pressureplot): pressure data. Internally, we also labeled the code chunk `pressureplot` so we can call its contents and print them in the Appendix. see Appendix for the code that generated this plot. There are many arguments which govern the behavior of your code chunks. The creator of `knitr` has a many notes on this <http://yihui.name/knitr/options/>.
+
+\newpage
+
+### R Markdown Tables, Graphics, References, and Labels {#ref-labels .unnumbered}
+
+In addition to the tables that can be automatically generated from a data frame in **R** that you saw in [R Markdown Basics] using the `kable` function, you can also create tables using _pandoc_. (More information is available at <http://pandoc.org/README.html#tables>.)  This might be useful if you don't have values specifically stored in **R**, but you'd like to display them in table form.  Below is an example.  Pay careful attention to the alignment in the table and hyphens to create the rows and columns.
+
+----------------------------------------------------------------------------------
+  Factors                    Correlation between Parents & Child      Inherited
+------------------------- ----------------------------------------- --------------
+  Education                                -0.49                         Yes
+  
+  Socio-Economic Status                     0.28                        Slight   
+  
+  Income                                    0.08                          No
+  
+  Family Size                               0.18                        Slight
+------------------------- ----------------------------------------- --------------
+Table: (\#tab:inher) Correlation of Inheritance Factors for Parents and Child 
+
+We can also create a link to the table like so: Table \@ref(tab:inher).  
+To create the link, place "Table `\@ref(tab:sleep)`", using the label argument defined in step 1. This can be helpful to reference in other parts of the document.
+
+<!-- We will next explore ways to create this label-ref link using figures. -->
+
+### Inline code {.unnumbered}
+
+If you'd like to put the results of your analysis directly into your discussion, add inline code like this:
+
+> The `cos` of $2 \pi$ is "r cos(2*pi)".
+
+> The `cos` of $2 \pi$ is `r cos(2*pi)`. 
+
+Another example would be the direct calculation of the standard deviation:
+
+> The standard deviation of `speed` in `cars` is "r sd(cars$speed)".
+
+> The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
+
+One last neat feature is the use of the `ifelse` conditional statement which can be used to output text depending on the result of an **R** calculation:
+
+> r ifelse(sd(cars$speed) < 6, "The standard deviation is less than 6.", "The standard deviation is equal to or greater than 6.")
+
+> `r ifelse(sd(cars$speed) < 6, "The standard deviation is less than 6.", "The standard deviation is equal to or greater than 6.")`
+
+Note the use of `>` here, which signifies a quotation environment that will be indented.
+
+As you see with `$2 \pi$` above, mathematics can be added by surrounding the mathematical text with dollar signs.  More examples of this are in [Math Examples].  
+
+<!-- clearpage ends the page, and also dumps out all floats.
+  Floats are things like tables and figures. -->
+
+
+### Figures {.unnumbered}
+
+If your capstone has a lot of figures, _R Markdown_ might behave better for you than that other word processor.  One perk is that it will automatically number the figures accordingly in each chapter.    You'll also be able to create a label for each figure, add a caption, and then reference the figure in a way similar to what we saw with tables earlier.  If you label your figures, you can move the figures around and _R Markdown_ will automatically adjust the numbering for you.  No need for you to remember!  So that you don't have to get too far into LaTeX to do this, a couple **R** functions have been created for you to assist.  You'll see their use below.
+
+<!--
+One thing that may be annoying is the way _R Markdown_ handles "floats" like tables and figures (it's really \LaTeX's fault). \LaTeX\ will try to find the best place to put your object based on the text around it and until you're really, truly done writing you should just leave it where it lies. There are some optional arguments specified in the options parameter of the `label` function.  If you need to shift your figure around, it might be good to look here on tweaking the options argument:  <https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions>
+
+If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in a code chunk.
+-->
+
+
+In the **R** chunk below, we will load in a picture stored as `phoenix-logo.png` in our main directory.  We then give it the caption of "Phoenix logo", the label of "phoenixlogo", and specify that this is a figure.  Make note of the different **R** chunk options that are given in the R Markdown file (not shown in the knitted document).
+
+```{r phoenixlogo, out.width="200px", fig.align="center", fig.cap="Phoenix logo"}
+include_graphics(path = "figure/differencing.jpg")
+```
+
+Here is a reference to the Phoenix logo: Figure \@ref(fig:phoenixlogo).  Note the use of the `fig:` code here.  By naming the **R** chunk that contains the figure, we can then reference that figure later as done in the first sentence here.  We can also specify the caption for the figure via the R chunk option `fig.cap`.
+
+Next, we will explore the use of the `out.extra` chunk option, which can be used to shrink or expand an image loaded from a file by specifying `"scale= "`. Here we use the mathematical graph stored in the "subdivision.pdf" file.
+
+```{r subd, results="asis", echo=FALSE, fig.cap="Subdiv. graph", out.extra="scale=0.75"}
+include_graphics("figure/subdivision.pdf")
+```
+
+Here is a reference to this image: Figure \@ref(fig:subd).  Note that `echo=FALSE` is specified so that the **R** code is hidden in the document.
+
+**More Figure Stuff**
+
+Lastly, we will explore how to rotate and enlarge figures using the `out.extra` chunk option.  (Currently this only works in the PDF version of the book.)
+
+```{r subd2, results="asis", echo=FALSE, out.extra="angle=180, scale=1.1", fig.cap="A Larger Figure, Flipped Upside Down"}
+include_graphics("figure/subdivision.pdf")
+```
+
+As another example, here is a reference: Figure \@ref(fig:subd2).  
+
+### Footnotes and Endnotes  {.unnumbered}
+
+You might want to footnote something. ^[footnote text] The footnote will be in a smaller font and placed appropriately. Endnotes work in much the same way. 
+
+<!--chapter:end:01-background.Rmd-->
+
+# Methodology {#methodology .unnumbered}
+
+The methodology section may include the following subsections:
+
+ - Data 
+ - Descriptive analyses
+ - Modeling Framework
+
+## Data {#methodology-data .unnumbered}
+
+**General description of the data and source(s). This includes limitations and delimitations; units of analysis; time window for aggregation and modeling (if applicable); and validation and development samples.**
+
+Let's revisit the work of E.W. Crampton’s November 22, 1946 paper titled _The Growth of the Odontoblasts of the Incisor Tooth as a Criterion of the Vitamin C Intake of the Guinea Pig_. It is one of the data sets available within in the R statistical programming environment.
+
+From the description file (`?ToothGrowth`): 
+
+>The response is the length of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs. Each animal received one of three dose levels of vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, orange juice (OJ) or ascorbic acid (a form of vitamin C, coded VC).
+
+Variables:
+
+ - *len*:	_numeric_.	Tooth length
+ -	*supp*:	_factor_.	Supplement type (VC or OJ).
+ - *dose*:	_numeric_.	Dose in milligrams/day
+
+
+```{r data}
+data(ToothGrowth)
+```
+
+## Descriptive analyses {#methodology-descriptive .unnumbered} 
+
+**Identification of the methodologies that would provide a view into the data. These may include highlighting the relationships that are important for the research, validating assumptions with respect to important metrics, and providing evidence that substantiates the way data is analyzed.**
+
+
+
+```{r datatable, echo=TRUE}
+growth_short <- rbind(ToothGrowth[1:7,], ToothGrowth[26:34,], ToothGrowth[53:60,])
+kable(growth_short, align = "r", format = "latex", 
+      longtable = TRUE, caption = "Tooth Growth")
+```
+
+Table: \@ref(tab:datatable): Head, center, and tail of _Tooth Growth_ data.
+
+
+\newpage
+
+## Modeling Framework {#methodology-modeling .unnumbered}
+
+**Justification of model(s) selected. Identification of dependent and independent variables, per model as well as variable transformations. Feature extraction (if applicable). Discussion of model(s) functional form. Assumptions of model(s) and ways of insuring that assumptions are observed or tested. Assessing model(s) performance and validation.**
+
+Transform `dose` into a `factor`. Only three dosage levels are present.
+
+```{r transform}
+data(ToothGrowth)
+colnames(ToothGrowth) <- c("length", "supplement", "dose")
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+```
+ 
+We are most interested in discovering which treatment leads to the optimal tooth growth.
+In this vein, we use `aggregate` function to transform our data and compute the average tooth `length` by both `supplement` type  and `dose` size.
+
+
+```{r group, warning=FALSE}
+groupedTooth <- aggregate(ToothGrowth, by=ToothGrowth[,2:3], FUN=mean)[,1:3]
+
+kable(groupedTooth, align = "r", caption = "Average tooth length",
+      format = "latex", longtable = TRUE)
+```                   
+
+
+
+\newpage
+
+## Math and Science notation  {#math-sci .unnumbered}
+<!-- Required to number equations in HTML files -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.  One nice feature of _R Markdown_ is its ability to read \LaTeX\ code directly.
+
+Get around math mode's automatic italicizing in LaTeX by using the argument `$\mathrm{formula here}$`, with your formula inside the curly brackets.  (Notice the use of the backticks here which enclose text that acts as code.)
+
+So, $\mathrm{Fe_2^{2+}Cr_2O_4}$ is written `$\mathrm{Fe_2^{2+}Cr_2O_4}$`.
+
+The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. See below and examples of commonly used symbols:
+
+\noindent Exponent or Superscript written as `$x^2$` becomes $x^2$
+
+\noindent Subscript written as `$x_1$` becomes $x_1$
+
+\noindent Infinity written as `$\infty$` becomes $\infty$
+
+\noindent alpha written as `$\alpha$` becomes $\alpha$
+
+\noindent beta written as `$\beta$` becomes $\beta$
+
+\noindent delta written as `$\delta$` becomes $\delta$
+
+\noindent epsilon written as `$\epsilon$` becomes $\epsilon$
+
+\noindent sigma written `$\sum_{i=1}^n f(x)$` becomes $\sum_{i=1}^n f(x)$
+
+### Math Examples {.unnumbered}
+
+An Ordinary Least Squares model, from _Introductory Econometrics, 6th edition_ by Jeffrey M. Wooldridge, page 27. 
+
+$$y_i = \beta_0 + \beta_1 x_i + \epsilon_i$$ 
+
+An infinite distributed lag (IDL) time series model, by Wooldridge, page 633.
+
+$$ y_t = \alpha + \delta_0 z_t + \delta_1 z_{t-1} + \delta_2 z_{t-2} \ldots + \epsilon_t$$ 
+
+A vector autoregressive (VAR) model, by Wooldridge, page 657. 
+
+$$ y_t = \delta_0 + \alpha_1 y_{t-1} + \gamma_1 z_{t-1} + \alpha_2 y_{t-2} + \gamma_2 z_{t-2} \ldots,$$ 
+\newpage
+
+Determinant of a square matrix: 
+
+
+$$\det\left|\,\begin{matrix}%
+c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
+c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
+c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
+\,\vdots\hfill&\,\vdots\hfill&
+  \,\vdots\hfill&&\,\vdots\hfill\cr
+c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
+\end{matrix}\right|>0$$ 
+
+\bigskip
+
+A regularization problem solved by Jerome Friedman, Trevor Hastie, Rob Tibshirani and Noah Simon, implemented in the [R package `glmnet`](https://cran.r-project.org/web/packages/glmnet/index.html). 
+
+
+$$ \min_{\beta_0,\beta} \frac{1}{N}\sum_{i=1}^N w_il(y_i,\beta_0+\beta^Tx_i)+\lambda \left[(1-\alpha) ||\beta||_2^2/2+\alpha||\beta||_1\right]$$ 
+
+\bigskip
+
+From Lapidus and Pindar, Numerical Solution of Partial Differential Equations in Science and Engineering, page 54. 
+
+$$\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0, \qquad\quad i=1,2,3.$$ 
+
+\bigskip
+  
+From Lapidus and Pindar, page 145. 
+
+$$\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big) = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).$$ 
+
+
+
+### Additional R Markdown and bookdown resources {.unnumbered}
+
+- _Bookdown_ Online Book - <https://bookdown.org/yihui/bookdown/>
+
+- _Markdown_ Info Sheet - <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
+
+- _R Markdown_ Reference Guide - <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
+
+<!--chapter:end:02-methodology.Rmd-->
+
+# Findings {#findings .unnumbered}
+
+Should be organized as follows:
+
+ - Results of descriptive analyses
+ - Modeling results
+ - Results of model performance and validation
+
+## Results of descriptive analyses  {#findings-descriptive .unnumbered}
+ 
+
+```{r summary}
+kable(summary(ToothGrowth), align = "r", caption = "Summary of ToothGrowth data",
+      format = "latex", longtable = TRUE)
+```
+
+Table \@ref(tab:summary) above contains summary statistics of the _Tooth Growth_ data.
+
+While the code is not displayed to create the graph below (`echo=FALSE`), it is displayed in the Appendix by referencing the `boxplot` chunk name..
+
+```{r boxplot, echo=FALSE, warning=FALSE,  message=FALSE, fig.cap="Avg. length by  supplement and dose", fig.width=6}
+data(ToothGrowth)
+colnames(ToothGrowth) <- c("length", "supplement", "dose")
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+
+groupedTooth <- aggregate(ToothGrowth, by=ToothGrowth[,2:3], FUN=mean)[,1:3]
+
+library(ggplot2)
+ ggplot(ToothGrowth, aes(x = supplement, y = length)) + 
+                     geom_boxplot(aes(fill=supplement)) + 
+                     facet_wrap(~dose) + 
+                     guides(colour = guide_legend("Color = Supplement")) + 
+                     labs(x="Orange Juice or Vitamin C, grouped by dose", 
+                          y="Odontoblast Growth (microns)")  +
+                     theme_bw()
+```
+
+Figure \@ref(fig:boxplot) was created with the `ggplot2` package. We can visually compare the average tooth growth by `supplement` and `dose`.
+
+## Modeling results  {.unnumbered}
+
+First, use a `t.test()` to test _if_ dosage leads to growth of incisor length. From the results below, it appears every test rejects the null hypothesis.
+
+```{r t-test}
+test1 <- t.test(length ~ dose, ToothGrowth, dose %in% c(0.5,1)) 
+test2 <- t.test(length ~ dose, ToothGrowth, dose %in% c(0.5,2))
+test3 <- t.test(length ~ dose, ToothGrowth, dose %in% c(1,2)) 
+
+testAgg <- data.frame(Name = c("Test 0.5-1", "Test 0.5-2", "Test 1-2"),
+                  Method = c(test1$method, test2$method, test3$method), 
+               Pvalue = c(test1$p.value, test2$p.value, test3$p.value), 
+          Tstat = c(test1$statistic, test2$statistic, test3$statistic))
+
+kable(testAgg, digit = 7, align = "r", caption = "t-test results", 
+      format = "latex", longtable = TRUE)
+```
+
+Table \@ref(tab:t-test)
+
+## Results of model performance and validation  {.unnumbered}
+
+Next, subset the `ToothGrowth` data into seperate data sets defined by supplement dose of 0.5, 1, and 2 mg. This allow us to controlling for dose increases of _economic_ significance.
+
+Subset tooth data into a separate `data.frame` for each dosage level. Then Execute the `t.test()` function for the dosage of 0.5 mg and display the results. 
+
+```{r}
+dose05 <- ToothGrowth[ToothGrowth$dose == 0.5, ] 
+ dose1 <- ToothGrowth[ToothGrowth$dose == 1, ]
+ dose2 <- ToothGrowth[ToothGrowth$dose == 2, ]
+
+ test4 <- t.test(length ~ supplement, data = dose05)
+ test5 <- t.test(length ~ supplement, data = dose1)
+ test6 <- t.test(length ~ supplement, data = dose2)
+```
+
+Place the results of the analysis directly into your content with ***inline code*** functions:
+
+With a very low p-value of `r round(test4$p.value, 4)` and a corresponding t-statistic of `r round(test4$statistic, 4)`, it appears that at low doses, _Orange Juice_ is the preferable delivery mechanism to _Vitamin C_ for Ascorbic Acid delivery.
+
+The p-value and t-statistic above have been directly extracted from the model object and printed inline. using the 'r foo' syntax with quotes(') replaced by back-ticks (`).
+
+
+
+
+
+<!--chapter:end:03-findings.Rmd-->
+
+# Conclusion {.unnumbered}
+
+This section includes a concise summary of the findings. Your summary might be organized by the research objectives or hypotheses. Make sure you address the extent to which research objectives are achieved, and if they are not achieved, explain why. Make sure to interpret your findings in a way that acknowledges the limitations of the research. That is, do not extrapolate the insights derived from your research to situations you have not examined.
+
+_While increasing dosage leads to larger incisor length, the choice of delivery mechanism  between Orange Juice and Vitamin C does not seem to make a difference. However, at very low levels, Orange Juice appears more effective, displaying higher average growth._
+
+
+
+
+# Recommendations {.unnumbered}
+
+Includes guidelines as to ways in which your results should or could be used in practice. You may discuss other uses of your results, if there are any. The ways to extend your analysis and the benefits of doing so might be included in this section as well. 
+
+<!--chapter:end:04-conclusion-recommendations.Rmd-->
+
+`r if(knitr:::is_latex_output()) '\\appendix'`
+
+`r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'` 
+
+<!--
+If you feel it necessary to include an appendix, it goes here.
+-->
+
+
+# The First Appendix
+
+This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readibility and/or setup.
+
+**In section** \@ref(pressure-plot):
+
+```{r ref.label='pressureplot', echo=TRUE, eval=FALSE}
+```
+
+**In section \@ref(ref-labels):**
+
+```{r ref.label='boxplot', echo=TRUE, eval=FALSE}
+```
+
+# A Second Appendix, for example
+
+<!--chapter:end:05-appendix.Rmd-->
+
+
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+
+\backmatter
+
+<!-- 
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+
+# References {-}
+<!--
+This manually sets the header for this unnumbered chapter.
+-->
+\markboth{References}{References}
+<!--
+To remove the indentation of the first entry.
+-->
+\noindent
+
+<!--
+To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
+-->
+
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+
+
+<!--
+This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
+-->
+
+---
+nocite: | 
+  @angel2000, @angel2001, @angel2002a
+...
+
+
+<!--
+DELETE ALL THAT IS BELOW! THE ABOVE SHOULD GENERATE YOUR REFERENCES PAGE UPON KNITING, PROVIDED YOU SUPPLIED A .bib FILE IN the bib FOLDER.
+-->
+
+
+ There are a variety of tools available for creating a bibliography database (stored with the .bib extension).  In addition to BibTeX suggested below, you may want to consider using the free and easy-to-use tool called [Zotero](https://www.zotero.org/).
+
+_R Markdown_ uses _pandoc_ (<http://pandoc.org/>) to build its bibliographies. To cite references in your thesis (after creating your bibliography database), place the reference name inside square brackets and precede it by the "at" symbol.  For example, here's a reference to a book about worrying:  [@Molina1994].  This `Molina1994` entry appears in a file called `thesis.bib` in the `bib` folder.  This bibliography database file was created by a program called BibTeX.  You can call this file something else if you like (look at the YAML header in the main .Rmd file) and, by default, is to placed in the `bib` folder.  
+
+**Additional Tips**
+
+ - The sooner you start compiling your bibliography for something as large as a capstone, the better. Typing in source after source is mind-numbing enough; do you really want to do it for hours on end at the last minute?
+ - The cite key (a citation's label) needs to be unique from the other entries.
+ - When you have more than one author or editor, you need to separate each author's name by the word "and" e.g. `Author = {Noble, Sam and Youngberg, Jessica},`
+ 
+ 
+**Example output generated from bib file**  
+
+<!--chapter:end:99-references.Rmd-->
+

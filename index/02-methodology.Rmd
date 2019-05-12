@@ -7,31 +7,34 @@ Twitter is a widely used social media platform in the United States and Canada t
 Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald’s, Pepsi, and ‘jobs’ in Google.  The main advantage of Google Trends is the ease in which we are able to collect this data.  Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query.  The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available.  This makes it challenging to validate unusual trends in a search query. 
 For more information on the specific variables, please refer to the Social Media Variables section. For more information on how the social media data were collected, please refer to Appendix A.  Below is a summary table of the monthly social media variables:
 
+## Exploratory Data Analysis {#methodology-descriptive .unnumbered} 
 
-```{r data}
-data(ToothGrowth)
-```
+In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables.  Analyzing all the variables prior to modeling will allow us to better understand trends in our variables.  Identifying these trends can aid in the interpretation of our forecasting results.  In this section, we will provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders. 
 
-## Descriptive analyses {#methodology-descriptive .unnumbered} 
+Above is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to October 2019.   At a glance, we observe an annual seasonal pattern with no consistent trend over time.  Overall, the bag quantity orders show a mean of 7,521,158 per month.  Expectedly, Scholle IPN experience the highest volume of Coca-Cola bag orders during summer months (June-August) with averages over eight million ordered bags.  The only other month with an average of over eight million Coca-Cola bags is during the month of March.
 
-**Identification of the methodologies that would provide a view into the data. These may include highlighting the relationships that are important for the research, validating assumptions with respect to important metrics, and providing evidence that substantiates the way data is analyzed.**
+**User-generated Tweets
+User-generated tweets provides our forecasting models with information regarding how frequently Twitter users talk about Coca-Cola, Pepsi, McDonald’s, Taco Bell, and “jobs”.  When looking  at the average monthly tweet mentions for each term, the term “jobs” surprisingly appeared the most.  Jobs-related tweets in the dataset represent 42.7% of all the user-generated tweets collected.  The visual below of the average monthly tweet volume for each selected term demonstrates how “jobs” dominated our collected data.  
+The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information).  Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms.  This finding provides value to our analysis as the term “jobs” now has a large sample size and can potentially give us better indication on how economic activity in North America impact Coca-Cola bag orders.  However, this resulted in a lower total of user-generated tweets for all other relevant terms.  Limited sample size for these variables could adversely impact their ability to forecast Coca-Cola bag orders.
 
+**Company-generated Tweets
+	To continue the exploration of covariates, we will explore company-generated tweets.  This set of social media variables will provide us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies).  A total of 24,442 such tweets were collected between October 2009 to October 2018.  Among the four companies, the official Twitter accounts of Coca-Cola and McDonald’s were the most active in terms of posting Twitter content.  The time series plots below (not built to scale) clearly show a general trend among all four companies.  
 
+For each company, the total number of tweets per month were low in the beginning portion of the time plot. This was followed by a surge in tweet volume in the middle part of the decade suggesting how all four companies started to heavily utilize Twitter as a promotional tool.  This change in behavior from companies could be attributed to the increased use of Twitter by social media consumers around the same time.  The time plots below (not built to scale) of total consumer reactions (replies, likes, retweets) is a representation of how Twitter users who engaged with each company reacted to their tweets over time.  
 
-```{r datatable, echo=TRUE}
-growth_short <- rbind(ToothGrowth[1:7,], ToothGrowth[26:34,], ToothGrowth[53:60,])
-kable(growth_short, align = "r", format = "latex", 
-      longtable = TRUE, caption = "Tooth Growth")
-```
+Noticeably, Twitter users became much more engaged with these Twitter accounts towards the middle portion of the time plots.  This could be a sign of how effective these company’s promotions are during the middle of the decade, or it could be an indicator of when social media started becoming more popular in mainstream society.  The limited Twitter activity by the Twitter accounts and users during the earlier portion of the time plots should be considered when modeling.
 
-Table: \@ref(tab:datatable): Head, center, and tail of _Tooth Growth_ data.
+**Google Trends	
+Although Google Trends is not a social media platform, it does provide an easily attainable source of data regarding general interest in Coca-Cola, Pepsi, McDonald’s, Taco Bell, and ‘jobs’.  This could provide useful information when forecasting Coca-Cola bag orders. 
+Above are time series plots for each term and their monthly Google Trend value from October 2009 to October 2018.  Generally, there seems to be a seasonal trend that appear for each search term.  It is interesting to note that the two quick service restaurants, McDonald’s and Taco Bell, experienced an increasing trend over time.  
+When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered.  This strict rule could fail in certain instances where a single term could have different meanings.  For example, an unusual spike can be observed in the time series plot for ‘jobs’ in October 2011.  After conducting additional research, this spike can be attributed to a sudden interest in Steve Jobs when he passed away.   For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner.  These outliers will be imputed with a value that fit the distribution of the rest of the dataset.  
 
 
 \newpage
 
 ## Modeling Framework {#methodology-modeling .unnumbered}
 
-**Justification of model(s) selected. Identification of dependent and independent variables, per model as well as variable transformations. Feature extraction (if applicable). Discussion of model(s) functional form. Assumptions of model(s) and ways of insuring that assumptions are observed or tested. Assessing model(s) performance and validation.**
+**Metrics**
 
 Transform `dose` into a `factor`. Only three dosage levels are present.
 

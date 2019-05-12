@@ -1,13 +1,13 @@
 ---
-author: 'Student-t'
-date: 'Month, Year'
+author: 'Elijah Ampo, Ruohan Zhou, and Yingkun Zhu'
+date: 'May, 2019'
 institution: 'University of Chicago'
 division: 'Graham School'
-advisor: 'Advisor Name'
+advisor: 'Arnab Bose'
 altadvisor: 'Dr. Sema Barlas'
 department: 'Continuing Liberal and Professional Studies'
 degree: 'Master of Science in Analytics'
-title: 'Your Capstone Project Title'
+title: 'Forecasting Coca-Cola Bag Orders Using Social Media'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
@@ -80,79 +80,23 @@ library(knitr)
 
 # Introduction {.unnumbered}
 
-You may start the section by introducing the **topic** (e.g., real estate pricing), talking about significance of the topic from a practical point for you, and describing the relevant business context, e.g., industry and the company you are working with. Your goal in this section is to inform the reader of the general topic that you will narrow down into a research question that your project will address in later sections.  
+Scholle IPN is a global manufacturing company based in Northlake, IL, with products focused primarily in bag-in-box packaging. The company is a pioneer in its industry by implementing a combination of qualitative observations and quantitative analyses in forecasting their products’ sales.  However, variability in these sales forecasts present challenges for Scholle IPN in raw material preparation, operational efficiency, and asset management.
         
 ## Problem Statement {.unnumbered}
 
-The capstone project must address a real business problem. The problem statement explains why the research is needed. One way to write this section is to describe the current practice and identify the problems with that practice and the causes of these problems (e.g., current practice might be outdated given the advancements in resources such as new data sources and improved technology). Explain the problem’s significance; if possible, use statistics to substantiate your claims. Describe the desired solution in general terms (e.g., one could improve the predictions substantially by including new sources of data in the analyses) or in terms of business benefits the solution is expected to yield. Make sure that this section describes the problem, not what you are going to do to solve it.
+In this project, we will provide a forecasting solution to Scholle IPN using social media data.  This project will primarily focus on one of Scholle IPN’s main clients, Coca-Cola.    Coca-Cola uses Scholle IPN’s state-of-the art bags to store beverage products at quick service restaurant (QSR) partners worldwide.  Since 2014, Coca-Cola has accounted for 95.68% of Scholle’s syrup-related bag order shipments, so inaccurate forecasts of future orders could result in operational inefficiencies.  Minimizing these operational inefficiencies is important to maintain Scholle’s partnership with Coca-Cola.  In order to solve this business problem, we will examine whether we can substantially improve Scholle IPN’s Coca-Cola demand forecasts by using social media as the primary variable.
 
 ## Research Purpose {.unnumbered}
 
-This section identifies the knowledge research aims to produce. It explains why research is being undertaken. Generally, it starts with “The purpose of this research is …” followed by one of the following verbs: to explain, predict, forecast, monitor, control, discover (facts or relationships), assess, describe, or explore. Make sure the research purpose is consistent with the research problem. In addition, production of the desired knowledge may require multiple steps. For instance, estimation of demand might be a necessary first step for estimating an optimal price for a house given a set of market characteristics. That is, the purpose could be broken down into smaller steps in the form of research objectives. Research objectives are the actual deliverables of a research project.
+The purpose of this research is to forecast Coca-Cola bag orders by utilizing social media data.  When customer express their opinions in social media, businesses like Scholle IPN can gain valuable insights that can inform business decisions.  For example, if a McDonald’s promotion is generating discussion posts online, then Scholle IPN can potentially expect an increase in bag orders from Coca-Cola.  In order to make these online discussions actionable, we must first take into account additional considerations.  First, since social media posts are usually in the form of text, we will explore methods to convert text to numerical data.  Second, we will need to explore different ways to reduce the dimension of social media variables to account for its high dimensionality.  And finally, we will use these social media variables to forecast Coca-Cola bag orders using an ensemble approach.  Below is a list of research objectives for this project:
+
+* Convert text-based social media data to numerical data using natural language processing.
+* Reduce the dimension of social media variables using different methods.
+* Forecast Coca-Cola bag orders using an ensemble approach.
 
 ## Variables and Scope {.unnumbered}
 
-A paragraph with a brief description of important variables and the scope of the project. Make sure to focus on the dependent variables in this section and define or operationalize them appropriately. If your measurements of dependent variable are proxy, provide arguments that using the proxy measures is appropriate and discuss possible limitations. 
-Do not describe the data in this section. You may talk about independent variables under general categories, e.g., demographics, economic variables, etc.
-Scope narrows down the research purpose. For instance, you may develop home pricing models only for the city of Chicago.
-
-## Writing Tips {.unnumbered}
-
-* Develop an outline of what you are going to write for each section before you start writing
-* Good writing follows a general format: introduction, body, and conclusion. This rule applies to the entire project, to each section, and to each paragraph
-* Each paragraph presents only one idea and follows the **MEAL** rule
-    + **M**ain: start the paragraph with the _Main_ idea
-    + **E**xplain the concepts and define the terms
-    + **A**nalyze the idea
-    + **L**ink: conclude the paragraph and _Link_ it to the next paragraph 
-* Make sure to define any concepts or terms that reader might be unfamiliar with right before or after they are used
-
-**More info**
-
-And here's some other random info: the first paragraph after a chapter title or section head _shouldn't be_ indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there. 
-
-**Spacing and Markdown**
-
-Be careful with your spacing in _Markdown_ documents.  While white-space largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
-
-
-
-## R Markdown Basics {#rmd-basics .unnumbered}
-
-### Lists {.unnumbered}
-
-It's easy to create a list.  It can be unordered like
-
-* Item 1
-* Item 2
-
-or it can be ordered like
-
-1. Item 1
-4. Item 2
-
-Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ automatically figures this out!  You can put any numbers in the list and it will create the list.  Check it out below.
-
-To create a sub-list, just indent the values a bit (at least four spaces or a tab).  (Here's one case where indentation is key!)
-
-1. Item 1
-1. Item 2
-1. Item 3
-    - Item 3a
-    - Item 3b
-
-### Line breaks {.unnumbered}
-
-Make sure to add white space between lines if you'd like to start a new paragraph.  Look at what happens below in the outputted document if you don't:
-
-Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
-This should be a new paragraph.
-
-*Now for the correct way:* 
-
-Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
-
-This should be a new paragraph.
+The scope of this forecasting project will be limited to predicting the future monthly bag orders for Coca-Cola in the United States and Canada.  All variables will be aggregated or averaged at the monthly level.  The forecasting window for this project will be 18 months for all models to accommodate Scholle’s business needs.  The main social media variables used to predict Coca-Cola bag orders will be collected from Twitter and Google Trends.  For Twitter, we will focus our project on the following variables: tweet text, number of likes, number of retweets, and number of replies.  For Google Trends, monthly trend values for selected topics will be extracted at the monthly level.  Additional data retrieval rules were applied to ensure that Twitter and Google Trends data are from the United States and Canada (see Appendix A).
 
 
 

@@ -11,3 +11,4 @@ As for an ensemble approach to modeling, this technique proved to be a strong ap
 
 For this project, we focused our data collection on only a handful of quick service restaurants and competitors.  Collecting social media data from Coca-Cola’s competitors presents an opportunity to look at how people engage with and view these beverage companies at an industry level. Hence it may bring better accuracy in predicting the Coca-Cola bag sales for Scholle IPN.
  
+\newpage

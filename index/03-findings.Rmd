@@ -41,17 +41,19 @@ Principal Components                     7.27%              701,980           93
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
 ## Long Short-Term Memory Results  {.unnumbered}
-We  implemented LSTM in Python using the same set of variables as the previous models. Below is a model summary of LSTM prior to implementation: 
+We  implemented LSTM in Python using the same set of variables as the previous models. Below is a model summary of LSTM prior to implementation.
 [INSERT FIGURE]
 
 Tuning the parameters is a vital part when deploying any Neural Network models, and LSTM is no exception. Listed  below are  a  few key parameters we tweaked: 
-Epochs - One Epoch is when an entire dataset is passed forward and backward through the neural network only once. Since one epoch is too big to feed to the computer at once we divide it in several smaller batches. (we need to quote this!)
-Optimizer - adam
-Loss function - mean squared error
+
+* Epochs - One Epoch is when an entire dataset is passed forward and backward through the neural network only once. Since one epoch is too big to feed to the computer at once we divide it in several smaller batches. (we need to quote this!)
+* Optimizer - adam
+* Loss function - mean squared error
 Activation function - since we scaled the train and test sets beforehand, we chose to leave the activation function default. 
-Dropout - we had 4 dropout layers embedded in the model. Dropout is a regularization technique for neural network models proposed by Srivastava, et al. in their 2014 paper Dropout: A Simple Way to Prevent Neural Networks from Overfitting. 
+* Dropout - we had 4 dropout layers embedded in the model. Dropout is a regularization technique for neural network models proposed by Srivastava, et al. in their 2014 paper Dropout: A Simple Way to Prevent Neural Networks from Overfitting. 
 
 [INSERT FIGURE]
+
 --------------------------------------------------------------------------------------------------------------------
  Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------

@@ -7,6 +7,37 @@ Twitter is a widely used social media platform in the United States and Canada t
 Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald’s, Pepsi, and ‘jobs’ in Google.  The main advantage of Google Trends is the ease in which we are able to collect this data.  Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query.  The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available.  This makes it challenging to validate unusual trends in a search query. 
 For more information on the specific variables, please refer to the Social Media Variables section. For more information on how the social media data were collected, please refer to Appendix A.  Below is a summary table of the monthly social media variables:
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+ Social Media Variable                  Coca-Cola           Pepsi            McDonald's             Taco Bell               Jobs
+----------------------------------- ---------------- ------------------ --------------------- --------------------- ---------------------
+Total Account Tweets                       x                  x                 x                       x                   n/a
+
+Total Account Replies                      x                  x                 x                       x                   n/a
+
+Total Account Likes                        x                  x                 x                       x                   n/a
+
+Total Account Retweets                     x                  x                 x                       x                   n/a
+
+Total User Tweets                          x                  x                 x                       x                    x
+
+Total User Replies                         x                  x                 x                       x                    x
+
+Total User Likes                           x                  x                 x                       x                    x
+
+Total User Retweets                        x                  x                 x                       x                    x
+
+Average Tweets Sentiment                   x                  x                 x                       x                    x
+
+Google Trend                               x                  x                 x                       x                    x
+----------------------------------- ---------------- ------------------ --------------------- --------------------- ---------------------
+
+
+
+
+
+
+
 ## Exploratory Data Analysis {#methodology-descriptive .unnumbered} 
 
 In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables.  Analyzing all the variables prior to modeling will allow us to better understand trends in our variables.  Identifying these trends can aid in the interpretation of our forecasting results.  In this section, we will provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders. 

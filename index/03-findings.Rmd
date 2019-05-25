@@ -20,7 +20,9 @@ It is clear that the two-year window model is considerably worse than either the
 -------------------------- ------------------- ------------------ ------------------- --------------------
 
 ## Regression with ARIMA Errors Results  {.unnumbered}
-By evaluating the residuals and metrics above, we found that manually passing the ARIMA order (3,0,1)(1,0,0) [12] to the model gave us the best results.  The residuals after the model demonstrates the white noise feature, meaning that the model has captured all the information from the time series data.  When reviewing the forecast based on the regression with arima (3,0,1)(1,0,0)[12] model,  the results are relatively conservative.
+By evaluating the residuals and metrics above, we found that manually passing the ARIMA order (3,0,1)(1,0,0) [12] to the model gave us the best results.  The residuals after the model demonstrate the white noise feature, meaning that the model has captured all the information from the time series data.  When reviewing the forecast based on the regression with arima (3,0,1)(1,0,0)[12] model,  the results are relatively conservative.
+
+As shown above, the forecasted value is relatively stable across the test time period, compared with the actual values. The model produced an sMAPE of 9.04% and RMSE of 0.94M. 
 
 --------------------------------------------------------------------------------------------------------------------
  Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)
@@ -33,7 +35,7 @@ Principal Components                     19.11%         1,381,487           80.3
 ## XGBoost  Results  {.unnumbered}
 For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality.  XGBoost was implemented in Python using the parameters below before using grid search to identify the best tuning parameter.
 
-After running the model, we are able to rank the features based on importance (see below.)
+After running the model, we are able to rank the features based on importance (see below).
 [INSERT FIGURE]
 
 --------------------------------------------------------------------------------------------------------------------

@@ -2,7 +2,13 @@
 
 ## Acknowledgements {-}
 
-I want to thank a few people.
+We want to thank a few people. 
+
+We would first thank Dr. Bose, our project advisor. This project would not be delivered without Arnab. It has been an amazing journey working with you on a weekly basis, and we certainly hope you feel the same. The knowledge and expertise you shared are invalueable lessons that we will bear in mind for a long time. 
+
+To our industry partner - Scholle IPN, you have been so suppotive and encouraging along the way. We would like to thank these experts in their fields for their insights and guidance, as well as the site visit. 
+
+To our teammates, we made it. 
 
 ## Preface {-}
 

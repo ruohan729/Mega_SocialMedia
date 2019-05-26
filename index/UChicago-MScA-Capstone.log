@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -786,20 +786,20 @@ This may cause the page layout to be inconsistent, however.
 [2] [3
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 314.
-
-(/Users/husay/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 315.
-<figure/differencing.png, id=197, 2006.49625pt x 709.65125pt>
+<figure/differencing.png, id=196, 2006.49625pt x 709.65125pt>
 File: figure/differencing.png Graphic file (type png)
 <use figure/differencing.png>
 Package pdftex.def Info: figure/differencing.png  used on input line 320.
 (pdftex.def)             Requested size: 200.75073pt x 70.99094pt.
 [4 <./figure/differencing.png>]
-<figure/pca.png, id=209, 1369.115pt x 749.80125pt>
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 338.
+
+(/Users/husay/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 339.
+<figure/pca.png, id=205, 1369.115pt x 749.80125pt>
 File: figure/pca.png Graphic file (type png)
 <use figure/pca.png>
 Package pdftex.def Info: figure/pca.png  used on input line 344.
@@ -861,15 +861,15 @@ Here is how much of TeX's memory you used:
  12645 multiletter control sequences out of 15000+600000
  51106 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,11n,49p,1513b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/Users/husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users
-/husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/husay/Lib
+ 36i,11n,49p,1513b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/Users/husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/
+husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/husay/Lib
 rary/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/husay/Library/
 TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/husay/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/husay/Library/TinyTeX/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UChicago-MScA-Capstone.pdf (30 pages, 623802 bytes).
+Output written on UChicago-MScA-Capstone.pdf (30 pages, 623608 bytes).
 PDF statistics:
  365 PDF objects out of 1000 (max. 8388607)
  320 compressed objects within 4 object streams

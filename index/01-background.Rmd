@@ -35,7 +35,7 @@ When building forecasting models, it is important to be aware of the level of co
 The first method we will use to reduce the dimensionality of our social media variables is principal component analysis (PCA).  PCA uses an orthogonal transformation of our variables into linearly uncorrelated variables called principal components.   The main idea is that the majority of the variance explained will be concentrated on a limited number of principal components.  This allows us to discard the principal component variables that provide little additional information.  This approach further reduces the overall dimension of our original set of variables.  When performing this technique with our social media variables, we are able to observe the “elbow feature” at number of principal component (n) = 7 .  This tells us that only the first seven principal components is required to explain most of the total variance (97%) of our variables. By using PCA, we are able to reduce our overall social media variables from 46 to 7.
 
 ```{r pca, out.width="200px", fig.align="center", fig.cap="Principal Component Analysis"}
-include_graphics(path = "figure/pca.jpg", echo=FALSE)
+include_graphics(path = "figure/pca.jpg")
 ```
 
 #### Method B - Cross Correlation {.unnumbered}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -799,7 +799,7 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 339.
-<figure/pca.png, id=205, 1369.115pt x 749.80125pt>
+<figure/pca.png, id=206, 1369.115pt x 749.80125pt>
 File: figure/pca.png Graphic file (type png)
 <use figure/pca.png>
 Package pdftex.def Info: figure/pca.png  used on input line 344.
@@ -857,11 +857,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1156.
 Here is how much of TeX's memory you used:
  9268 strings out of 494553
  137785 string characters out of 6174236
- 239667 words of memory out of 5000000
+ 238667 words of memory out of 5000000
  12645 multiletter control sequences out of 15000+600000
  51106 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,11n,49p,1513b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,11n,49p,1513b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/
 husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/husay/Lib
 rary/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/husay/Library/

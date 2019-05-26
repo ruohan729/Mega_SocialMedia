@@ -158,7 +158,6 @@ In order to achieve that, we started with gathering external data from Social Me
 Since we obtained the various predicting results from the single predicting models, we also stacked these individual models together and created three ensemble models - mean average, Linear Regression, and Random Forest. Random Forest ensemble model achieved the best outcomes, with the lowest error score.
 Key findings from this project including the following:
 \begin{itemize}
-\tightlist
 \item
   Social Media contents, specifically, online discussions and engagement level of certain brands and ad campaigns have helped Machine Learning models to forecast the future bag sales.
 \item
@@ -221,7 +220,6 @@ Key findings from this project including the following:
     Since we obtained the various predicting results from the single predicting models, we also stacked these individual models together and created three ensemble models - mean average, Linear Regression, and Random Forest. Random Forest ensemble model achieved the best outcomes, with the lowest error score.
     Key findings from this project including the following:
     \begin{itemize}
-    \tightlist
     \item
       Social Media contents, specifically, online discussions and engagement level of certain brands and ad campaigns have helped Machine Learning models to forecast the future bag sales.
     \item
@@ -640,7 +638,7 @@ x\strut
 \section*{Exploratory Data Analysis}\label{methodology-descriptive}}
 \addcontentsline{toc}{section}{Exploratory Data Analysis}
 
-In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables. Analyzing all the variables prior to modeling will allow us to better understand trends in our variables. Identifying these trends can aid in the interpretation of our forecasting results. In this section, we will provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders.
+In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables. Analyzing all the variables prior to modeling allows us to better understand trends in our variables. Identifying these trends can aid in the interpretation of our forecasting results. In this section, we provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders.
 \begin{itemize}
 \tightlist
 \item
@@ -653,16 +651,16 @@ Above is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to 
 \tightlist
 \item
   User-generated Tweets
-  User-generated tweets provides our forecasting models with information regarding how frequently Twitter users talk about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. When looking at the average monthly tweet mentions for each term, the term ``jobs'' surprisingly appeared the most. Jobs-related tweets in the dataset represent 42.7\% of all the user-generated tweets collected. The visual below of the average monthly tweet volume for each selected term demonstrates how ``jobs'' dominated our collected data.
+  User-generated tweets provides our forecasting models with information regarding how frequently Twitter users talk about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. When looking at the average monthly tweet mentions for each term, the term ``jobs'' surprisingly appeared the most. Jobs-related tweets in the dataset represent 42.7\% of all the user-generated tweets collected. The visual below of the average monthly tweet volume for each selected term demonstrates how ``jobs'' represented the majority of the collected user-level data.
 \end{itemize}
 {[}INSERT FIGURE{]}
 
-The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information). Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms. This finding provides value to our analysis as the term ``jobs'' now has a large sample size and can potentially give us better indication on how economic activity in North America impact Coca-Cola bag orders. However, this resulted in a lower total of user-generated tweets for all other relevant terms. Limited sample size for these variables could adversely impact their ability to forecast Coca-Cola bag orders.
+The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information). Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms. This finding provides value to our analysis as the term ``jobs'' has a large sample size. This can potentially give us better indication on how economic activity in North America impacts Coca-Cola bag orders. However, a lower total of user-generated tweets for all other relevant terms resulted. Limited sample size for these variables could adversely impact their ability to forecast Coca-Cola bag orders.
 \begin{itemize}
 \tightlist
 \item
   Company-generated Tweets
-  To continue the exploration of covariates, we will explore company-generated tweets. This set of social media variables will provide us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies). A total of 24,442 such tweets were collected between October 2009 to October 2018. Among the four companies, the official Twitter accounts of Coca-Cola and McDonald's were the most active in terms of posting Twitter content. The time series plots below (not built to scale) clearly show a general trend among all four companies.
+  To continue the exploration of covariates, we explore company-generated tweets. This set of social media variables provides us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies). A total of 24,442 such tweets were collected between October 2009 to October 2018. Among the four companies, the official Twitter accounts of Coca-Cola and McDonald's were the most active in terms of posting Twitter content. The time series plots below (not built to scale) clearly show a general trend among all four companies.
 \end{itemize}
 {[}INSERT FIGURE{]}
 
@@ -678,7 +676,7 @@ Noticeably, Twitter users became much more engaged with these Twitter accounts t
 \end{itemize}
 {[}INSERT FIGURE{]}
 
-When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered. This strict rule could fail in certain instances where a single term could have different meanings. For example, an unusual spike can be observed in the time series plot for `jobs' in October 2011. After conducting additional research, this spike can be attributed to a sudden interest in Steve Jobs when he passed away. For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner. These outliers will be imputed with a value that fit the distribution of the rest of the dataset.
+When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered. This strict rule could fail in certain instances where a single term could have different meanings. For example, an unusual spike can be observed in the time series plot for `jobs' in October 2011. After conducting additional research, this spike can be attributed to a sudden interest in Steve Jobs when he passed away. For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner. These outliers are imputed with a value that fit the distribution of the rest of the dataset.
 
 \newpage
 
@@ -688,7 +686,7 @@ When using Google Trends, it is important to consider that trend values are calc
 
 \textbf{Metrics}
 
-The following metrics are going to be used to measure the forecasting models we will build using social media variables.
+The following metrics are used to measure the forecasting models built using social media variables.
 \begin{itemize}
 \item
   Symmetric Mean Absolute Percent Error (sMAPE) - A measure based on percentage (or relative) errors.
@@ -701,12 +699,12 @@ The following metrics are going to be used to measure the forecasting models we 
 \end{itemize}
 \textbf{Selection of Forecasting Models}
 
-In this section, we will describe the forecasting models we will use to determine if social media variables have any impact Coca-Cola bag order forecasts. We will build three types of models - baseline model, challenger models, and ensemble model. Each forecasting model will have a forecasting window of 18 months. The baseline model will be a forecasting model using only the monthly Coca-Cola bag orders. The challenger models will be a set of three different forecasting models that will utilize the social media variables. The ensemble model will be a model that combines all three challenger models.
+In this section, we describe the forecasting models used to determine if social media variables have any impact Coca-Cola bag order forecasts. We will build three types of models - baseline model, challenger models, and ensemble model. Each forecasting model is set to have a forecasting window of 18 months. The baseline model is a forecasting model using only the monthly Coca-Cola bag orders. The challenger models is a set of three different forecasting models that utilizes the social media variables. The ensemble model is a model that combines all three challenger models.
 
-The baseline model will be used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this data. The baseline model will be built by using a seasonal Arima model. A sliding-window cross validation of two-years, four-years, and six-years will be used to determine the optimal number of observations used for training the rest of our models.
+The baseline model is used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data. The baseline model is built by using a seasonal Arima model. A sliding-window cross validation of two-years, four-years, and six-years is used to determine the optimal number of observations used for training the rest of our models.
 
-The challenger models selected for this project are: Regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM). Each challenger model will be trained using 48 months of training observations (see Baseline Model Results). In addition, each challenger model will be trained on two sets of social media variables. The first set of social media variables are the difference variables that were identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The second set of of social media variables are the principal components that were identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The Regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depend on external variables selected. The XGBoost model is a more complex `regularized boosting' technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run. The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information. This model LSTM selectively chooses what it ``remembers'', and what to ``forget.'' In addition, LSTM selects how much of its memory it should output.
-The final model we will use is an ensemble model of all three challenger models. Please refer to the Ensemble Modeling section under Background for more information. We will compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section.
+The challenger models selected for this project are: Regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM). Each challenger model is trained using 48 months of training observations (see Baseline Model Results). In addition, each challenger model will be trained on two sets of social media variables. The first set of social media variables are the difference variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The second set of of social media variables are the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The Regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depend on external variables selected. The XGBoost model is a more complex `regularized boosting' technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run. The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information. This model LSTM selectively chooses what it ``remembers'', and what to ``forget.'' In addition, LSTM selects how much of its memory it should output.
+The final model used is an ensemble model of all three challenger models. Please refer to the Ensemble Modeling section under Background for more information. We compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section.
 
 \hypertarget{findings}{%
 \chapter*{Findings}\label{findings}}
@@ -716,11 +714,11 @@ The final model we will use is an ensemble model of all three challenger models.
 \section*{Baseline Model Results}\label{baseline-model-results}}
 \addcontentsline{toc}{section}{Baseline Model Results}
 
-Before we test the impact of social media variables in forecasting Coca-Cola bag orders, we must first establish baseline metrics. We will use a seasonal Arima model that uses only the dependent variable to establish our baseline model. Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0){[}12{]}. Cross validation with a sliding window of two-years, four-years, and six-years was then conducted. The purpose of cross validation is to establish the metric that the challenger models will be compared against and to find the point in the forecast horizon in which the predictions ``flatten out''. The chart below is a plot of the forecast horizon against each model's sMAPE values.
+Before we test for the impact of social media variables in forecasting Coca-Cola bag orders, we must first establish baseline metrics. We will use a seasonal Arima model that uses only the dependent variable to establish our baseline model. Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0){[}12{]}. Implementing cross validation with a sliding window of two-years, four-years, and six-years was then conducted. The purpose of cross validation is to establish the metric that the challenger models will be compared against and to find the point in the forecast horizon in which the predictions ``flatten out''. The chart below is a plot of the forecast horizon against each model's sMAPE values.
 
 {[}INSERT FIGURE{]}
 
-It is clear that the two-year window model is considerably worse than either the four-year and six-year sliding window models. When you look at a plot of each model against the average sMAPE value for each forecast window, you can see that the sMAPE values flatten out at the four year mark. There is no considerable improvement in sMAPE values between the four-year window model and the six-year window mode. Therefore, the best baseline model is the four-year sliding window model.
+It is clear that the two-year window model is considerably worse than either the four-year and six-year sliding window models. When you look at a plot of each model against the average sMAPE value for each forecast window, you can observe that the sMAPE values flatten out at the four year mark. There is no considerable improvement in sMAPE values between the four-year window model and the six-year window mode. Therefore, the best baseline model is the four-year sliding window model.
 \begin{longtable}[]{@{}ccccc@{}}
 \toprule
 \begin{minipage}[b]{0.22\columnwidth}\centering
@@ -775,7 +773,7 @@ Bias (\%)\strut
 \section*{Regression with ARIMA Errors Results}\label{regression-with-arima-errors-results}}
 \addcontentsline{toc}{section}{Regression with ARIMA Errors Results}
 
-By evaluating the residuals and metrics above, we found that manually passing the ARIMA order (3,0,1)(1,0,0) {[}12{]} to the model gave us the best results. The residuals after the model demonstrate the white noise feature, meaning that the model has captured all the information from the time series data. When reviewing the forecast based on the regression with arima (3,0,1)(1,0,0){[}12{]} model, the results are relatively conservative.
+By evaluating the residuals and metrics, we found that manually passing the ARIMA order (3,0,1)(1,0,0) {[}12{]} to the model gave us the best results. The residuals after the model demonstrate the white noise feature, meaning that the model has captured all the information from the time series data. When reviewing the forecast based on the regression with arima (3,0,1)(1,0,0){[}12{]} model, the results are relatively conservative.
 
 As shown above, the forecasted value is relatively stable across the test time period, compared with the actual values. The model produced an sMAPE of 9.04\% and RMSE of 0.94M.
 \begin{longtable}[]{@{}ccccc@{}}
@@ -1000,7 +998,7 @@ The results show that the random forest ensemble model performs the best accordi
 \section*{Coca-Cola Ensemble Model Results}\label{coca-cola-ensemble-model-results}}
 \addcontentsline{toc}{section}{Coca-Cola Ensemble Model Results}
 
-To further demonstrate the strength of ensemble modeling, this method was also used to combine the models generated by other capstone teams. Other teams were solving the same business problem, but using a different set of covariates (related products and economy). The idea is that ensembling all the team's models will compensate for each model's weaknesses and produce a strong overall model. The final model generated incremental gains from our best ensemble model. The results are outlined in the next section.
+To further demonstrate the strength of ensemble modeling, this method was also used to combine models generated by other Scholle IPN capstone teams. Other teams were solving the same business problem by using a different set of covariates (related products and economy). The idea is that ensembling all the team's models will compensate for each model's weaknesses and produce a strong overall model. The final model generated incremental gains from our best ensemble model. The results are outlined below.
 \begin{longtable}[]{@{}ccccc@{}}
 \toprule
 \begin{minipage}[b]{0.27\columnwidth}\centering

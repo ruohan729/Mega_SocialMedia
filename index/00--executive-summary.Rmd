@@ -7,6 +7,8 @@ Key findings from this project including the following:
 
 * Social Media contents, specifically, online discussions and engagement level of certain brands and ad campaigns have helped Machine Learning models to forecast the future bag sales. 
 * Different Social Media variables have different importances when it comes to modeling. For instance, the jobs related conversation online demonstrated higher level of importance than other brands-related conversations in our XGBoost model feature importance. 
+
 * Reducing the dimensionality when handling a large number of features improves the predictive accuracy; Cross Correlation check, Principal Component Analysis are also vital before modeling in our case. 
+
 * Ensemble modeling is a great way to bring the individual models together as inputs, and establish a better model with stronger predictive capacity. The output from the ensemble model has been proven to be the best results out of all. 
 We recommend Scholle IPN to continue monitoring the Social Media conversations, and follow our practice of adding the social media variables to the internal historical sales data. For future work, we also recommend to examine the year-to-year comparison between the forecasting bag sales with the actual bag sales. 

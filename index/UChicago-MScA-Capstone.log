@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 13:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -804,12 +804,7 @@ File: figure/pca.png Graphic file (type png)
 <use figure/pca.png>
 Package pdftex.def Info: figure/pca.png  used on input line 344.
 (pdftex.def)             Requested size: 200.75073pt x 109.93686pt.
-[5 <./figure/pca.png>] [6]
-Overfull \hbox (2.95477pt too wide) in paragraph at lines 500--501
- []\T1/ptm/m/n/12 McDonald's| 
- []
-
-[7
+[5 <./figure/pca.png>] [6] [7
 
 ] [8] [9] [10] [11] [12] [13
 
@@ -818,13 +813,13 @@ Overfull \hbox (2.95477pt too wide) in paragraph at lines 500--501
 ] [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1089
 \T1/ptm/b/n/12 KPSS Test []$\T1/lmtt/m/n/12 https : / / www . rdocumentation . 
 org / packages / tseries / versions /
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 1087--1090
+Underfull \hbox (badness 1067) in paragraph at lines 1086--1089
 \T1/lmtt/m/n/12 0 . 10 -[] 46 / topics / kpss . test$[] \T1/ptm/m/n/12 (In-sert
  ta-ble of KPSS test re-sults - be-fore and af-ter
  []
@@ -832,15 +827,15 @@ Underfull \hbox (badness 1067) in paragraph at lines 1087--1090
 [19
 
 ] [20] [21]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1156.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1155.
 [22
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1156.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1155.
 (./UChicago-MScA-Capstone.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1156.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1156.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1155.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1155.
 
 Package rerunfilecheck Info: File `UChicago-MScA-Capstone.out' has not changed.
 
@@ -852,12 +847,12 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1156.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1155.
  ) 
 Here is how much of TeX's memory you used:
  9268 strings out of 494553
  137785 string characters out of 6174236
- 238667 words of memory out of 5000000
+ 238665 words of memory out of 5000000
  12645 multiletter control sequences out of 15000+600000
  51106 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -869,7 +864,7 @@ TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/husay/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/husay/Library/TinyTeX/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UChicago-MScA-Capstone.pdf (30 pages, 623608 bytes).
+Output written on UChicago-MScA-Capstone.pdf (30 pages, 623647 bytes).
 PDF statistics:
  365 PDF objects out of 1000 (max. 8388607)
  320 compressed objects within 4 object streams

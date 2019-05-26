@@ -292,7 +292,7 @@ The scope of this forecasting project is limited to predicting the future monthl
 \addcontentsline{toc}{section}{Social Media Variables}
 
 For this forecasting project, we focus on collecting social media data on relevant topics. These relevant topics are Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. Coca-Cola is selected because it is their product's demand that Scholle IPN is interested in forecasting. Pepsi is selected due to its position as the main competitor for Coca-Cola. Meanwhile, McDonald's and Taco Bell are chosen because they are the top quick service restaurant partners for Coca-Cola and Pepsi based on 2018 annual sales revenue. The topic `jobs' is selected to gather job-related tweets intended to capture economic activity in the United States and Canada. Relationships between social media activity on these topics and the quantity of Coca-Cola bag ordered can be useful information for our forecasting models.
-Twitter data is a combination of user-level tweets and company-level tweets, while Google Trend data is monthly trend value for our selected terms. User-level tweets are Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs.'' Company-level tweets are Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and Taco Bell. Meanwhile, Google Trends is a popularity measure for Coca-Cola and other relevant terms based on their search frequency over time.
+Twitter data is a combination of user-level tweets and company-level tweets, while Google Trend data is monthly trend value for our selected terms. User-level tweets are Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs.'' Company-level tweets are Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and Taco Bell. Meanwhile, Google Trends is a popularity measure for Coca-Cola and other relevant terms based on their search frequency over time {[}insert reference{]}.
 
 \hypertarget{sentiment-analysis}{%
 \section*{Sentiment Analysis}\label{sentiment-analysis}}
@@ -485,154 +485,153 @@ A variety of different machine learning models is used to forecast future Coca-C
 \addcontentsline{toc}{section}{Data}
 
 The data used to predict Coca-Cola bag orders come from three distinct sources: Scholle IPN, Twitter, and Google Trends. The aggregation of all relevant data will be at the monthly level with a date range from October 2009 to October 2018. This ensures that the data has enough observations for our forecasting models. The dependent variable for this project is the monthly total bag orders from Coca-Cola, which is calculated by using Scholle IPN's internal sales data. The independent variables are social media variables collected from Twitter and Google Trends.
-Twitter is a widely used social media platform in the United States and Canada that was founded in 2006. This platform allows us to get a feeling about users and their opinions on Coca-Cola, Pepsi, McDonald's, Taco Bell, and `jobs'. Most importantly, Twitter gives users access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e.~number of likes, replies, and retweets). Twitter's years of existence, popularity, and data features make it an ideal social media data source for this project. However, Twitter does have a number of limitations. One of the main disadvantages of using Twitter data is its high volume and high dimensionality. Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.). A well defined scope will limit the amount of tweets to be collected and will allow us to prepare for any data storage and computational needs.\\
-Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald's, Pepsi, and `jobs' in Google. The main advantage of Google Trends is the ease in which we are able to collect this data. Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query. The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available. This makes it challenging to validate unusual trends in a search query.
-For more information on the specific variables, please refer to the Social Media Variables section. For more information on how the social media data were collected, please refer to Appendix A. Below is a summary table of the monthly social media variables:
+Twitter is a widely used social media platform in the United States and Canada that was founded in 2006. This platform allows us to get a feeling about users and their opinions on Coca-Cola, Pepsi, McDonald's, Taco Bell, and `jobs'. Most importantly, Twitter gives users access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e.~number of likes, replies, and retweets) {[}insert reference{]}. Twitter's years of existence, popularity, and data features make it an ideal social media data source for this project. However, Twitter does have a number of limitations. One of the main disadvantages of using Twitter data is its high volume and high dimensionality. Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.). A well defined scope will limit the amount of tweets to be collected and will allow us to prepare for any data storage and computational needs.\\
+Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald's, Pepsi, and `jobs' in Google. The main advantage of Google Trends is the ease in which we are able to collect this data. Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query. The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available. This makes it challenging to validate unusual trends in a search query. For more information on the specific variables, please refer to the social media Variables section. For more information on how the social media data were collected, please refer to Appendix A. Below is a summary table of the monthly social media variables:
 \begin{longtable}[]{@{}cccccc@{}}
 \toprule
-\begin{minipage}[b]{0.22\columnwidth}\centering
+\begin{minipage}[b]{0.21\columnwidth}\centering
 Social Media Variable\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\centering
-Coca-Cola\strut
 \end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Coca-Cola\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
 Pepsi\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
 McDonald's\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
 Taco Bell\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
 Jobs\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total Account Tweets\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 n/a\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total Account Replies\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 n/a\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total Account Likes\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 n/a\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total Account Retweets\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 n/a\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total User Tweets\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total User Replies\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total User Likes\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Total User Retweets\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Average Tweets Sentiment\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.22\columnwidth}\centering
+\begin{minipage}[t]{0.21\columnwidth}\centering
 Google Trend\strut
-\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
-x\strut
 \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 x\strut
-\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+x\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
 x\strut
 \end{minipage}\tabularnewline
 \bottomrule

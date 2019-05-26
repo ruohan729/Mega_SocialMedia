@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 16:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -905,15 +905,27 @@ Underfull \hbox (badness 1067) in paragraph at lines 1102--1105
 [23
 
 ] [24] [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1161.
+Underfull \hbox (badness 2443) in paragraph at lines 1183--1185
+ [][]\T1/ptm/m/n/12 Kambhatla, N., & Leen, T. K. (1997). Di-men-sion re-duc-tio
+n by lo-cal prin-ci-
+ []
+
+
+Underfull \hbox (badness 2828) in paragraph at lines 1183--1185
+ \T1/ptm/m/n/12 pal com-po-nent anal-y-sis. \T1/ptm/m/it/12 Neu-ral Com-pu-ta-t
+ion\T1/ptm/m/n/12 , 1493--1516. Re-trieved from
+ []
+
 [26
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1161.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1201.
+[27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1201.
 (./UChicago-MScA-Capstone.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1161.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1161.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1201.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1201.
 
 Package rerunfilecheck Info: File `UChicago-MScA-Capstone.out' has not changed.
 
@@ -925,14 +937,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1161.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1201.
  ) 
 Here is how much of TeX's memory you used:
- 9318 strings out of 494553
- 139293 string characters out of 6174236
- 238196 words of memory out of 5000000
+ 9334 strings out of 494553
+ 139507 string characters out of 6174236
+ 238201 words of memory out of 5000000
  12665 multiletter control sequences out of 15000+600000
- 55235 words of font info for 93 fonts, out of 8000000 for 9000
+ 56348 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,12n,49p,1488b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/
@@ -940,11 +952,12 @@ husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/husay/Lib
 rary/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/husay/Library/
 TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/husay/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UChicago-MScA-Capstone.pdf (34 pages, 1163421 bytes).
+xmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/texmf-d
+ist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on UChicago-MScA-Capstone.pdf (35 pages, 1178082 bytes).
 PDF statistics:
- 450 PDF objects out of 1000 (max. 8388607)
- 384 compressed objects within 4 object streams
- 124 named destinations out of 1000 (max. 500000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 410 compressed objects within 5 object streams
+ 139 named destinations out of 1000 (max. 500000)
  304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

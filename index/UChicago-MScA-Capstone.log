@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -857,7 +857,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1156.
 Here is how much of TeX's memory you used:
  9268 strings out of 494553
  137785 string characters out of 6174236
- 239666 words of memory out of 5000000
+ 239667 words of memory out of 5000000
  12645 multiletter control sequences out of 15000+600000
  51106 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -869,7 +869,7 @@ TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/husay/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/husay/Library/TinyTeX/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UChicago-MScA-Capstone.pdf (30 pages, 623797 bytes).
+Output written on UChicago-MScA-Capstone.pdf (30 pages, 623802 bytes).
 PDF statistics:
  365 PDF objects out of 1000 (max. 8388607)
  320 compressed objects within 4 object streams

@@ -80,7 +80,7 @@ include_graphics(path = "figure/ConsumerReactionTweets.png")
 
 Noticeably, Twitter users became much more engaged with these Twitter accounts towards the middle portion of the time plots.  This could be a sign of how effective these company’s promotions are during the middle of the decade, or it could be an indicator of when social media started becoming more popular in mainstream society.  The limited Twitter activity by the Twitter accounts and users during the earlier portion of the time plots should be considered when modeling.
 
-###  Google Trends	
+###  Google Trends	{#methodology-modeling .unnumbered}
 Although Google Trends is not a social media platform, it does provide an easily attainable source of data regarding general interest in Coca-Cola, Pepsi, McDonald’s, Taco Bell, and ‘jobs’.  This could provide useful information when forecasting Coca-Cola bag orders. 
 Above are time series plots for each term and their monthly Google Trend value from October 2009 to October 2018.  Generally, there seems to be a seasonal trend that appear for each search term.  It is interesting to note that the two quick service restaurants, McDonald’s and Taco Bell, experienced an increasing trend over time.  
 
@@ -114,6 +114,12 @@ In this section, we describe the forecasting models used to determine if social 
 The baseline model is used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data.  The baseline model is built by using a seasonal Arima model.   A sliding-window cross validation of two-years, four-years, and six-years is used to determine the optimal number of observations used for training the rest of our models.
 
 The challenger models selected for this project are: Regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM).  Each challenger model is trained using 48 months of training observations (see Baseline Model Results).  In addition, each challenger model will be trained on two sets of social media variables.  The first set of social media variables are the difference variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The second set of of social media variables are the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The Regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depend on external variables selected.  The XGBoost model is a more complex ‘regularized boosting’ technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run.  The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information.  This model LSTM selectively chooses what it “remembers”, and what to “forget.” In addition, LSTM selects how much of its memory it should output.
-The final model used is an ensemble model of all three challenger models.  Please refer to the Ensemble Modeling section under Background for more information.  We compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section.
+The next model used is ensemble model of all three challenger models. We compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section.  Furthermore, Scholle IPN is hosting other researchers from the University of Chicago to predict Coca-Cola bag orders using other external variables.   The two other research teams are using related products data and economic/demographic data.  The best models from these two research teams will be ensembled with the best performing social media model.  
+
+## Scholle System Integration {#methodology-modeling .unnumbered}
+
+## Scholle Forecasting Model Monitoring {#methodology-modeling .unnumbered}
+
+
 
 

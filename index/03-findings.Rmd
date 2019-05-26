@@ -5,7 +5,9 @@
 
 Before we test for the impact of social media variables in forecasting Coca-Cola bag orders, we must first establish baseline metrics.  We will use a seasonal Arima model that uses only the dependent variable to establish our baseline model.  Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0)[12].  Implementing cross validation with a sliding window of two-years, four-years, and six-years was then conducted.  The purpose of cross validation is to establish the metric that the challenger models will be compared against and to find the point in the forecast horizon in which the predictions “flatten out”.  The chart below is a plot of the forecast horizon against each model’s sMAPE values.
 
-[INSERT FIGURE]
+```{r SMAPEvsHorizon, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="sMAPE vs. Horizon Plot", echo=FALSE}
+include_graphics(path = "figure/SMAPEvsHorizon.png")
+```
 
 It is clear that the two-year window model is considerably worse than either the four-year and six-year sliding window models.  When you look at a plot of each model against the average sMAPE value for each forecast window, you can observe that the sMAPE values flatten out at the four year mark.  There is no considerable improvement in sMAPE values between the four-year window model and the six-year window mode. Therefore, the best baseline model is the four-year sliding window model.
 
@@ -33,10 +35,7 @@ Principal Components                     19.11%         1,381,487           80.3
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
 ## XGBoost  Results  {.unnumbered}
-For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality.  XGBoost was implemented in Python using the parameters below before using grid search to identify the best tuning parameter.
-
-After running the model, we are able to rank the features based on importance (see below).
-[INSERT FIGURE]
+For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality.  The table summarizes the results of this model.
 
 --------------------------------------------------------------------------------------------------------------------
  Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)
@@ -46,9 +45,13 @@ Differenced Social Media Variables       6.21%              597,983           93
 Principal Components                     7.27%              701,980           93.01%                38.89%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
+After running the model, we are able to rank the features based on importance (see below).
+```{r FeatureImportance, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="XGBoost Feature Importance", echo=FALSE}
+include_graphics(path = "figure/FeatureImportance.png")
+```
+
 ## Long Short-Term Memory Results  {.unnumbered}
-We  implemented LSTM in Python using the same set of variables as the previous models. Below is a model summary of LSTM prior to implementation.
-[INSERT FIGURE]
+We  implemented LSTM in Python using the same set of variables as the previous models. 
 
 Tuning the parameters is a vital part when deploying any Neural Network models, and LSTM is no exception. Listed  below are  a  few key parameters we tweaked: 
 
@@ -58,7 +61,9 @@ Tuning the parameters is a vital part when deploying any Neural Network models, 
 Activation function - since we scaled the train and test sets beforehand, we chose to leave the activation function default. 
 * Dropout - we had 4 dropout layers embedded in the model. Dropout is a regularization technique for neural network models proposed by Srivastava, et al. in their 2014 paper Dropout: A Simple Way to Prevent Neural Networks from Overfitting. 
 
-[INSERT FIGURE]
+```{r image17, out.width="200px", fig.align="center",out.extra="angle = 0, scale=1.5", fig.cap="LSTM Epoch vs. Loss Function", echo=FALSE}
+include_graphics(path = "figure/image17.png")
+```
 
 --------------------------------------------------------------------------------------------------------------------
  Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)

@@ -36,7 +36,7 @@ This is just for testing with more citations for the bibliography at the end.  A
 ---
 nocite: | 
 <<<<<<< HEAD
-  @angel2000, @angel2001, @angel2002a, @Olah2015, @HyndmanAthanasopoulos
+  @angel2000, @angel2001, @angel2002a, @Olah2015, @HyndmanAthanasopoulos, @hyndman2018, @kwiatkowski1992, @kambhatla1997, @brockwell1991, @pavlyshenko2019, @chen2016, @connor1994, @shi2015, @hochreiter1997, @molnar2019
   
 >>>>>>> 314aa7b255992af0a470bc0fcf19175f4a333c67
 ...

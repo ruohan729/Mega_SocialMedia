@@ -24,7 +24,7 @@ The R package sentimentR was used to calculate sentiment scores for each tweet. 
 ## Stationarity and Differencing {.unnumbered}
 An important step to consider when forecasting is to remove trends and seasonality from variables in order to make it stationary.  When time series data is stationary, it displays a stable mean and stable variance over time [insert reference].  This means that it is less likely to produce spurious relationships and misleading results.  Statistical tests (KPSS test) are conducted on each variable to determine its level of stationarity (see Appendix A).  After testing, it was determined that the dependent variable, monthly quantity of Coca-Cola bag orders, is stationary.  This means that this variable requires no further transformations.  However, the independent variables show varying results and require additional processing.  One way of transforming time series data to become stationary is the method of differencing.  Differencing is the method of subtracting the value of the current time step from the value of previous time step(s).  This method was applied to all social media variables to ensure that they were all stationary.  The visual below demonstrates how the method of differencing is able to remove trends from the monthly total user tweets.  The top half of the visual are time plots of the pre-differenced variables, while the bottom are time plots of the differenced variables.
 
-```{r differencing, out.width="200px", fig.align="center", fig.cap="differenced social media data", echo=FALSE}
+```{r differencing, out.width="200px", fig.align="center", out.extra="angle = 0, scale=2.1", fig.cap="Differenced social media variables", echo=FALSE}
 include_graphics(path = "figure/differencing.jpg")
 ```
 
@@ -34,7 +34,7 @@ When building forecasting models, it is important to be aware of the level of co
 #### Method A - Principal Component Analysis {.unnumbered} 
 The first method we will use to reduce the dimensionality of our social media variables is principal component analysis (PCA).  PCA uses an orthogonal transformation of our variables into linearly uncorrelated variables called principal components.   The main idea is that the majority of the variance explained will be concentrated on a limited number of principal components.  This allows us to discard the principal component variables that provide little additional information.  This approach further reduces the overall dimension of our original set of variables.  When performing this technique with our social media variables, we are able to observe the “elbow feature” at number of principal component (n) = 7 .  This tells us that only the first seven principal components is required to explain most of the total variance (97%) of our variables. By using PCA, we are able to reduce our overall social media variables from 46 to 7.
 
-```{r pca, out.width="200px", fig.align="center", fig.cap="Principal Component Analysis"}
+```{r pca, out.width="200px", fig.align="center", out.extra="angle = 0, scale=2.1", fig.cap="Principal Components vs. Variance Explained Plot",echo=False}
 include_graphics(path = "figure/pca.jpg")
 ```
 

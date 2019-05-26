@@ -1,5 +1,5 @@
 
-Scholle IPN is a global manufacturing company that has experienced variability in their sales forecasts. In this project, we will demonstrate how Scholle IPN can leverage social media data to predict orders from their clients.  We will introduce dimension reduction methods to account for the high dimensional nature of social media data.  In addition, an ensemble model approach to sales forecasting will be used to generate the best sales forecasting model.
+Scholle IPN is a global manufacturing company that has experienced variability in their sales forecasts. In this project, we demonstrate how Scholle IPN can leverage social media data to predict orders from their clients.  We introduce dimension reduction methods to account for the high dimensional nature of social media data.  In addition, an ensemble model approach to sales forecasting is used to generate the best sales forecasting model.
 
 
 \bigskip 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 16:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  26 MAY 2019 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -589,15 +589,6 @@ Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 
 LaTeX Warning: Label `tab:inher' multiply defined.
 
-
-LaTeX Warning: Label `methodology-modeling' multiply defined.
-
-
-LaTeX Warning: Label `methodology-modeling' multiply defined.
-
-
-LaTeX Warning: Label `methodology-modeling' multiply defined.
-
 )
 \openout1 = `UChicago-MScA-Capstone.aux'.
 
@@ -848,26 +839,9 @@ File: figure/GoogleTrends.png Graphic file (type png)
 <use figure/GoogleTrends.png>
 Package pdftex.def Info: figure/GoogleTrends.png  used on input line 666.
 (pdftex.def)             Requested size: 200.75073pt x 53.61447pt.
-[12 <./figure/ConsumerReactionTweets.png> <./figure/GoogleTrends.png>] [13]pdfT
-eX warning (ext4): destination with the same identifier (name{methodology-model
-ing}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.677 ...g Framework}\label{methodology-modeling}}
-                                                   [14]pdfTeX warning (ext4): d
-estination with the same identifier (name{methodology-modeling}) has been alrea
-dy used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.703 ...Integration}\label{methodology-modeling}}
-                                                  pdfTeX warning (ext4): destin
-ation with the same identifier (name{methodology-modeling}) has been already us
-ed, duplicate ignored
-<to be read again> 
-                   \relax 
-l.707 ... Monitoring}\label{methodology-modeling}}
-                                                   [15]
-<figure/SMAPEvsHorizon.png, id=332, 449.68pt x 264.99pt>
+[12 <./figure/ConsumerReactionTweets.png> <./figure/GoogleTrends.png>] [13] [14
+] [15]
+<figure/SMAPEvsHorizon.png, id=335, 449.68pt x 264.99pt>
 File: figure/SMAPEvsHorizon.png Graphic file (type png)
 <use figure/SMAPEvsHorizon.png>
 Package pdftex.def Info: figure/SMAPEvsHorizon.png  used on input line 721.
@@ -875,13 +849,13 @@ Package pdftex.def Info: figure/SMAPEvsHorizon.png  used on input line 721.
 [16
 
  <./figure/SMAPEvsHorizon.png>]
-<figure/FeatureImportance.png, id=339, 1115.16624pt x 715.67375pt>
+<figure/FeatureImportance.png, id=342, 1115.16624pt x 715.67375pt>
 File: figure/FeatureImportance.png Graphic file (type png)
 <use figure/FeatureImportance.png>
 Package pdftex.def Info: figure/FeatureImportance.png  used on input line 871.
 (pdftex.def)             Requested size: 200.75073pt x 128.82663pt.
 [17]
-<figure/image17.png, id=350, 382.42876pt x 252.945pt>
+<figure/image17.png, id=353, 382.42876pt x 252.945pt>
 File: figure/image17.png Graphic file (type png)
 <use figure/image17.png>
 Package pdftex.def Info: figure/image17.png  used on input line 898.
@@ -940,13 +914,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1201.
  ) 
 Here is how much of TeX's memory you used:
- 9334 strings out of 494553
- 139507 string characters out of 6174236
- 238201 words of memory out of 5000000
- 12665 multiletter control sequences out of 15000+600000
+ 9340 strings out of 494553
+ 139635 string characters out of 6174236
+ 238333 words of memory out of 5000000
+ 12668 multiletter control sequences out of 15000+600000
  56348 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,12n,49p,1488b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,49p,1536b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/
 husay/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/husay/Lib
 rary/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/husay/Library/
@@ -954,10 +928,10 @@ TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/husay/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UChicago-MScA-Capstone.pdf (35 pages, 1178082 bytes).
+Output written on UChicago-MScA-Capstone.pdf (35 pages, 1178340 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 410 compressed objects within 5 object streams
- 139 named destinations out of 1000 (max. 500000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 413 compressed objects within 5 object streams
+ 142 named destinations out of 1000 (max. 500000)
  304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

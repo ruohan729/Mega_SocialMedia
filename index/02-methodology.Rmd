@@ -2,14 +2,44 @@
 
 ## Data {#methodology-data .unnumbered}
 
-The data used to predict Coca-Cola bag orders will come from three distinct sources: Scholle IPN, Twitter, and Google Trends.  The aggregation of all relevant data will be at the monthly level with a date range from October 2009 to October 2018.  This will ensure that the data will have enough observations for our forecasting models.  The dependent variable for this project will be the monthly total bag orders from Coca-Cola, which will be calculated using Scholle IPN’s internal sales data.  The independent variables are social media variables collected from Twitter and Google Trends.
-Twitter is a widely used social media platform in the United States and Canada that was founded in 2006.  This platform will allow us to get a feeling about users and their opinions on Coca-Cola, Pepsi, McDonald’s, Taco Bell, and ‘jobs’.  Most importantly, Twitter gives users access to data elements about a tweet necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e. number of likes, replies, and retweets).  Twitter’s years of existence, popularity, and data features make it an ideal social media data source for this project.  However, Twitter does have a number of limitations.  One of the main disadvantages of using Twitter data is its high volume and high dimensionality.  Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.).  A well defined scope will limit the amount of tweets to be collected and will allow us to prepare for any data storage and computational needs.	  
-Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald’s, Pepsi, and ‘jobs’ in Google.  The main advantage of Google Trends is the ease in which we are able to collect this data.  Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query.  The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available.  This makes it challenging to validate unusual trends in a search query. 
-For more information on the specific variables, please refer to the Social Media Variables section. For more information on how the social media data were collected, please refer to Appendix A.  Below is a summary table of the monthly social media variables:
+The data used to predict Coca-Cola bag orders come from three distinct sources: Scholle IPN, Twitter, and Google Trends.  The aggregation of all relevant data will be at the monthly level with a date range from October 2009 to October 2018.  This ensures that the data has enough observations for our forecasting models.  The dependent variable for this project is the monthly total bag orders from Coca-Cola, which is calculated by using Scholle IPN’s internal sales data.  The independent variables are social media variables collected from Twitter and Google Trends.
+Twitter is a widely used social media platform in the United States and Canada that was founded in 2006.  This platform allows us to get a feeling about users and their opinions on Coca-Cola, Pepsi, McDonald’s, Taco Bell, and ‘jobs’.  Most importantly, Twitter gives users access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e. number of likes, replies, and retweets) [insert reference].  Twitter’s years of existence, popularity, and data features make it an ideal social media data source for this project.  However, Twitter does have a number of limitations.  One of the main disadvantages of using Twitter data is its high volume and high dimensionality.  Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.).  A well defined scope will limit the amount of tweets to be collected and will allow us to prepare for any data storage and computational needs.	  
+Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald’s, Pepsi, and ‘jobs’ in Google.  The main advantage of Google Trends is the ease in which we are able to collect this data.  Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query.  The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available.  This makes it challenging to validate unusual trends in a search query. For more information on the specific variables, please refer to the social media Variables section. For more information on how the social media data were collected, please refer to Appendix A.  Below is a summary table of the monthly social media variables:
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ Social Media Variable             Coca-Cola           Pepsi            McDonald's             Taco Bell               Jobs
+-------------------------------- ---------------- ------------------ --------------------- --------------------- ------------------
+Total Account Tweets                 x                  x                 x                       x                   n/a
+
+Total Account Replies                x                  x                 x                       x                   n/a
+
+Total Account Likes                  x                  x                 x                       x                   n/a
+
+Total Account Retweets               x                  x                 x                       x                   n/a
+
+Total User Tweets                    x                  x                 x                       x                    x
+
+Total User Replies                   x                  x                 x                       x                    x
+
+Total User Likes                     x                  x                 x                       x                    x
+
+Total User Retweets                  x                  x                 x                       x                    x
+
+Average Tweets Sentiment             x                  x                 x                       x                    x
+
+Google Trend                         x                  x                 x                       x                    x
+-------------------------------- ---------------- ------------------ --------------------- --------------------- ------------------
+
+
+
+
+
+
 
 ## Exploratory Data Analysis {#methodology-descriptive .unnumbered} 
 
-In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables.  Analyzing all the variables prior to modeling will allow us to better understand trends in our variables.  Identifying these trends can aid in the interpretation of our forecasting results.  In this section, we will provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders. 
+In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables.  Analyzing all the variables prior to modeling allows us to better understand trends in our variables.  Identifying these trends can aid in the interpretation of our forecasting results.  In this section, we provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders. 
 
 
 * Monthly Coca-Cola Bag Orders
@@ -19,14 +49,14 @@ In order to ensure maximum utility of the collected social media data and produc
 Above is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to October 2019.   At a glance, we observe an annual seasonal pattern with no consistent trend over time.  Overall, the bag quantity orders show a mean of 7,521,158 per month.  Expectedly, Scholle IPN experience the highest volume of Coca-Cola bag orders during summer months (June-August) with averages over eight million ordered bags.  The only other month with an average of over eight million Coca-Cola bags is during the month of March.
 
 * User-generated Tweets
-User-generated tweets provides our forecasting models with information regarding how frequently Twitter users talk about Coca-Cola, Pepsi, McDonald’s, Taco Bell, and “jobs”.  When looking  at the average monthly tweet mentions for each term, the term “jobs” surprisingly appeared the most.  Jobs-related tweets in the dataset represent 42.7% of all the user-generated tweets collected.  The visual below of the average monthly tweet volume for each selected term demonstrates how “jobs” dominated our collected data.  
+User-generated tweets provides our forecasting models with information regarding how frequently Twitter users talk about Coca-Cola, Pepsi, McDonald’s, Taco Bell, and “jobs”.  When looking  at the average monthly tweet mentions for each term, the term “jobs” surprisingly appeared the most.  Jobs-related tweets in the dataset represent 42.7% of all the user-generated tweets collected.  The visual below of the average monthly tweet volume for each selected term demonstrates how “jobs” represented the majority of the collected user-level data.  
 
 [INSERT FIGURE]
 
-The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information).  Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms.  This finding provides value to our analysis as the term “jobs” now has a large sample size and can potentially give us better indication on how economic activity in North America impact Coca-Cola bag orders.  However, this resulted in a lower total of user-generated tweets for all other relevant terms.  Limited sample size for these variables could adversely impact their ability to forecast Coca-Cola bag orders.
+The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information).  Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms.  This finding provides value to our analysis as the term “jobs” has a large sample size.  This can potentially give us better indication on how economic activity in North America impacts Coca-Cola bag orders.  However, a lower total of user-generated tweets for all other relevant terms resulted.  Limited sample size for these variables could adversely impact their ability to forecast Coca-Cola bag orders.
 
 * Company-generated Tweets
-	To continue the exploration of covariates, we will explore company-generated tweets.  This set of social media variables will provide us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies).  A total of 24,442 such tweets were collected between October 2009 to October 2018.  Among the four companies, the official Twitter accounts of Coca-Cola and McDonald’s were the most active in terms of posting Twitter content.  The time series plots below (not built to scale) clearly show a general trend among all four companies.  
+	To continue the exploration of covariates, we explore company-generated tweets.  This set of social media variables provides us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies).  A total of 24,442 such tweets were collected between October 2009 to October 2018.  Among the four companies, the official Twitter accounts of Coca-Cola and McDonald’s were the most active in terms of posting Twitter content.  The time series plots below (not built to scale) clearly show a general trend among all four companies.  
 	
 [INSERT FIGURE]
 
@@ -40,7 +70,7 @@ Above are time series plots for each term and their monthly Google Trend value f
 
 [INSERT FIGURE] 
 
-When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered.  This strict rule could fail in certain instances where a single term could have different meanings.  For example, an unusual spike can be observed in the time series plot for ‘jobs’ in October 2011.  After conducting additional research, this spike can be attributed to a sudden interest in Steve Jobs when he passed away.   For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner.  These outliers will be imputed with a value that fit the distribution of the rest of the dataset.  
+When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered.  This strict rule could fail in certain instances where a single term could have different meanings.  For example, an unusual spike can be observed in the time series plot for ‘jobs’ in October 2011.  After conducting additional research, this spike can be attributed to a sudden interest in Steve Jobs when he passed away.   For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner.  These outliers are imputed with a value that fit the distribution of the rest of the dataset.  
 
 
 \newpage
@@ -49,7 +79,7 @@ When using Google Trends, it is important to consider that trend values are calc
 
 **Metrics**
 
-The following metrics are going to be used to measure the forecasting models we will build using social media variables. 
+The following metrics are used to measure the forecasting models built using social media variables. 
 
 * Symmetric Mean Absolute Percent Error (sMAPE) - A measure based on percentage (or relative) errors. 
 
@@ -61,11 +91,11 @@ The following metrics are going to be used to measure the forecasting models we 
 
 **Selection of Forecasting Models**
 
-In this section, we will describe the forecasting models we will use to determine if social media variables have any impact Coca-Cola bag order forecasts.  We will build three types of models - baseline model, challenger models, and ensemble model.  Each forecasting model will have a forecasting window of 18 months.  The baseline model will be a forecasting model using only the monthly Coca-Cola bag orders.  The challenger models will be a set of three different forecasting models that will utilize the social media variables.  The ensemble model will be a model that combines all three challenger models.
+In this section, we describe the forecasting models used to determine if social media variables have any impact Coca-Cola bag order forecasts.  We will build three types of models - baseline model, challenger models, and ensemble model.  Each forecasting model is set to have a forecasting window of 18 months.  The baseline model is a forecasting model using only the monthly Coca-Cola bag orders.  The challenger models is a set of three different forecasting models that utilizes the social media variables.  The ensemble model is a model that combines all three challenger models.
 
-The baseline model will be used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this data.  The baseline model will be built by using a seasonal Arima model.   A sliding-window cross validation of two-years, four-years, and six-years will be used to determine the optimal number of observations used for training the rest of our models.
+The baseline model is used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data.  The baseline model is built by using a seasonal Arima model.   A sliding-window cross validation of two-years, four-years, and six-years is used to determine the optimal number of observations used for training the rest of our models.
 
-The challenger models selected for this project are: Regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM).  Each challenger model will be trained using 48 months of training observations (see Baseline Model Results).  In addition, each challenger model will be trained on two sets of social media variables.  The first set of social media variables are the difference variables that were identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The second set of of social media variables are the principal components that were identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The Regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depend on external variables selected.  The XGBoost model is a more complex ‘regularized boosting’ technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run.  The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information.  This model LSTM selectively chooses what it “remembers”, and what to “forget.” In addition, LSTM selects how much of its memory it should output.
-The final model we will use is an ensemble model of all three challenger models.  Please refer to the Ensemble Modeling section under Background for more information.  We will compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section.
+The challenger models selected for this project are: Regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM).  Each challenger model is trained using 48 months of training observations (see Baseline Model Results).  In addition, each challenger model will be trained on two sets of social media variables.  The first set of social media variables are the difference variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The second set of of social media variables are the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The Regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depend on external variables selected.  The XGBoost model is a more complex ‘regularized boosting’ technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run.  The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information.  This model LSTM selectively chooses what it “remembers”, and what to “forget.” In addition, LSTM selects how much of its memory it should output.
+The final model used is an ensemble model of all three challenger models.  Please refer to the Ensemble Modeling section under Background for more information.  We compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section.
 
 

@@ -44,7 +44,9 @@ In order to ensure maximum utility of the collected social media data and produc
 
 * Monthly Coca-Cola Bag Orders
 
-[INSERT FIGURE]
+```{r TSCoke, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="Monthly Coca-Cola Bag Orders Time-series Plot", echo=FALSE}
+include_graphics(path = "figure/TSCoke.png")
+```
 
 Above is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to October 2019.   At a glance, we observe an annual seasonal pattern with no consistent trend over time.  Overall, the bag quantity orders show a mean of 7,521,158 per month.  Expectedly, Scholle IPN experience the highest volume of Coca-Cola bag orders during summer months (June-August) with averages over eight million ordered bags.  The only other month with an average of over eight million Coca-Cola bags is during the month of March.
 

@@ -1,14 +1,20 @@
 # Conclusion {.unnumbered}
 
-In summary, we learned that including social media variables is helpful in predicting Coca-Cola bag orders, and it also provided a comparable results to the Scholle Coca-Cola baseline model.  For the individual models, the best results came when the social media variables were differenced or when the dimensions were reduced leading to increased predictive power.  When comparing the two challenger models, the XGBoost model did a better job of capturing seasonality than the regression with ARIMA errors model, as well as the LSTM RNN.  In addition, the XGBoost approach allows us to point out the most important variables.
-As for an ensemble approach to modeling, this technique proved to be a strong approach to produce better forecasts.  For our project, the random forest ensemble returned the best RMSE and sMAPE values.  For the ensemble models among the different teams, a linear regression model produced an output that was incrementally better than any individual model.
-
-
-
-
+In summary, we learned that social media variables improved Scholle IPN's forecasts of Coca-Cola bag orders.  Even though sentiment analysis is an effective way of converting textual social media data into numerical data, we found that sentiment scores are largely dependent upon the text data available.  Our user tweet data was not evenly distributed, which led to  biased sentiment scores.  This rendered these variables to be inconclusive for predicting Coca-Cola bag orders.  Additionally, social media variables identified to be cross-correlated with Coca-Cola bag orders improved the XGBoost and LSTM models.  According to XGBoost, the top three features were variables derived from company-generated tweets, which were Taco Bell account tweets (t-1), Pepsi account tweets (t-6), and McDonald account replies (t-5).  Meanwhile, the regression with Arima errors model experienced improved accuracy when cross-correlated principal component variables were used.  Furthermore, using an ensemble approach provided better overall forecasting results.  The results from ensembling the social media challenger models (Regression with Arima errors, XGBoost, and LSTM) were considerably better than any of the individual model results.  In addition, the ensemble model of the best performing models for each Scholle IPN research teams produced the best overall Coca-Cola forecasting model.
 
 # Recommendations {.unnumbered}
 
-For this project, we focused our data collection on only a handful of quick service restaurants and competitors.  Collecting social media data from Coca-Cola’s competitors presents an opportunity to look at how people engage with and view these beverage companies at an industry level. Hence it may bring better accuracy in predicting the Coca-Cola bag sales for Scholle IPN.
+Based on this research, our team recommends the following actions for Scholle IPN:
+
+* Leverage Google Trends and Twitter as primary tools to forecast Coca-Cola bag orders.  These are data sources that are easily accessible and provide high returns in predictive power.
+
+* Emphasis should be placed on the collection of data from social media accounts of Coca-Cola's competitors and their partnered quick service restaurants.  
+
+* Ensure that social media models are trained using more recent data. Our research indicated that social media data from 2009 to 2013 were less accurate in predicting Coca-Cola bag orders.
+
+
+# Future Work {.unnumbered}
+
+Our analysis found that the top variables were related to Pepsi, Taco Bell, and McDonald's.  Collecting social media data from additional Coca-Cola competitors could present an opportunity to improve the existing forecasting model. These variables could provide incremental gains in predicting more accurate Coca-Cola bag sales.   However, caution must be used when adding additiona features to model.  It is important for C-suite executives to thoroughly understand the factors that impact predictions in order to make sound business decisions.  Shapley Values for better interpretability, as it gives the average marginal contribution of a feature value across all possible coalitions (Molnar, 2019).
  
 \newpage

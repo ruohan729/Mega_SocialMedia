@@ -22,27 +22,21 @@ It is clear that the two-year window model is considerably worse than either the
 -------------------------- ------------------- ------------------ ------------------- --------------------
 
 ## Regression with ARIMA Errors Results  {.unnumbered}
-By evaluating the residuals and metrics, we found that manually passing the ARIMA order (3,0,1)(1,0,0) [12] to the model gave us the best results.  The residuals after the model demonstrate the white noise feature, meaning that the model has captured all the information from the time series data.  When reviewing the forecast based on the regression with arima (3,0,1)(1,0,0)[12] model,  the results are relatively conservative.
-
-As shown above, the forecasted value is relatively stable across the test time period, compared with the actual values. The model produced an sMAPE of 9.04% and RMSE of 0.94M. 
+By evaluating the residuals and metrics, we found that regression with Arima errors produced the best results using the lagged principal components.  With a sMAPE value of 9.76% and RMSE value of 888,544, which is an improvement compared to the Scholle Coca-Cola baseline model.
 
 --------------------------------------------------------------------------------------------------------------------
- Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)
+Social Media Variable                       sMAPE            RMSE            Mean Accuracy           Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
-Differenced Social Media Variables       37.79%         3,107,383           65.05%              55.55%
-
-Principal Components                     19.11%         1,381,487           80.33%              38.89%
+Lagged Principal Components                  9.76%         888,544             90.20%                33.00%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
 ## XGBoost  Results  {.unnumbered}
-For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality.  The table summarizes the results of this model.
+For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality.  The XGBoost performed better using the lagged social media variables producing a sMAPE value of 6.21% and RMSE value of 597,983, which is the best performing model.
 
 --------------------------------------------------------------------------------------------------------------------
- Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)
+Social Media Variable                     sMAPE             RMSE            Mean Accuracy           Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
-Differenced Social Media Variables       6.21%              597,983           93.88%                27.78%
-
-Principal Components                     7.27%              701,980           93.01%                38.89%
+Lagged Differenced Variables               6.21%            597,983            93.88%                27.78%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
 After running the model, we are able to rank the features based on importance (see below).
@@ -51,48 +45,38 @@ include_graphics(path = "figure/FeatureImportance.png")
 ```
 
 ## Long Short-Term Memory Results  {.unnumbered}
-We  implemented LSTM in Python using the same set of variables as the previous models. 
 
-Tuning the parameters is a vital part when deploying any Neural Network models, and LSTM is no exception. Listed  below are  a  few key parameters we tweaked: 
+For the LSTM model, we also introduced a month of year variable to allow the model to learn seasonality.  This model also performed better using the lagged social media variables producing a sMAPE value of 12.3% and RMSE value of 1,023,904. This is the worst performing challenger model.
 
-* Epochs - One Epoch is when an entire dataset is passed forward and backward through the neural network only once. Since one epoch is too big to feed to the computer at once we divide it in several smaller batches. (we need to quote this!)
-* Optimizer - adam
-* Loss function - mean squared error
-Activation function - since we scaled the train and test sets beforehand, we chose to leave the activation function default. 
-* Dropout - we had 4 dropout layers embedded in the model. Dropout is a regularization technique for neural network models proposed by Srivastava, et al. in their 2014 paper Dropout: A Simple Way to Prevent Neural Networks from Overfitting. 
 
 ```{r image17, out.width="200px", fig.align="center",out.extra="angle = 0, scale=1.5", fig.cap="LSTM Epoch vs. Loss Function", echo=FALSE}
 include_graphics(path = "figure/image17.png")
 ```
 
 --------------------------------------------------------------------------------------------------------------------
- Social Media Var                       sMAPE                RMSE            Mean Accuracy       Bias (%)
+ Social Media Var                       sMAPE                RMSE            Mean Accuracy          Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
-Differenced Social Media Variables       11.8%              994,364           88.47%                44.4%
-
-Principal Components                     38.89%           1,114,561           86.82%                38.89%
+Lagged Differenced Variables            12.3%              1,023,904           87.56%                38.0%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
 ## Ensemble Model  Results  {.unnumbered}
-After building challenger models that utilize social media variables, we will now construct an ensemble model.   Ensembling the three challenger models we built should produce more accurate Coca-Cola bag order predictions.  We will use several ensemble models and compare these results against each individual challenger model.  The ensemble models we will build are ‘average of all models’, linear regression, and random forest. 
+After building challenger models that utilize social media variables, we will now construct an ensemble model. Wel use several ensemble models and compare these results against each individual challenger model.  The ensemble models we will build are ‘average of all models’, linear regression, and random forest. 
 
-The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply takes the average of all predicted values among all challenger models.  Meanwhile, the linear model ensemble model will assign a weight to each challenger model’s results.  The more that a model contributes to the predicted results, the more weight the linear model will assign it.  Finally, the random forest ensemble model is the most complex among the three.  This model will capture how each challenger model’s specific weaknesses are in prediction.  For the linear regression and random forest models, the predictions of the three challenger models will be used as training observations.
+The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply takes the average of all predicted values among all challenger models.  Meanwhile, the linear model ensemble model will assign a weight to each challenger model’s results.  The more that a model contributes to the predicted results, the more weight the linear model will assign it.  Finally, the random forest ensemble model is the most complex among the three.  This model will capture how each challenger model’s specific weaknesses are in prediction.  For the linear regression and random forest models, the predictions of the three challenger models will be used as training observations.  
 
 --------------------------------------------------------------------------------------------------------------------
- Model                                   sMAPE                RMSE            Mean Accuracy       Bias (%)
+ Model                                  sMAPE                RMSE            Mean Accuracy       Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
-Scholle Baseline Model                  7.43%            667,832             92.84%               27.78%
+Scholle Baseline Model                   7.43%            667,832             92.84%               27.78%
 
-Average of all Models                   8.41%            809,139             91.53%               33.33%
-
-Linear Regression                       5.76%            545,211             94.22%               50.00%
-
-Random Forest                           3.57%            356,563             96.37%               44.44%
+Linear Regression                        5.82%            541,989             94.17%               55.00%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
-The results show that the random forest ensemble model performs the best according  to the sMAPE and RMSE metrics.  However, since the linear model produced acceptable results and is the simpler ensemble model, this will be selected as the champion model. Below is a graph visualizing our individual model forecasts against the actual quantity (black).
+Ensembling the three challenger models we built produced more accurate Coca-Cola bag order predictions. The results show that the random forest ensemble model performs the best according  to the sMAPE and RMSE metrics.  However, since the linear model produced the most stable results, this will be selected as the champion model. Below is a graph visualizing our individual model forecasts against the actual quantity (black).
 
-[INSERT FIGURE]
+```{r timeplot, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Model Predictions vs. Forecast Window", echo=FALSE}
+include_graphics(path = "figure/timeplot.png")
+```
 
 ## Coca-Cola Ensemble Model  Results  {.unnumbered}
 
@@ -110,5 +94,8 @@ Linear Regression                       1.05%            93,662              98.
 Random Forest                           1.34%            119,437             98.64%               50.00%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
+```{r coketeams, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Coke Ensemble Model Predictions vs. Forecast Window", echo=FALSE}
+include_graphics(path = "figure/coketeams.png")
+```
 
 

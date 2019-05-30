@@ -80,7 +80,7 @@ library(knitr)
 
 # Introduction {.unnumbered}
 
-Scholle IPN is a global manufacturing company based in Northlake, IL, with products focused primarily in bag-in-box packaging. The company is a pioneer in its industry by implementing a combination of qualitative observations and quantitative analyses in forecasting their products’ sales.  However, variability in these sales forecasts present challenges for Scholle IPN in raw material preparation, operational efficiency, and asset management.
+Scholle IPN is a global manufacturing company based in Northlake, IL, with products focusing primarily in bag-in-box packaging. The company is a pioneer in its industry by implementing a combination of qualitative observations and quantitative analyses in forecasting their products’ sales.  However, variability in these sales forecasts present challenges for Scholle IPN in raw material preparation, operational efficiency, and asset management.
         
 ## Problem Statement {.unnumbered}
 

@@ -30,6 +30,52 @@ The following data cleansing steps were conducted to prepare the Scholle IPN dat
 
 Once the steps listed have been conducted, the primary data is left with only 4,875 records.  The final step to data cleansing will be aggregating the records at the monthly level.  The ‘Planned Delivery Date’ field will be used to aggregate quantities at the desired level.  
 
+**Cross Correlation Plots**
+
+```{r ccf1, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots A", echo=FALSE}
+include_graphics(path = "figure/ccf1.png")
+```
+
+```{r ccf2, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots B", echo=FALSE}
+include_graphics(path = "figure/ccf2.png")
+```
+
+```{r ccf3, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots C", echo=FALSE}
+include_graphics(path = "figure/ccf3.png")
+```
+
+```{r ccf4, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots D", echo=FALSE}
+include_graphics(path = "figure/ccf4.png")
+```
+
+```{r ccf5, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots E", echo=FALSE}
+include_graphics(path = "figure/ccf5.png")
+```
+
+```{r ccf6, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots F", echo=FALSE}
+include_graphics(path = "figure/ccf6.png")
+```
+
+```{r ccf7, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots G", echo=FALSE}
+include_graphics(path = "figure/ccf7.png")
+```
+
+```{r ccf8, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots H", echo=FALSE}
+include_graphics(path = "figure/ccf8.png")
+```
+
+```{r ccf9, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots I", echo=FALSE}
+include_graphics(path = "figure/ccf9.png")
+```
+
+```{r ccf10, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots J", echo=FALSE}
+include_graphics(path = "figure/ccf10.png")
+```
+
+```{r ccf11, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Cross-Correlation Plots K", echo=FALSE}
+include_graphics(path = "figure/ccf11.png")
+```
+
 **Twitter Data Collection**
 The selected terms (Coca-Cola, Pepsi, McDonald’s, Taco Bell, Jobs) will be used to collect user-generated tweets.  The collection of this data will be done by using Twitter’s Search API.  Twitter posts containing  the terms ‘coke’, ‘pepsi’, ‘mcdonalds’, ‘taco bell’, or ‘jobs’ will be collected from the 15th of every month from July 2009 to December 2018.  Twitter’s Search API impose strict restrictions on query results depending on the account level purchased. For this project, a maximum of 500 user-generated tweets will be collected per month in the given date range. For example, for the month of December 2018, there will be 500 tweets collected related to Coca-Cola, Pepsi, McDonald’s, Taco Bell, and jobs.  This means that at any given month, the distribution of tweets across different terms can differ depending on what search term is trending. 
 

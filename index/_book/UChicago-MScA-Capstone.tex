@@ -729,8 +729,8 @@ The following metrics were used to measure the forecasting models built using so
 \noindent \[ \frac{ P_O}{P_T}\]
 
 where,
-P = Count of predictions
-O = Overestimated and
+P = Count of predictions,
+O = Overestimated, and
 T = Total.
 
 \hypertarget{selection-of-forecasting-models}{%
@@ -856,7 +856,8 @@ Bias (\%)\strut
 \midrule
 \endhead
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
-Lagged Principal Components\strut
+Differenced Variables
+Principal Components\strut
 \end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
 9.76\%\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
@@ -889,15 +890,20 @@ Bias (\%)\strut
 \midrule
 \endhead
 \begin{minipage}[t]{0.27\columnwidth}\raggedright
-Lagged Differenced Variables\strut
+Differenced Variables
+Principal Components\strut
 \end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
-6.21\%\strut
+6.21\%
+7.27\%\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
-597,983\strut
+597,983
+701,980\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-93.88\%\strut
+93.88\%
+93.01\%\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-27.78\%\strut
+27.78\%
+38.89\%\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
@@ -926,7 +932,7 @@ For the LSTM model, we also introduced a month of year variable to allow the mod
 \begin{longtable}[]{@{}ccccc@{}}
 \toprule
 \begin{minipage}[b]{0.27\columnwidth}\centering
-Social Media Var\strut
+Social Media Variable\strut
 \end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
 sMAPE\strut
 \end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
@@ -939,15 +945,26 @@ Bias (\%)\strut
 \midrule
 \endhead
 \begin{minipage}[t]{0.27\columnwidth}\centering
-Lagged Differenced Variables\strut
+Differenced Variables\strut
 \end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
-12.3\%\strut
+12.30\%\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
 1,023,904\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
 87.56\%\strut
 \end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
-38.0\%\strut
+38.00\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.27\columnwidth}\centering
+Principal Components\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+13.46\%\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+1,145,561\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+86.82\%\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+38.89\%\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
@@ -1036,7 +1053,7 @@ Scholle Baseline Model\strut
 27.78\%\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.27\columnwidth}\centering
-Linear Regression (social media)\strut
+Social Media Ensemble\strut
 \end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
 5.76\%\strut
 \end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
@@ -1130,6 +1147,95 @@ The following data cleansing steps were conducted to prepare the Scholle IPN dat
 
 Once the steps listed have been conducted, the primary data is left with only 4,875 records. The final step to data cleansing will be aggregating the records at the monthly level. The `Planned Delivery Date' field will be used to aggregate quantities at the desired level.
 
+\textbf{Cross Correlation}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf1} 
+
+}
+
+\caption{Cross-Correlation Plots A}\label{fig:ccf1}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf2} 
+
+}
+
+\caption{Cross-Correlation Plots B}\label{fig:ccf2}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf3} 
+
+}
+
+\caption{Cross-Correlation Plots C}\label{fig:ccf3}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf4} 
+
+}
+
+\caption{Cross-Correlation Plots D}\label{fig:ccf4}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf5} 
+
+}
+
+\caption{Cross-Correlation Plots E}\label{fig:ccf5}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf6} 
+
+}
+
+\caption{Cross-Correlation Plots F}\label{fig:ccf6}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf7} 
+
+}
+
+\caption{Cross-Correlation Plots G}\label{fig:ccf7}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf8} 
+
+}
+
+\caption{Cross-Correlation Plots H}\label{fig:ccf8}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf9} 
+
+}
+
+\caption{Cross-Correlation Plots I}\label{fig:ccf9}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf10} 
+
+}
+
+\caption{Cross-Correlation Plots J}\label{fig:ccf10}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/ccf11} 
+
+}
+
+\caption{Cross-Correlation Plots K}\label{fig:ccf11}
+\end{figure}
 \textbf{Twitter Data Collection}
 The selected terms (Coca-Cola, Pepsi, McDonald's, Taco Bell, Jobs) will be used to collect user-generated tweets. The collection of this data will be done by using Twitter's Search API. Twitter posts containing the terms `coke', `pepsi', `mcdonalds', `taco bell', or `jobs' will be collected from the 15th of every month from July 2009 to December 2018. Twitter's Search API impose strict restrictions on query results depending on the account level purchased. For this project, a maximum of 500 user-generated tweets will be collected per month in the given date range. For example, for the month of December 2018, there will be 500 tweets collected related to Coca-Cola, Pepsi, McDonald's, Taco Bell, and jobs. This means that at any given month, the distribution of tweets across different terms can differ depending on what search term is trending.
 

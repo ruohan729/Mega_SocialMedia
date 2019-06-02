@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  2 JUN 2019 11:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.26)  2 JUN 2019 14:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -786,279 +786,284 @@ This may cause the page layout to be inconsistent, however.
 [2] [3
 
 ]
-<figure/differencing.png, id=294, 2006.49625pt x 709.65125pt>
+<figure/differencing.png, id=291, 2006.49625pt x 709.65125pt>
 File: figure/differencing.png Graphic file (type png)
 <use figure/differencing.png>
-Package pdftex.def Info: figure/differencing.png  used on input line 278.
+Package pdftex.def Info: figure/differencing.png  used on input line 279.
 (pdftex.def)             Requested size: 200.75073pt x 70.99094pt.
 [4 <./figure/differencing.png>]
-<figure/pca.png, id=303, 1369.115pt x 749.80125pt>
+<figure/pca.png, id=300, 1369.115pt x 749.80125pt>
 File: figure/pca.png Graphic file (type png)
 <use figure/pca.png>
-Package pdftex.def Info: figure/pca.png  used on input line 298.
+Package pdftex.def Info: figure/pca.png  used on input line 299.
 (pdftex.def)             Requested size: 200.75073pt x 109.93686pt.
 [5 <./figure/pca.png>] [6] [7] [8
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 621.
-<figure/TSCoke.png, id=330, 455.7025pt x 295.1025pt>
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 622.
+<figure/TSCoke.png, id=327, 455.7025pt x 295.1025pt>
 File: figure/TSCoke.png Graphic file (type png)
 <use figure/TSCoke.png>
-Package pdftex.def Info: figure/TSCoke.png  used on input line 625.
+Package pdftex.def Info: figure/TSCoke.png  used on input line 626.
 (pdftex.def)             Requested size: 200.75073pt x 130.00308pt.
 [9]
-<figure/AveCokeBagOrderPerMonth.png, id=337, 866.23625pt x 635.37375pt>
+<figure/AveCokeBagOrderPerMonth.png, id=334, 866.23625pt x 635.37375pt>
 File: figure/AveCokeBagOrderPerMonth.png Graphic file (type png)
 <use figure/AveCokeBagOrderPerMonth.png>
 Package pdftex.def Info: figure/AveCokeBagOrderPerMonth.png  used on input line
- 634.
+ 635.
 (pdftex.def)             Requested size: 200.75073pt x 147.2478pt.
-<figure/AveUserTweets.png, id=338, 719.68875pt x 300.12125pt>
+<figure/AveUserTweets.png, id=335, 719.68875pt x 300.12125pt>
 File: figure/AveUserTweets.png Graphic file (type png)
 <use figure/AveUserTweets.png>
-Package pdftex.def Info: figure/AveUserTweets.png  used on input line 647.
+Package pdftex.def Info: figure/AveUserTweets.png  used on input line 648.
 (pdftex.def)             Requested size: 200.75073pt x 83.71739pt.
 [10 <./figure/TSCoke.png> <./figure/AveCokeBagOrderPerMonth.png>]
-<figure/CompanyTweets.png, id=346, 997.7275pt x 199.74625pt>
+<figure/CompanyTweets.png, id=343, 997.7275pt x 199.74625pt>
 File: figure/CompanyTweets.png Graphic file (type png)
 <use figure/CompanyTweets.png>
-Package pdftex.def Info: figure/CompanyTweets.png  used on input line 660.
+Package pdftex.def Info: figure/CompanyTweets.png  used on input line 661.
 (pdftex.def)             Requested size: 200.75073pt x 40.18932pt.
 [11 <./figure/AveUserTweets.png> <./figure/CompanyTweets.png>]
-<figure/ConsumerReactionTweets.png, id=355, 763.85374pt x 142.5325pt>
+<figure/ConsumerReactionTweets.png, id=352, 763.85374pt x 142.5325pt>
 File: figure/ConsumerReactionTweets.png Graphic file (type png)
 <use figure/ConsumerReactionTweets.png>
 Package pdftex.def Info: figure/ConsumerReactionTweets.png  used on input line 
-671.
+672.
 (pdftex.def)             Requested size: 200.75073pt x 37.45773pt.
-<figure/GoogleTrends.png, id=356, 999.735pt x 266.9975pt>
+<figure/GoogleTrends.png, id=353, 999.735pt x 266.9975pt>
 File: figure/GoogleTrends.png Graphic file (type png)
 <use figure/GoogleTrends.png>
-Package pdftex.def Info: figure/GoogleTrends.png  used on input line 687.
+Package pdftex.def Info: figure/GoogleTrends.png  used on input line 688.
 (pdftex.def)             Requested size: 200.75073pt x 53.61447pt.
 [12 <./figure/ConsumerReactionTweets.png>] [13 <./figure/GoogleTrends.png>]
-<figure/socialmedia_ensemble_framework.png, id=368, 595.22375pt x 306.14375pt>
+<figure/socialmedia_ensemble_framework.png, id=365, 595.22375pt x 306.14375pt>
 File: figure/socialmedia_ensemble_framework.png Graphic file (type png)
 <use figure/socialmedia_ensemble_framework.png>
 Package pdftex.def Info: figure/socialmedia_ensemble_framework.png  used on inp
-ut line 747.
+ut line 748.
 (pdftex.def)             Requested size: 200.75073pt x 103.25131pt.
-[14]
-<figure/coke_ensemble_framework.png, id=381, 595.22375pt x 271.0125pt>
-File: figure/coke_ensemble_framework.png Graphic file (type png)
-<use figure/coke_ensemble_framework.png>
-Package pdftex.def Info: figure/coke_ensemble_framework.png  used on input line
- 756.
-(pdftex.def)             Requested size: 200.75073pt x 91.4028pt.
-[15 <./figure/socialmedia_ensemble_framework.png>] [16 <./figure/coke_ensemble_
-framework.png>]
-<figure/SMAPEvsHorizon.png, id=395, 449.68pt x 264.99pt>
+[14] [15 <./figure/socialmedia_ensemble_framework.png>]
+<figure/integrated_workflow.png, id=383, 616.3025pt x 330.23375pt>
+File: figure/integrated_workflow.png Graphic file (type png)
+<use figure/integrated_workflow.png>
+Package pdftex.def Info: figure/integrated_workflow.png  used on input line 769
+.
+(pdftex.def)             Requested size: 200.75073pt x 107.56656pt.
+[16 <./figure/integrated_workflow.png>]
+<figure/sMAPE_monitoring.png, id=393, 720.6925pt x 286.06876pt>
+File: figure/sMAPE_monitoring.png Graphic file (type png)
+<use figure/sMAPE_monitoring.png>
+Package pdftex.def Info: figure/sMAPE_monitoring.png  used on input line 788.
+(pdftex.def)             Requested size: 200.75073pt x 79.68402pt.
+[17 <./figure/sMAPE_monitoring.png>]
+<figure/SMAPEvsHorizon.png, id=402, 449.68pt x 264.99pt>
 File: figure/SMAPEvsHorizon.png Graphic file (type png)
 <use figure/SMAPEvsHorizon.png>
-Package pdftex.def Info: figure/SMAPEvsHorizon.png  used on input line 781.
+Package pdftex.def Info: figure/SMAPEvsHorizon.png  used on input line 814.
 (pdftex.def)             Requested size: 200.75073pt x 118.29823pt.
-[17
+[18
 
  <./figure/SMAPEvsHorizon.png>]
-<figure/FeatureImportance.png, id=403, 1115.16624pt x 715.67375pt>
+<figure/FeatureImportance.png, id=409, 1115.16624pt x 715.67375pt>
 File: figure/FeatureImportance.png Graphic file (type png)
 <use figure/FeatureImportance.png>
-Package pdftex.def Info: figure/FeatureImportance.png  used on input line 913.
+Package pdftex.def Info: figure/FeatureImportance.png  used on input line 946.
 (pdftex.def)             Requested size: 200.75073pt x 128.82663pt.
-[18]
-<figure/image17.png, id=413, 382.42876pt x 252.945pt>
+[19]
+<figure/image17.png, id=419, 382.42876pt x 252.945pt>
 File: figure/image17.png Graphic file (type png)
 <use figure/image17.png>
-Package pdftex.def Info: figure/image17.png  used on input line 926.
+Package pdftex.def Info: figure/image17.png  used on input line 959.
 (pdftex.def)             Requested size: 200.75073pt x 132.77881pt.
-[19 <./figure/FeatureImportance.png>]
-<figure/timeplot.png, id=420, 2280.52pt x 860.21375pt>
+[20 <./figure/FeatureImportance.png>]
+<figure/timeplot.png, id=427, 2280.52pt x 860.21375pt>
 File: figure/timeplot.png Graphic file (type png)
 <use figure/timeplot.png>
-Package pdftex.def Info: figure/timeplot.png  used on input line 1018.
+Package pdftex.def Info: figure/timeplot.png  used on input line 1051.
 (pdftex.def)             Requested size: 200.75073pt x 75.72266pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1018--1019
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1051--1052
  [][] 
  []
 
-[20 <./figure/image17.png>]
-<figure/coketeams.png, id=430, 2308.625pt x 853.1875pt>
+[21 <./figure/image17.png>]
+<figure/coketeams.png, id=436, 2308.625pt x 853.1875pt>
 File: figure/coketeams.png Graphic file (type png)
 <use figure/coketeams.png>
-Package pdftex.def Info: figure/coketeams.png  used on input line 1092.
+Package pdftex.def Info: figure/coketeams.png  used on input line 1125.
 (pdftex.def)             Requested size: 200.75073pt x 74.17984pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1092--1093
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1125--1126
  [][] 
  []
 
-[21 <./figure/timeplot.png>] [22 <./figure/coketeams.png>] [23
-
-] [24
+[22 <./figure/timeplot.png>] [23 <./figure/coketeams.png>] [24
 
 ] [25
 
+] [26
+
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1132
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1165
 .
 (/Users/husay/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1131--1134
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1167
 \T1/ptm/b/n/12 KPSS Test []$\T1/lmtt/m/n/12 https : / / www . rdocumentation . 
 org / packages / tseries / versions /
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 1131--1134
+Underfull \hbox (badness 1067) in paragraph at lines 1164--1167
 \T1/lmtt/m/n/12 0 . 10 -[] 46 / topics / kpss . test$[] \T1/ptm/m/n/12 (In-sert
  ta-ble of KPSS test re-sults - be-fore and af-ter
  []
 
-<figure/ccf1.png, id=460, 1360.08125pt x 190.7125pt>
+<figure/ccf1.png, id=466, 1360.08125pt x 190.7125pt>
 File: figure/ccf1.png Graphic file (type png)
 <use figure/ccf1.png>
-Package pdftex.def Info: figure/ccf1.png  used on input line 1153.
+Package pdftex.def Info: figure/ccf1.png  used on input line 1186.
 (pdftex.def)             Requested size: 200.75073pt x 28.14876pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1153--1154
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1186--1187
  [][] 
  []
 
-<figure/ccf2.png, id=461, 1367.1075pt x 204.765pt>
+<figure/ccf2.png, id=467, 1367.1075pt x 204.765pt>
 File: figure/ccf2.png Graphic file (type png)
 <use figure/ccf2.png>
-Package pdftex.def Info: figure/ccf2.png  used on input line 1161.
+Package pdftex.def Info: figure/ccf2.png  used on input line 1194.
 (pdftex.def)             Requested size: 200.75073pt x 30.06665pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1161--1162
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1194--1195
  [][] 
  []
 
-<figure/ccf3.png, id=462, 1362.08875pt x 221.82875pt>
+<figure/ccf3.png, id=468, 1362.08875pt x 221.82875pt>
 File: figure/ccf3.png Graphic file (type png)
 <use figure/ccf3.png>
-Package pdftex.def Info: figure/ccf3.png  used on input line 1169.
+Package pdftex.def Info: figure/ccf3.png  used on input line 1202.
 (pdftex.def)             Requested size: 200.75073pt x 32.69406pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1169--1170
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1202--1203
  [][] 
  []
 
-[26
+[27
 
  <./figure/ccf1.png>]
-<figure/ccf4.png, id=471, 1384.17125pt x 217.81375pt>
+<figure/ccf4.png, id=477, 1384.17125pt x 217.81375pt>
 File: figure/ccf4.png Graphic file (type png)
 <use figure/ccf4.png>
-Package pdftex.def Info: figure/ccf4.png  used on input line 1177.
+Package pdftex.def Info: figure/ccf4.png  used on input line 1210.
 (pdftex.def)             Requested size: 200.75073pt x 31.58716pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1177--1178
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1210--1211
  [][] 
  []
 
-<figure/ccf5.png, id=472, 1402.23875pt x 215.80624pt>
+<figure/ccf5.png, id=478, 1402.23875pt x 215.80624pt>
 File: figure/ccf5.png Graphic file (type png)
 <use figure/ccf5.png>
-Package pdftex.def Info: figure/ccf5.png  used on input line 1185.
+Package pdftex.def Info: figure/ccf5.png  used on input line 1218.
 (pdftex.def)             Requested size: 200.75073pt x 30.8943pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1185--1186
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1218--1219
  [][] 
  []
 
-<figure/ccf6.png, id=473, 1400.23125pt x 233.87375pt>
+<figure/ccf6.png, id=479, 1400.23125pt x 233.87375pt>
 File: figure/ccf6.png Graphic file (type png)
 <use figure/ccf6.png>
-Package pdftex.def Info: figure/ccf6.png  used on input line 1193.
+Package pdftex.def Info: figure/ccf6.png  used on input line 1226.
 (pdftex.def)             Requested size: 200.75073pt x 33.52719pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1193--1194
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1226--1227
  [][] 
  []
 
-<figure/ccf7.png, id=474, 1356.06625pt x 232.87pt>
+<figure/ccf7.png, id=480, 1356.06625pt x 232.87pt>
 File: figure/ccf7.png Graphic file (type png)
 <use figure/ccf7.png>
-Package pdftex.def Info: figure/ccf7.png  used on input line 1201.
+Package pdftex.def Info: figure/ccf7.png  used on input line 1234.
 (pdftex.def)             Requested size: 200.75073pt x 34.47061pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1201--1202
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1234--1235
  [][] 
  []
 
-<figure/ccf8.png, id=475, 1357.07pt x 231.86626pt>
+<figure/ccf8.png, id=481, 1357.07pt x 231.86626pt>
 File: figure/ccf8.png Graphic file (type png)
 <use figure/ccf8.png>
-Package pdftex.def Info: figure/ccf8.png  used on input line 1209.
+Package pdftex.def Info: figure/ccf8.png  used on input line 1242.
 (pdftex.def)             Requested size: 200.75073pt x 34.29726pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1209--1210
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1242--1243
  [][] 
  []
 
-[27 <./figure/ccf2.png> <./figure/ccf3.png> <./figure/ccf4.png> <./figure/ccf5.
+[28 <./figure/ccf2.png> <./figure/ccf3.png> <./figure/ccf4.png> <./figure/ccf5.
 png> <./figure/ccf6.png>]
-<figure/ccf9.png, id=485, 1353.055pt x 207.77625pt>
+<figure/ccf9.png, id=491, 1353.055pt x 207.77625pt>
 File: figure/ccf9.png Graphic file (type png)
 <use figure/ccf9.png>
-Package pdftex.def Info: figure/ccf9.png  used on input line 1217.
+Package pdftex.def Info: figure/ccf9.png  used on input line 1250.
 (pdftex.def)             Requested size: 200.75073pt x 30.82585pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1217--1218
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1250--1251
  [][] 
  []
 
-<figure/ccf10.png, id=486, 1385.175pt x 221.82875pt>
+<figure/ccf10.png, id=492, 1385.175pt x 221.82875pt>
 File: figure/ccf10.png Graphic file (type png)
 <use figure/ccf10.png>
-Package pdftex.def Info: figure/ccf10.png  used on input line 1225.
+Package pdftex.def Info: figure/ccf10.png  used on input line 1258.
 (pdftex.def)             Requested size: 200.75073pt x 32.14911pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1225--1226
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1258--1259
  [][] 
  []
 
-<figure/ccf11.png, id=487, 695.59875pt x 216.81pt>
+<figure/ccf11.png, id=493, 695.59875pt x 216.81pt>
 File: figure/ccf11.png Graphic file (type png)
 <use figure/ccf11.png>
-Package pdftex.def Info: figure/ccf11.png  used on input line 1233.
+Package pdftex.def Info: figure/ccf11.png  used on input line 1266.
 (pdftex.def)             Requested size: 200.75073pt x 62.56892pt.
 
-Overfull \hbox (68.25684pt too wide) in paragraph at lines 1233--1234
+Overfull \hbox (68.25684pt too wide) in paragraph at lines 1266--1267
  [][] 
  []
 
-[28 <./figure/ccf7.png> <./figure/ccf8.png> <./figure/ccf9.png> <./figure/ccf10
-.png>] [29 <./figure/ccf11.png>] [30] [31]
-Underfull \hbox (badness 2443) in paragraph at lines 1301--1303
+[29 <./figure/ccf7.png> <./figure/ccf8.png> <./figure/ccf9.png> <./figure/ccf10
+.png>] [30 <./figure/ccf11.png>] [31] [32]
+Underfull \hbox (badness 2443) in paragraph at lines 1334--1336
  [][]\T1/ptm/m/n/12 Kambhatla, N., & Leen, T. K. (1997). Di-men-sion re-duc-tio
 n by lo-cal prin-ci-
  []
 
 
-Underfull \hbox (badness 2828) in paragraph at lines 1301--1303
+Underfull \hbox (badness 2828) in paragraph at lines 1334--1336
  \T1/ptm/m/n/12 pal com-po-nent anal-y-sis. \T1/ptm/m/it/12 Neu-ral Com-pu-ta-t
 ion\T1/ptm/m/n/12 , 1493--1516. Re-trieved from
  []
 
-[32
+[33
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1319.
-[33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1319.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1355.
+[34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1355.
 (./UChicago-MScA-Capstone.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1319.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1319.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1355.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1355.
 
 Package rerunfilecheck Info: File `UChicago-MScA-Capstone.out' has not changed.
 
-(rerunfilecheck)             Checksum: 51FA56E81C2020EB06FA626D5D52354F;2197.
+(rerunfilecheck)             Checksum: 9FA2A9A03C379B52FF5FB96B73C11270;2110.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.40009pt have occurred.
@@ -1066,13 +1071,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1319.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1355.
  ) 
 Here is how much of TeX's memory you used:
- 9478 strings out of 494553
- 141953 string characters out of 6174236
- 241277 words of memory out of 5000000
- 12749 multiletter control sequences out of 15000+600000
+ 9489 strings out of 494553
+ 142200 string characters out of 6174236
+ 241400 words of memory out of 5000000
+ 12754 multiletter control sequences out of 15000+600000
  62478 words of font info for 109 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,12n,49p,1665b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1087,10 +1092,10 @@ rary/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/husay/Library/
 TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/husay/Library/TinyTeX/te
 xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on UChicago-MScA-Capstone.pdf (41 pages, 2499556 bytes).
+Output written on UChicago-MScA-Capstone.pdf (42 pages, 2675884 bytes).
 PDF statistics:
- 611 PDF objects out of 1000 (max. 8388607)
- 501 compressed objects within 6 object streams
- 169 named destinations out of 1000 (max. 500000)
- 403 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 620 PDF objects out of 1000 (max. 8388607)
+ 507 compressed objects within 6 object streams
+ 174 named destinations out of 1000 (max. 500000)
+ 400 words of extra memory for PDF output out of 10000 (max. 10000000)
 

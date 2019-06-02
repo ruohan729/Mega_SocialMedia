@@ -249,14 +249,15 @@ The scope of this forecasting project is limited to predicting the future monthl
 \section*{Social Media Variables}\label{social-media-variables}}
 \addcontentsline{toc}{section}{Social Media Variables}
 
-For this forecasting project, we focused on collecting social media data on selected topics. These selected topics are Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. Coca-Cola was selected because it is their product's demand that Scholle IPN is interested in forecasting. Pepsi was selected due to its position as the main competitor for Coca-Cola. Meanwhile, McDonald's and Taco Bell were chosen because they are the top quick service restaurant partners for Coca-Cola and Pepsi based on 2018 annual sales revenue. The topic `jobs' was selected to gather job-related tweets intended to capture economic activity in the United States and Canada. Relationships between social media activity on these topics and the quantity of Coca-Cola bags ordered can be useful information for our forecasting models.
-Twitter data is a combination of user-level tweets and company-level tweets, while Google Trend data is monthly trend value for our selected terms. User-level tweets were Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs.'' Company-level tweets were Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and Taco Bell. Meanwhile, Google Trends data was the trend value for Coca-Cola and the other selected topics on a given month.
+For this forecasting project, we focused on collecting social media data on selected topics. These selected topics are Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. Coca-Cola was selected because it is their product's demand that Scholle IPN is interested in forecasting. Pepsi was selected due to its position as the main competitor for Coca-Cola. Meanwhile, McDonald's and Taco Bell were chosen because they are the top quick service restaurant partners for Coca-Cola and Pepsi based on 2017 rankings (QSR Magazine, 2018). The topic ``jobs'' was selected to gather job-related tweets intended to capture economic activity in the United States and Canada. Relationships between social media activity on these topics and the quantity of Coca-Cola bags ordered can be useful information for our forecasting models.
+
+Twitter data is a combination of user-level tweets and company-level tweets, while Google Trend data is monthly trend value for our selected terms. User-level tweet data were Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs.'' Company-level tweet data were Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and Taco Bell. Meanwhile, Google Trends data was the trend value for Coca-Cola and the other selected topics on a given month. T
 
 \hypertarget{sentiment-analysis}{%
 \section*{Sentiment Analysis}\label{sentiment-analysis}}
 \addcontentsline{toc}{section}{Sentiment Analysis}
 
-One method of quantifying text-based social media data for our forecasting models is by implementing sentiment analysis. This is a technique in natural language processing that we use for each tweet to generate a numerical value signifying whether consumers have a positive or negative outlook on Coca-Cola, Pepsi, McDonald's, Taco Bell, or `jobs'. Prior to conducting sentiment analysis, text processing steps must be conducted on tweets. The following steps were conducted on the tweets:
+One method of quantifying text-based social media data for our forecasting models is by implementing sentiment analysis. This is a technique in natural language processing that we use for each tweet to generate a numerical value signifying whether consumers have a positive or negative outlook on Coca-Cola, Pepsi, McDonald's, Taco Bell, or ``jobs''. Prior to conducting sentiment analysis, text processing steps must be conducted on tweets. The following steps were conducted on the tweets:
 \begin{itemize}
 \tightlist
 \item
@@ -272,7 +273,7 @@ For this project, we only calculated sentiment scores for user-generated tweets 
 \section*{Stationarity and Differencing}\label{stationarity-and-differencing}}
 \addcontentsline{toc}{section}{Stationarity and Differencing}
 
-An important step to consider when forecasting is to remove trends and seasonality from variables in order to make it stationary. When time series data is stationary, it displays a stable mean and stable variance over time (Hyndman, 2018). This means that it is less likely to produce spurious relationships and misleading results. Statistical tests (KPSS test) (Kwiatkowski, 1992) were conducted on each social media variable to determine its level of stationarity (Hyndman, 1992). It was determined that the dependent variable, monthly quantity of Coca-Cola bag orders, is stationary. This means that this variable requires no further transformations. However, the independent variables diplayed varied results and required additional processing. One way of transforming time series data to become stationary is the method of differencing. Differencing is the method of subtracting the value of the current time step from the value of previous time step(s). This method was applied to all social media variables to ensure that they were all stationary. Figure 9 demonstrates how the method of differencing is able to remove trends from the monthly total user tweets. The top half of the visual are time plots of the pre-differenced variables, while the bottom are time plots of the differenced variables.
+An important step to consider when forecasting is to remove trends and seasonality from variables in order to make it stationary. When time series data is stationary, it displays a stable mean and stable variance over time (Hyndman, 2018). This means that it is less likely to produce spurious relationships and misleading results. The KPSS test (Kwiatkowski, 1992) was conducted on each social media variable to determine its level of stationarity (Hyndman, 1992). It was determined that the dependent variable, monthly quantity of Coca-Cola bag orders, is stationary. This means that this variable requires no further transformations. However, the independent variables diplayed varied results and required additional processing. One way of transforming time series data to become stationary is the method of differencing. Differencing is the method of subtracting the value of the current time step from the value of previous time step(s). This method was applied to all social media variables to ensure that they were all stationary. Figure 10 demonstrated how the method of differencing is able to remove trends from the monthly total user tweets. The top half of the visual are time plots of the pre-differenced variables, while the bottom are time plots of the differenced variables.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/differencing} 
@@ -750,22 +751,54 @@ The challenger models selected for this project were: regression with Arima erro
 
 \caption{Ensemble Framework}\label{fig:GoogleTrends2}
 \end{figure}
-The next type of models built were ensemble models of all three challenger models. For ensemble modeling, the predictions of the three challenger models were used as training observations. The ensemble models built were the `average of all models', linear regression model, and random forest model. The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply took the average of all predicted values from all the challenger models. Meanwhile, the linear model ensemble model assigned a weight to each challenger model's results. The more a challenger model contributes to the predicted results, the more weight the linear model assigned it. Finally, the random forest ensemble model is the most complex and least interpretable among the three ensemble models. The results of each ensemble model were evaluated using the same metrics as the baseline and challenger models. Furthermore, Scholle IPN hosted other researchers from the University of Chicago to predict Coca-Cola bag orders using other external variables. The two other research teams used related products data and economic/demographic data. The same ensembling model framework was used to combine the winning models from each indiviudal team to produce the final Scholle forecasting model. In addition to the best models from each team, the Scholle baseline model was also included in this final ensemble model (Figure 10).
+The next type of models built were ensemble models of all three challenger models. For ensemble modeling, the predictions of the three challenger models were used as training observations. The ensemble models built were the `average of all models', linear regression model, and random forest model. The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply took the average of all predicted values from all the challenger models. Meanwhile, the linear model ensemble model assigned a weight to each challenger model's results. The more a challenger model contributes to the predicted results, the more weight the linear model assigned it. Finally, the random forest ensemble model is the most complex and least interpretable among the three ensemble models. The results of each ensemble model were evaluated using the same metrics as the baseline and challenger models.
+
+\hypertarget{coca-cola-ensemble-model}{%
+\subsection*{Coca-Cola Ensemble Model}\label{coca-cola-ensemble-model}}
+\addcontentsline{toc}{subsection}{Coca-Cola Ensemble Model}
+
+Scholle IPN hosted two other research teams from the University of Chicago to predict Coca-Cola bag orders using other external variables. The two teams use related products data and economic/demographic data. Since each team focused on different types of indicators, it is possible that a model is weak in forecasting certain aspects of Coca-Cola bag orders. In order to account for these potential weaknesses, we employ an ensemble model to combine the three best models from each research team and the Scholle IPN Coca-Cola baseline model. The predictions of each model is blended using three methods: (1) average of all models, (2) linear regression, and (3) random forest. The resulting model is evaluated using the established metrics. The best performing ensemble model is selected as the final Scholle IPN Coca-Cola bag order forecasting model.
+
+\hypertarget{coca-cola-system-integrated-workflow}{%
+\subsubsection*{Coca-Cola System Integrated Workflow}\label{coca-cola-system-integrated-workflow}}
+\addcontentsline{toc}{subsubsection}{Coca-Cola System Integrated Workflow}
+
+There are three major stages in the workflow for Coca-Cola research teams: data processing, data modeling and prediction (Figure 10). In the data processing procedure, all teams were provided with Scholle IPN's internal sales data. In addition, each team acquired additional data sources externally for individual analysis. After initial data cleaning and engineering, each team applied predictive models to find the best performing model for their external data. For the Coca-Cola team ensemble model, a linear regression model was selected, which was used to generate the final Coca-Cola bag forecasts.
 \begin{figure}
 
-{\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/coke_ensemble_framework} 
+{\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/integrated_workflow} 
 
 }
 
-\caption{Coca-Cola Teams Ensemble Framework}\label{fig:GoogleTrends3}
+\caption{Coca-Cola Integrated Workflow}\label{fig:GoogleTrends3}
 \end{figure}
-\hypertarget{scholle-system-integration}{%
-\section*{Scholle System Integration}\label{scholle-system-integration}}
-\addcontentsline{toc}{section}{Scholle System Integration}
-
 \hypertarget{scholle-forecasting-model-monitoring}{%
-\section*{Scholle Forecasting Model Monitoring}\label{scholle-forecasting-model-monitoring}}
-\addcontentsline{toc}{section}{Scholle Forecasting Model Monitoring}
+\subsubsection*{Scholle Forecasting Model Monitoring}\label{scholle-forecasting-model-monitoring}}
+\addcontentsline{toc}{subsubsection}{Scholle Forecasting Model Monitoring}
+
+The purpose of model monitoring is to ensure that the model is predictive during the deployment stage. The monitoring system will provide a systematic approach to check whether or not new predictions are out of reasonable range. The following two methods were used for monitoring:
+\begin{itemize}
+\tightlist
+\item
+  sMAPE/RMSE Monitoring
+\end{itemize}
+After a given month's Coca-Cola bag order quantity is finalized, this value will be used to calculate sMAPE and RMSE values from the forecasts in each of the previous six months. The averages and standard deviations for this six month window will be calculated. If the actual sMAPE and RMSE values for that given month is outside of two standard deviations, an alert will be sent to Scholle IPN.
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/sMAPE_monitoring} 
+
+}
+
+\caption{sMAPE and RMSE Monitoring Framework}\label{fig:GoogleTrends4}
+\end{figure}
+\begin{itemize}
+\tightlist
+\item
+  Residual Monitoring
+\end{itemize}
+The residuals for each month's prediction is calculated by subtracting the predicted value from actual Coca-Cola bag orders. It is either a positive or negative value but overall residuals for the 18-month forecast window should follow a normal distribution around zero mean, which indicates the model is not biased.
+
+Calculate the mean and sigma of residuals on a 18-month basis using the rolling window method as new data is processed each month. Check if the mean stays within plus/minus two standard deviations of zero. If it meets the criteria, we conclude the model is performing well, otherwise we conclude the model is biased and Scholle IPN will get notified.
 
 \hypertarget{findings}{%
 \chapter*{Findings}\label{findings}}
@@ -1303,6 +1336,9 @@ Kambhatla, N., \& Leen, T. K. (1997). Dimension reduction by local principal com
 
 \leavevmode\hypertarget{ref-kwiatkowski1992}{}%
 Kwiatkowski, D., Peter Schmidt, P. C. P. snd, \& YongcheolShin. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root: How sure are we that economic time series have a unit root? \emph{Journal of Econometrics}, 159--178. Retrieved from \url{https://doi.org/10.1016/0304-4076(92)90104-Y}
+
+\leavevmode\hypertarget{ref-qsr50}{}%
+Magazine, Q. (2018). The qsr 50. Retrieved from \url{https://www.qsrmagazine.com/content/qsr50-2018-top-50-chart}
 
 \leavevmode\hypertarget{ref-molnar2019}{}%
 Molnar, C. (2019). \emph{Interpretable machine learning - a guide for making black box models explainable} (pp. Chapter 5, Section8). Springer-Verlag, New York.

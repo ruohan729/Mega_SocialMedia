@@ -4,11 +4,11 @@
 
 The data used to predict Coca-Cola bag orders came from three distinct sources: Scholle IPN, Twitter, and Google Trends.  The aggregation of all relevant data was at the monthly level with a date range from October 2009 to October 2018.  This ensured that the training data had enough observations for our forecasting models.  The dependent variable for this project is the monthly total bag orders from Coca-Cola, which is calculated by using Scholle IPN’s internal sales data.  The independent variables were social media variables collected from Twitter and Google Trends.
 
-Twitter is a widely used social media platform in the United States and Canada that was founded in 2006.  The main advanted of Twitter is that it allowes us to get a feeling about Twitter users and their opinions on Coca-Cola, Pepsi, McDonald’s, Taco Bell, and ‘jobs’.  Most importantly, Twitter gave us access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e. number of likes, replies, and retweets).  Twitter’s years of existence, popularity, and data features made it an ideal social media data source for this project.  However, Twitter does have a number of limitations.  One of the main disadvantages of using Twitter data is its high volume and high dimensionality.  Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.).  A well defined scope limited the amount of tweets we need to collect and allowed us to prepare for any data storage and computational needs.	  
+Twitter is a widely used social media platform in the United States and Canada that was founded in 2006.  The main advantage of Twitter is that it allows us to get a feeling about Twitter users and their opinions on Coca-Cola, Pepsi, McDonald’s, Taco Bell, and ‘jobs’.  Most importantly, Twitter gave us access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e. number of likes, replies, and retweets).  Twitter’s years of existence, popularity, and data features made it an ideal social media data source for this project.  However, Twitter does have a number of limitations.  One of the main disadvantages of using Twitter data is its high volume and high dimensionality.  Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.).  A well defined scope limited the amount of tweets we need to collect and allowed us to prepare for any data storage and computational needs.	  
 
 Google Trends gave us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald’s, Pepsi, and ‘jobs’ in Google.  The main advantage of Google Trends is the ease in which we are able to collect this data.  Google Trends allowed us to select the aggregate level (monthly, annual), location, and date range for each query.  The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available.  This made it challenging to validate unusual trends in a search query. 
 
-For more information on how the social media data were collected, please refer to Appendix A.  Table 3 is a summary table of the monthly social media variables:
+Additional information on how search queries were configured are available in appendix A.  Table 3 is a summary table of the monthly social media variables:
 
 -----------------------------------------------------------------------------------------------------------------------------------
  Social Media Variable             Coca-Cola           Pepsi            McDonald's             Taco Bell               Jobs
@@ -34,10 +34,6 @@ Average Tweets Sentiment             x                  x                 x     
 Google Trend                         x                  x                 x                       x                    x
 -------------------------------- ---------------- ------------------ --------------------- --------------------- ------------------
 Table: (\#tab:inher) Social Media Variables
-
-
-
-
 
 
 ## Exploratory Data Analysis {#methodology-descriptive .unnumbered} 
@@ -127,25 +123,48 @@ T = Total.
 
 ### Selection of Forecasting Models {.unnumbered}
 
-In this section, we describe the forecasting models used to determine if social media variables have any impact on Coca-Cola bag order forecasts.  We built three types of models - baseline model, challenger models, and ensemble models.  Each forecasting model was set to have a forecasting window of 18 months.  The baseline model is a forecasting model using only the monthly Coca-Cola bag orders.  The challenger models is a set of three different forecasting models that utilized the social media variables.  The ensemble model is a model that combined all three challenger models.
+In this section, we describe the forecasting models used to determine if social media variables have any impact on Coca-Cola bag order forecasts.  We built three types of models - baseline model, challenger models, and ensemble models.  Each forecasting model was set to have a forecasting window of 18 months.  The baseline model is a forecasting model using only the monthly Coca-Cola bag orders.  The challenger models are three different forecasting models that utilized the social media variables.  The ensemble models are three models that combined all three challenger models.
 
-The baseline model was used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data.  The baseline model is built by using a seasonal Arima model.   A sliding-window cross validation of two-years, four-years, and six-years was used to determine the optimal number of observations used for training the models.
+The baseline model was used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data.  The baseline model was built by using a seasonal Arima model.   A sliding-window cross validation of two-years, four-years, and six-years was used to determine the optimal number of observations used for training the models.
 
-The challenger models selected for this project were: regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM).   The regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depended on the external variables selected (Hyndman, 2018).  The XGBoost model is a more complex ‘regularized boosting’ technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run (Chen, 2016).  The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information (Hochreiter, 1997).  This model selectively chooses what it “remembers”, and what to “forget.” In addition, LSTM selects how much of its memory it should output. Each challenger model was trained using 48 months of training observations (see Baseline Model Results).  In addition, each challenger model was trained on two sets of social media variables.  The first set of social media variables were the differenced variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The second set of social media variables were the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The set of social media variables that produced the better challenger model results were used for the ensemble models (Figure 9).
+The challenger models selected for this project were: regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM).   The regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depended on the external variables selected (Hyndman, 2018).  The XGBoost model is a more complex ‘regularized boosting’ technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run (Chen, 2016).  The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information (Hochreiter, 1997).  This model selectively chooses what it “remembers”, and what to “forget.”
+
+Each challenger model was trained using 48 months of training observations (see Baseline Model Results).  In addition, each challenger model was trained on two sets of social media variables.  The first set of social media variables were the differenced variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section).  The second set of social media variables were the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The set of social media variables that produced the better challenger model results were used for the ensemble models (Figure 9).
 
 ```{r GoogleTrends2, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="Ensemble Framework", echo=FALSE}
 include_graphics(path = "figure/socialmedia_ensemble_framework.png")
 ```
 
-The next type of models built were ensemble models of all three challenger models. For ensemble modeling, the predictions of the three challenger models were used as training observations.  The ensemble models built were the ‘average of all models’, linear regression model, and random forest model. The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply took the average of all predicted values from all the challenger models.  Meanwhile, the linear model ensemble model assigned a weight to each challenger model’s results.  The more a challenger model contributes to the predicted results, the more weight the linear model assigned it.  Finally, the random forest ensemble model is the most complex and least interpretable among the three ensemble models. The results of each ensemble model were evaluated using the same metrics as the baseline and challenger models.  Furthermore, Scholle IPN hosted other researchers from the University of Chicago to predict Coca-Cola bag orders using other external variables.   The two other research teams used related products data and economic/demographic data.  The same ensembling model framework was used to combine the winning models from each indiviudal team to produce the final Scholle forecasting model.  In addition to the best models from each team, the Scholle baseline model was also included in this final ensemble model (Figure 10).  
+The next type of models built were ensemble models of all three challenger models. For ensemble modeling, the predictions of the three challenger models were used as training observations.  The ensemble models built were the ‘average of all models’, linear regression model, and random forest model. The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply took the average of all predicted values from all the challenger models.  Meanwhile, the linear model ensemble model assigned a weight to each challenger model’s results.  The more a challenger model contributed to the predicted results, the more weight the linear ensemble model assigned it.  Finally, the random forest ensemble model is the most complex and least interpretable among the three ensemble models. The results of each ensemble model were evaluated using the same metrics as the baseline and challenger models.  
 
-```{r GoogleTrends3, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="Coca-Cola Teams Ensemble Framework", echo=FALSE}
-include_graphics(path = "figure/coke_ensemble_framework.png")
+### Coca-Cola Ensemble Model {.unnumbered}
+
+Scholle IPN hosted two other research teams from the University of Chicago to predict Coca-Cola bag orders using other external variables.  The two teams use related products data and economic/demographic data.  Since each team focused on different types of indicators, it is possible that a model is weak in forecasting certain aspects of Coca-Cola bag orders.  In order to account for these potential weaknesses, we employ an ensemble model to combine the three best models from each research team and the Scholle IPN Coca-Cola baseline model.  The predictions of each model is blended using three methods: (1) average of all models, (2) linear regression, and (3) random forest.  The resulting model is evaluated using the established metrics. The best performing ensemble model is selected as the final Scholle IPN Coca-Cola bag order forecasting model.
+
+#### Coca-Cola System Integrated Workflow {.unnumbered}
+There are three major stages in the workflow for Coca-Cola research teams: data processing, data modeling and prediction (Figure 10). In the data processing procedure, all teams were provided with Scholle IPN’s internal sales data. In addition, each team acquired additional data sources externally for individual analysis. After initial data cleaning and engineering, each team applied predictive models to find the best performing model for their external data. For the Coca-Cola team ensemble model, a linear regression model was selected, which was used to generate the final Coca-Cola bag forecasts.
+
+```{r GoogleTrends3, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="Coca-Cola Integrated Workflow", echo=FALSE}
+include_graphics(path = "figure/integrated_workflow.png")
 ```
 
-## Scholle System Integration {.unnumbered}
+#### Scholle Forecasting Model Monitoring {.unnumbered}
+The purpose of model monitoring is to ensure that the model is predictive during the deployment stage.  The monitoring system will provide a systematic approach to check whether or not new predictions are out of reasonable range. The following two methods were used for monitoring:
 
-## Scholle Forecasting Model Monitoring {.unnumbered}
+* sMAPE/RMSE Monitoring
+
+After a given month’s Coca-Cola bag order quantity is finalized, this value will be used to calculate sMAPE and RMSE values from the forecasts in each of the previous six months.  The averages and standard deviations for this six month window will be calculated. If the actual sMAPE and RMSE values for that given month is outside of two standard deviations, an alert will be sent to Scholle IPN.
+
+```{r GoogleTrends4, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="sMAPE and RMSE Monitoring Framework", echo=FALSE}
+include_graphics(path = "figure/sMAPE_monitoring.png")
+```
+
+* Residual Monitoring
+
+The residuals for each month’s prediction is calculated by subtracting the predicted value from actual Coca-Cola bag orders. It is either a positive or negative value but overall residuals for the 18-month forecast window should follow a normal distribution around zero mean, which indicates the model is not biased. 
+
+Calculate the mean and sigma of residuals on a 18-month basis using the rolling window method as new data is processed each month. Check if the mean stays within plus/minus two standard deviations of zero. If it meets the criteria, we conclude the model is performing well, otherwise we conclude the model is biased and Scholle IPN will get notified. 
+
 
 
 

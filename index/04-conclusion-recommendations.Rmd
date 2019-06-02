@@ -15,6 +15,6 @@ Based on this research, our team recommends the following actions for Scholle IP
 
 # Future Work {.unnumbered}
 
-Our analysis found that the top variables were related to Pepsi, Taco Bell, and McDonald's.  Collecting social media data from additional Coca-Cola competitors could present an opportunity to improve the existing forecasting model. These variables could provide incremental gains in predicting more accurate Coca-Cola bag sales.   However, caution must be used when adding additiona features to model.  It is important for C-suite executives to thoroughly understand the factors that impact predictions in order to make sound business decisions.  Shapley Values for better interpretability, as it gives the average marginal contribution of a feature value across all possible coalitions (Molnar, 2019).
+Our analysis found that the top variables were related to Pepsi, Taco Bell, and McDonald's.  Collecting social media data from additional Coca-Cola competitors could present an opportunity to improve the existing forecasting model. These variables could provide incremental gains in predicting more accurate Coca-Cola bag sales.   However, caution must be used when adding additional features to model.  It is important for C-suite executives to thoroughly understand the factors that impact predictions in order to make sound business decisions.  Shapley Values for better interpretability, as it gives the average marginal contribution of a feature value across all possible coalitions (Molnar, 2019).
  
 \newpage

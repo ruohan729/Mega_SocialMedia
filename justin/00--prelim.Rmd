@@ -1,9 +1,0 @@
-# Preliminary Content {-}
-
-## Acknowledgements {-}
-
-I want to thank a few people.
-
-## Preface {-}
-
-Hey hey!

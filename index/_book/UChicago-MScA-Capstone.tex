@@ -112,22 +112,22 @@ Scholle IPN is a global manufacturing company that has experienced variability i
 
 % Added by JMS
 \Executive{
-Manufacturing companies need to forecast the demand of their products ahead of time, and failing to predict the future demand can result in over-producing, loss of business opportunities, etc. In an era where social media dominates people's life, and data analytics are growing more and more powerful on generating actionable business insights, Scholle IPN tasks us to test if social media brings any predictive power to forecast the future Coca-Cola bag sales. In this project, we examine whether or not people's discussion and engagement on social media have any impact on the consumption of the Coke product in real life.
+Manufacturing companies need to forecast the demand of their products ahead of time, because failing to predict the future demand can result in product surplus or shortage. In an era where social media dominates people's lives, data analytics has become a powerful tool to generate actionable business insights. Scholle IPN tasked us to test if social media brings any predictive power to forecast the future Coca-Cola bag sales. In this project, we examined whether people's discussion and engagement on social media have any impact on the consumption of Coca-Cola products in real life. In addition to our team, two other research groups analyze different types of independent variables to predict Coca-Cola bag sales.
 
-In order to achieve that, we start with collecting external data from social media, and combine with the internal data provided by Scholle IPN. After preliminary exploratory analysis, we build traditional Regression with ARIMA errors model, then more advanced machine learning models, namely, XGBoost and LSTM RNN. XGBoost using the differenced social media variables returns the best predictions (lowest sMAPE score) among all the individual models while still has a decent level of interpretability. Following individual models and their results, we stack these individual models together and create three ensemble models - mean average, linear regression, and random forest. Linear regression ensemble model achieves is the most stable, with the lowest error score.
+In order to achieve that, we collected external data from social media sources and combined it with internal data provided by Scholle IPN. After preliminary exploratory analysis, we built traditional and advaned machine learning models, including regression with ARIMA errors model, XGBoost model and Long Short-Term Memory (Recurrent Neural Network) model. The XGBoost model using the differenced social media variables returned the best predictions while still maintaining a decent level of interpretability. This model combined with other challenger models were stacked together to create three variations of ensemble models - mean average, stacked linear regression, stacked random forest.
 
-Key findings from this project including the following:
+Key findings from this project include the following:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Different social media variables have different importances when modeling. Surprisingly, Pepsi and Taco Bell lagged variables showed the most importance among the predictors according to our XGBoost model feature importance.
+  Pepsi and Taco Bell lagged variables were observed to have the most importance among predictors, according to the XGBoost model feature importance.
 \item
-  Ensemble modeling is a great way to bring the individual models together, and establish a better model with stronger predictive capacity. We observe the forecasts of the ensemble model to be the best among all indidivual models. Furthermore, ensembling the models from all Scholle IPN capstone teams produced the best overall model.
+  Ensemble modeling proved to be a great approach to bring individual models together. Among all the social media models, the stacked linear regression model had the best combination of accuracy and stability. Furthermore, ensembling the models from all Scholle IPN research teams produced the best overall model.
 \item
-  Reducing the dimensionality when handling a large number of features improves the predictive accuracy; Cross Correlation check, Principal Component Analysis are vital steps for modeling.
+  Identifying cross-correlated variables and conducting principal component analysis were vital steps for modeling. These procedures to reduce the dimensionality of social media variables led to an improved accuracy.
 \end{enumerate}
-We conclude that Scholle IPN should continue monitoring social media conversations, and follow our practice of adding the social media variables to the internal historical sales data. For future work, we recommend an examination of the year-to-year comparison between the forecasting bag sales with the actual bag sales.\\
+We concluded that Scholle IPN should utilize social media data sources together with their internal sales data to forecast future Coca-Cola bag demand. For future work, we recommended an examination of the year-to-year comparison between the forecasting bag sales with the actual bag sales.\\
 }
 % End of JMS add
 
@@ -174,22 +174,22 @@ We conclude that Scholle IPN should continue monitoring social media conversatio
   \end{abstract}
  % Added by JMS
   \begin{executive}
-    Manufacturing companies need to forecast the demand of their products ahead of time, and failing to predict the future demand can result in over-producing, loss of business opportunities, etc. In an era where social media dominates people's life, and data analytics are growing more and more powerful on generating actionable business insights, Scholle IPN tasks us to test if social media brings any predictive power to forecast the future Coca-Cola bag sales. In this project, we examine whether or not people's discussion and engagement on social media have any impact on the consumption of the Coke product in real life.
+    Manufacturing companies need to forecast the demand of their products ahead of time, because failing to predict the future demand can result in product surplus or shortage. In an era where social media dominates people's lives, data analytics has become a powerful tool to generate actionable business insights. Scholle IPN tasked us to test if social media brings any predictive power to forecast the future Coca-Cola bag sales. In this project, we examined whether people's discussion and engagement on social media have any impact on the consumption of Coca-Cola products in real life. In addition to our team, two other research groups analyze different types of independent variables to predict Coca-Cola bag sales.
     
-    In order to achieve that, we start with collecting external data from social media, and combine with the internal data provided by Scholle IPN. After preliminary exploratory analysis, we build traditional Regression with ARIMA errors model, then more advanced machine learning models, namely, XGBoost and LSTM RNN. XGBoost using the differenced social media variables returns the best predictions (lowest sMAPE score) among all the individual models while still has a decent level of interpretability. Following individual models and their results, we stack these individual models together and create three ensemble models - mean average, linear regression, and random forest. Linear regression ensemble model achieves is the most stable, with the lowest error score.
+    In order to achieve that, we collected external data from social media sources and combined it with internal data provided by Scholle IPN. After preliminary exploratory analysis, we built traditional and advaned machine learning models, including regression with ARIMA errors model, XGBoost model and Long Short-Term Memory (Recurrent Neural Network) model. The XGBoost model using the differenced social media variables returned the best predictions while still maintaining a decent level of interpretability. This model combined with other challenger models were stacked together to create three variations of ensemble models - mean average, stacked linear regression, stacked random forest.
     
-    Key findings from this project including the following:
+    Key findings from this project include the following:
     \begin{enumerate}
     \def\labelenumi{\arabic{enumi}.}
     \tightlist
     \item
-      Different social media variables have different importances when modeling. Surprisingly, Pepsi and Taco Bell lagged variables showed the most importance among the predictors according to our XGBoost model feature importance.
+      Pepsi and Taco Bell lagged variables were observed to have the most importance among predictors, according to the XGBoost model feature importance.
     \item
-      Ensemble modeling is a great way to bring the individual models together, and establish a better model with stronger predictive capacity. We observe the forecasts of the ensemble model to be the best among all indidivual models. Furthermore, ensembling the models from all Scholle IPN capstone teams produced the best overall model.
+      Ensemble modeling proved to be a great approach to bring individual models together. Among all the social media models, the stacked linear regression model had the best combination of accuracy and stability. Furthermore, ensembling the models from all Scholle IPN research teams produced the best overall model.
     \item
-      Reducing the dimensionality when handling a large number of features improves the predictive accuracy; Cross Correlation check, Principal Component Analysis are vital steps for modeling.
+      Identifying cross-correlated variables and conducting principal component analysis were vital steps for modeling. These procedures to reduce the dimensionality of social media variables led to an improved accuracy.
     \end{enumerate}
-    We conclude that Scholle IPN should continue monitoring social media conversations, and follow our practice of adding the social media variables to the internal historical sales data. For future work, we recommend an examination of the year-to-year comparison between the forecasting bag sales with the actual bag sales.\\
+    We concluded that Scholle IPN should utilize social media data sources together with their internal sales data to forecast future Coca-Cola bag demand. For future work, we recommended an examination of the year-to-year comparison between the forecasting bag sales with the actual bag sales.\\
   \end{executive}
  % End of JMS
 
@@ -213,19 +213,19 @@ We conclude that Scholle IPN should continue monitoring social media conversatio
 \chapter*{Introduction}\label{introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Scholle IPN is a global manufacturing company based in Northlake, IL, with products focused primarily in bag-in-box packaging. The company is a pioneer in its industry by implementing a combination of qualitative observations and quantitative analyses in forecasting their products' sales. However, variability in these sales forecasts present challenges for Scholle IPN in raw material preparation, operational efficiency, and asset management.
+Scholle IPN is a global manufacturing company based in Northlake, IL, with products focusing primarily in bag-in-box packaging. The company implements a combination of qualitative observations and quantitative analyses in forecasting their products' sales. However, variability in these sales forecasts present challenges for Scholle IPN in raw material preparation, operational efficiency, and asset management.
 
 \hypertarget{problem-statement}{%
 \section*{Problem Statement}\label{problem-statement}}
 \addcontentsline{toc}{section}{Problem Statement}
 
-In this project, we provide a forecasting solution to Scholle IPN using social media data. This project primarily focuses on one of Scholle IPN's main clients, Coca-Cola. Coca-Cola uses Scholle IPN's state-of-the art bags to store beverage products at quick service restaurant (QSR) partners worldwide. Since 2014, Coca-Cola has accounted for 95.68\% of Scholle's syrup-related bag order shipments, so inaccurate forecasts of future orders could result in operational inefficiencies. Minimizing these operational inefficiencies is important to maintain Scholle's partnership with Coca-Cola. In order to solve this business problem, we examine whether we can substantially improve Scholle IPN's Coca-Cola demand forecasts by using social media as the primary variable.
+In this project, we provided a forecasting solution to Scholle IPN using social media data. This project primarily focused on one of Scholle IPN's main clients, Coca-Cola. Coca-Cola uses Scholle IPN's state-of-the art bags to store beverage products at quick service restaurant (QSR) partners worldwide. Since 2014, Coca-Cola has accounted for 95.68\% of Scholle's syrup-related bag order shipments, so inaccurate forecasts of future orders could result in operational inefficiencies. Minimizing these operational inefficiencies is important to maintain Scholle's partnership with Coca-Cola. In order to solve this business problem, we examined whether we can substantially improve Scholle IPN's Coca-Cola demand forecasts by using user mentions and company posts in social media channels as primary variables.
 
 \hypertarget{research-purpose}{%
 \section*{Research Purpose}\label{research-purpose}}
 \addcontentsline{toc}{section}{Research Purpose}
 
-The purpose of this research is to forecast Coca-Cola bag orders by utilizing social media data. When customer express their opinions in social media, businesses like Scholle IPN can gain valuable insights that can inform business decisions. For example, if a McDonald's promotion is generating discussion posts online, then Scholle IPN can potentially expect an increase in bag orders from Coca-Cola. In order to make these online discussions actionable, we must first take into account additional considerations. First, since social media posts are usually in the form of text, we explore methods to convert text to numerical data. Second, we explore different ways to reduce the dimension of social media variables to account for its high dimensionality. And finally, we use these social media variables to forecast Coca-Cola bag orders using an ensemble approach. Below is a list of research objectives for this project:
+The purpose of this research is to forecast Coca-Cola bag orders by utilizing social media data. When customers express their opinions in social media, businesses like Scholle IPN can gain valuable insights that can inform business decisions. For example, if a McDonald's promotion is generating discussion posts online, then Scholle IPN can potentially expect an increase in bag orders from Coca-Cola. In order to make these online discussions actionable, we took into account additional considerations. First, since social media posts are usually in the form of text, we explored methods to convert text to numerical data. Second, we explored different ways to reduce the dimension of social media variables to account for its high dimensionality. And finally, we used these social media variables to forecast Coca-Cola bag orders using an ensemble approach. Below is a list of research objectives for this project:
 \begin{itemize}
 \tightlist
 \item
@@ -239,7 +239,7 @@ The purpose of this research is to forecast Coca-Cola bag orders by utilizing so
 \section*{Variables and Scope}\label{variables-and-scope}}
 \addcontentsline{toc}{section}{Variables and Scope}
 
-The scope of this forecasting project is limited to predicting the future monthly bag orders for Coca-Cola in the United States and Canada. All variables will be aggregated or averaged at the monthly level. The forecasting window for this project will be 18 months for all models to accommodate Scholle's business needs. The main social media variables used to predict Coca-Cola bag orders were collected from Twitter and Google Trends. For Twitter, we focus our project on the following variables: tweet text, number of likes, number of retweets, and number of replies. For Google Trends, monthly trend values for selected topics are extracted at the monthly level. Additional data retrieval rules are applied to ensure that Twitter and Google Trends data are from the United States and Canada (see Appendix A).
+The scope of this forecasting project is limited to predicting the future monthly bag orders for Coca-Cola in the United States and Canada. All variables were aggregated or averaged at the monthly level. The forecasting window for this project was 18 months for all models to accommodate Scholle's business needs. The main social media variables used to predict Coca-Cola bag orders were collected from Twitter and Google Trends. For Twitter, we focused our project on the following variables: tweet text, number of likes, number of retweets, and number of replies. For Google Trends, we extracted monthly trend values for selected topics at the monthly level. Additional data retrieval rules were applied to ensure that Twitter and Google Trends data are from the United States and Canada (see Appendix A).
 
 \hypertarget{background}{%
 \chapter*{Background}\label{background}}
@@ -249,14 +249,14 @@ The scope of this forecasting project is limited to predicting the future monthl
 \section*{Social Media Variables}\label{social-media-variables}}
 \addcontentsline{toc}{section}{Social Media Variables}
 
-For this forecasting project, we focus on collecting social media data on relevant topics. These relevant topics are Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. Coca-Cola is selected because it is their product's demand that Scholle IPN is interested in forecasting. Pepsi is selected due to its position as the main competitor for Coca-Cola. Meanwhile, McDonald's and Taco Bell are chosen because they are the top quick service restaurant partners for Coca-Cola and Pepsi based on 2018 annual sales revenue. The topic `jobs' is selected to gather job-related tweets intended to capture economic activity in the United States and Canada. Relationships between social media activity on these topics and the quantity of Coca-Cola bag ordered can be useful information for our forecasting models.
-Twitter data is a combination of user-level tweets and company-level tweets, while Google Trend data is monthly trend value for our selected terms. User-level tweets are Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs.'' Company-level tweets are Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and Taco Bell. Meanwhile, Google Trends is a popularity measure for Coca-Cola and other relevant terms based on their search frequency over time.
+For this forecasting project, we focused on collecting social media data on selected topics. These selected topics are Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. Coca-Cola was selected because it is their product's demand that Scholle IPN is interested in forecasting. Pepsi was selected due to its position as the main competitor for Coca-Cola. Meanwhile, McDonald's and Taco Bell were chosen because they are the top quick service restaurant partners for Coca-Cola and Pepsi based on 2018 annual sales revenue. The topic `jobs' was selected to gather job-related tweets intended to capture economic activity in the United States and Canada. Relationships between social media activity on these topics and the quantity of Coca-Cola bags ordered can be useful information for our forecasting models.
+Twitter data is a combination of user-level tweets and company-level tweets, while Google Trend data is monthly trend value for our selected terms. User-level tweets were Twitter posts from regular online consumers tweeting about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs.'' Company-level tweets were Twitter posts by the official Twitter accounts of Coca-Cola, Pepsi, McDonald's, and Taco Bell. Meanwhile, Google Trends data was the trend value for Coca-Cola and the other selected topics on a given month.
 
 \hypertarget{sentiment-analysis}{%
 \section*{Sentiment Analysis}\label{sentiment-analysis}}
 \addcontentsline{toc}{section}{Sentiment Analysis}
 
-One method of quantifying text-based social media data for our forecasting models is by implementing sentiment analysis. This is a technique in natural language processing that we use for each tweet to generate a numerical value signifying whether consumers have a positive or negative outlook on Coca-Cola, Pepsi, McDonald's, Taco Bell, or `jobs'. We then average sentiment scores by month for each relevant term, and use this as an additional predictor to forecast Coca-Cola bag orders. For this project, we only calculate sentiment scores for user-generated tweets because we assume that tweets generated by the official company accounts are positively biased towards their own brand. Prior to conducting sentiment analysis, text processing steps must be conducted on tweets. The following steps were conducted on the tweets:
+One method of quantifying text-based social media data for our forecasting models is by implementing sentiment analysis. This is a technique in natural language processing that we use for each tweet to generate a numerical value signifying whether consumers have a positive or negative outlook on Coca-Cola, Pepsi, McDonald's, Taco Bell, or `jobs'. Prior to conducting sentiment analysis, text processing steps must be conducted on tweets. The following steps were conducted on the tweets:
 \begin{itemize}
 \tightlist
 \item
@@ -266,13 +266,13 @@ One method of quantifying text-based social media data for our forecasting model
 \item
   Lemmatize tweets
 \end{itemize}
-The R package sentimentR was used to calculate sentiment scores for each tweet. This package takes into account additional information such as valence shifters and de-amplifiers resulting in a more accurate sentiment score (see Appendix A). The sentiment scores for each selected term's collective tweets per month is averaged at the monthly level to generate the monthly average sentiment variable.
+For this project, we only calculated sentiment scores for user-generated tweets because we assumed that tweets generated by the official company accounts are positively biased towards their own brand. The R package sentimentR was used to calculate sentiment scores for each tweet. This package took into account additional information such as valence shifters and de-amplifiers resulting in a more accurate sentiment score (see Appendix A). The sentiment scores for each selected term's collective tweets per month was averaged at the monthly level to generate the monthly average sentiment score. The monthly average sentiment score was then added as a variable to forecasting Coca-Cola bag orders.
 
 \hypertarget{stationarity-and-differencing}{%
 \section*{Stationarity and Differencing}\label{stationarity-and-differencing}}
 \addcontentsline{toc}{section}{Stationarity and Differencing}
 
-An important step to consider when forecasting is to remove trends and seasonality from variables in order to make it stationary. When time series data is stationary, it displays a stable mean and stable variance over time (Hyndman, 2018). This means that it is less likely to produce spurious relationships and misleading results. Statistical tests (KPSS test) (Kwiatkowski, 1992) are conducted on each variable to determine its level of stationarity (Hyndman, 1992). After testing, it was determined that the dependent variable, monthly quantity of Coca-Cola bag orders, is stationary. This means that this variable requires no further transformations. However, the independent variables show varying results and require additional processing. One way of transforming time series data to become stationary is the method of differencing. Differencing is the method of subtracting the value of the current time step from the value of previous time step(s). This method was applied to all social media variables to ensure that they were all stationary. The visual below demonstrates how the method of differencing is able to remove trends from the monthly total user tweets. The top half of the visual are time plots of the pre-differenced variables, while the bottom are time plots of the differenced variables.
+An important step to consider when forecasting is to remove trends and seasonality from variables in order to make it stationary. When time series data is stationary, it displays a stable mean and stable variance over time (Hyndman, 2018). This means that it is less likely to produce spurious relationships and misleading results. Statistical tests (KPSS test) (Kwiatkowski, 1992) were conducted on each social media variable to determine its level of stationarity (Hyndman, 1992). It was determined that the dependent variable, monthly quantity of Coca-Cola bag orders, is stationary. This means that this variable requires no further transformations. However, the independent variables diplayed varied results and required additional processing. One way of transforming time series data to become stationary is the method of differencing. Differencing is the method of subtracting the value of the current time step from the value of previous time step(s). This method was applied to all social media variables to ensure that they were all stationary. Figure 9 demonstrates how the method of differencing is able to remove trends from the monthly total user tweets. The top half of the visual are time plots of the pre-differenced variables, while the bottom are time plots of the differenced variables.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/differencing} 
@@ -285,13 +285,14 @@ An important step to consider when forecasting is to remove trends and seasonali
 \section*{Dimension Reduction}\label{dimension-reduction}}
 \addcontentsline{toc}{section}{Dimension Reduction}
 
-When building forecasting models, it is important to be aware of the level of complexity of these models. In this project, we collect Twitter data with over a hundred features for a single tweet (tweet text, user profile data, etc.). Using all of these variables will make our forecasting models highly complex and likely result in poor predictions. Fortunately, the scope of this project limits tweet information to only a tweet's text, number of likes, number of retweets, and number of replies. However, the complexity of this project (relevant topics, social media data type, social media source) still leaves us with 46 total independent variables per observation (see Data section). We will use two main approaches in this project to further reduce our social media variable's dimensions.
+When building forecasting models, it is important to be aware of the level of complexity of these models. In this project, we collect Twitter data with over a hundred features for a single tweet (tweet text, user profile data, etc.). Using all of these variables will make our forecasting models highly complex and likely result in poor predictions. Fortunately, the scope of this project limited the tweet information required for modeling to only a tweet's text, number of likes, number of retweets, and number of replies. However, the complexity of this project (relevant topics, social media data type, social media source) still left us with 46 total independent variables per observation (see Data section). We used two main approaches in this project to further reduce our social media variable's dimensions.
 
 \hypertarget{method-a---principal-component-analysis}{%
 \subsubsection*{Method A - Principal Component Analysis}\label{method-a---principal-component-analysis}}
 \addcontentsline{toc}{subsubsection}{Method A - Principal Component Analysis}
 
-The first method we will use to reduce the dimensionality of our social media variables is principal component analysis (PCA). PCA uses an orthogonal transformation of our variables into linearly uncorrelated variables called principal components (Kambhatla, 1997). The main idea is that the majority of the variance explained will be concentrated on a limited number of principal components. This allows us to discard the principal component variables that provide little additional information. This approach further reduces the overall dimension of our original set of variables. When performing this technique with our social media variables, we are able to observe the ``elbow feature'' at number of principal component (n) = 7 . This tells us that only the first seven principal components is required to explain most of the total variance (97\%) of our variables. By using PCA, we are able to reduce our overall social media variables from 46 to 7.
+The first method we used to reduce the dimensionality of our social media variables is principal component analysis (PCA). PCA uses an orthogonal transformation of our variables into linearly uncorrelated variables called principal components (Kambhatla, 1997). The main idea is that the majority of the variance explained will be concentrated on a limited number of principal components. This allowed us to discard the principal component variables that provide little additional information. The major limitation for this approach is that it is generally less interpretable than using the original variables.
+After PCA was performed on our social media variables, our team identified seven principal components (Figure 2) as the optimal number of components required to explain most of the variable's total variance (97\%). We successfully reduced our overall social media variables from 46 to 7 by using this dimension reduction technique.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/pca} 
@@ -304,7 +305,7 @@ The first method we will use to reduce the dimensionality of our social media va
 \subsubsection*{Method B - Cross Correlation}\label{method-b---cross-correlation}}
 \addcontentsline{toc}{subsubsection}{Method B - Cross Correlation}
 
-The second method we employ to reduce our total features is by testing our independent variables for cross correlation with the dependent variable (Brockwell, 1991). Mainly, this approach will inform us how many months in advance a social media variable can lead to an increase or decrease in Coca-Cola bag orders. For example, consider when a social media variable was found to be significantly positively correlated with Coca-Cola bag orders at lag t-1. If this social media variable has a positive value for the current month, then an increase in Coca-Cola bag orders can be expected the following month. In this project, we check for cross correlation on each independent variable up to six months prior (t-6). We will do this on the original variables as well as the principal component variables. Using the cross correlation approach, we identified eight lags from the social media variables that were cross correlated with Coca-Cola bag orders. Below is a table of these social media variables with their specified lags listed.
+The second method we employed to reduce our total features is by testing independent variables for cross correlation with the dependent variable (Brockwell, 1991). This identified how many months in advance a social media variable could lead to an increase or decrease in Coca-Cola bag orders. For example, consider when a social media variable was found to be significantly positively correlated with Coca-Cola bag orders at lag t-1. If this social media variable has a positive value for the current month, then an increase in Coca-Cola bag orders can be expected the following month. In this project, we checked for cross correlation on each independent variable up to six months prior (t-6). We did this on the original variables as well as the principal component variables. The cross correlation approach identified eight lags from the social media variables that were cross correlated with Coca-Cola bag orders (Table 1).
 \begin{longtable}[]{@{}cc@{}}
 \caption{\label{tab:inher} Social Media Variables with Specified Lags}\tabularnewline
 \toprule
@@ -365,7 +366,7 @@ t-6\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
-In addition, we identified seven lags from principal components that are cross correlated with Coca-Cola bag orders. Below is a table of these principal components with their specified lags listed.
+In addition, we identified seven lags from principal components that are cross correlated with Coca-Cola bag orders (Table 2).
 \begin{longtable}[]{@{}cc@{}}
 \caption{\label{tab:inher} Principal Components with Specified Lags}\tabularnewline
 \toprule
@@ -425,7 +426,7 @@ t-6\strut
 \section*{Ensemble Modeling}\label{ensemble-modeling}}
 \addcontentsline{toc}{section}{Ensemble Modeling}
 
-A variety of different machine learning models is used to forecast future Coca-Cola bag orders (see Modeling Framework). In addition to these machine learning models, this project demonstrate the strength of the ensemble model approach (Pavlyshenko, 2019). The main assumption to ensemble modeling is that combining all lower-level models will result in a more accurate, overall model. An ensemble model is able to highlight the strength of each individual model and account for each model's weaknesses. The ensemble model approach will be used in this project to produce the best model.
+A variety of different machine learning models is used to forecast future Coca-Cola bag orders (see Modeling Framework). In addition to these machine learning models, this project demonstrated the strength of the ensemble model approach (Pavlyshenko, 2019). The main assumption to ensemble modeling is that combining all lower-level models results in a more accurate, overall model. An ensemble model is able to highlight the strength of each individual model and account for each model's weaknesses. The ensemble model approach will be used in this project to produce the best model.
 
 \newpage
 
@@ -437,10 +438,31 @@ A variety of different machine learning models is used to forecast future Coca-C
 \section*{Data}\label{data}}
 \addcontentsline{toc}{section}{Data}
 
-The data used to predict Coca-Cola bag orders come from three distinct sources: Scholle IPN, Twitter, and Google Trends. The aggregation of all relevant data will be at the monthly level with a date range from October 2009 to October 2018. This ensures that the data has enough observations for our forecasting models. The dependent variable for this project is the monthly total bag orders from Coca-Cola, which is calculated by using Scholle IPN's internal sales data. The independent variables are social media variables collected from Twitter and Google Trends.
-Twitter is a widely used social media platform in the United States and Canada that was founded in 2006. This platform allows us to get a feeling about users and their opinions on Coca-Cola, Pepsi, McDonald's, Taco Bell, and `jobs'. Most importantly, Twitter gives users access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e.~number of likes, replies, and retweets). Twitter's years of existence, popularity, and data features make it an ideal social media data source for this project. However, Twitter does have a number of limitations. One of the main disadvantages of using Twitter data is its high volume and high dimensionality. Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.). A well defined scope will limit the amount of tweets to be collected and will allow us to prepare for any data storage and computational needs.\\
-Google Trends will give us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald's, Pepsi, and `jobs' in Google. The main advantage of Google Trends is the ease in which we are able to collect this data. Google Trends allow users to select aggregate level (monthly, annual), location, and a date range for each query. The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available. This makes it challenging to validate unusual trends in a search query. For more information on the specific variables, please refer to the social media Variables section. For more information on how the social media data were collected, please refer to Appendix A. Below is a summary table of the monthly social media variables:
+The data used to predict Coca-Cola bag orders came from three distinct sources: Scholle IPN, Twitter, and Google Trends. The aggregation of all relevant data was at the monthly level with a date range from October 2009 to October 2018. This ensured that the training data had enough observations for our forecasting models. The dependent variable for this project is the monthly total bag orders from Coca-Cola, which is calculated by using Scholle IPN's internal sales data. The independent variables were social media variables collected from Twitter and Google Trends.
+
+Twitter is a widely used social media platform in the United States and Canada that was founded in 2006. The main advanted of Twitter is that it allowes us to get a feeling about Twitter users and their opinions on Coca-Cola, Pepsi, McDonald's, Taco Bell, and `jobs'. Most importantly, Twitter gave us access to data elements about a tweet that are necessary for this project, including the date a tweet was posted and the reactions a tweet received (i.e.~number of likes, replies, and retweets). Twitter's years of existence, popularity, and data features made it an ideal social media data source for this project. However, Twitter does have a number of limitations. One of the main disadvantages of using Twitter data is its high volume and high dimensionality. Twitter receives millions of tweets a day that has information about the actual tweet (number of likes, replies, etc.), the user who posted the tweet (username, location, etc.) and the users who interact with the tweet (replied to tweet, username, etc.). A well defined scope limited the amount of tweets we need to collect and allowed us to prepare for any data storage and computational needs.
+
+Google Trends gave us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald's, Pepsi, and `jobs' in Google. The main advantage of Google Trends is the ease in which we are able to collect this data. Google Trends allowed us to select the aggregate level (monthly, annual), location, and date range for each query. The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available. This made it challenging to validate unusual trends in a search query.
+
+For more information on how the social media data were collected, please refer to Appendix A. Table 3 is a summary table of the monthly social media variables:
 \begin{longtable}[]{@{}cccccc@{}}
+\caption{\label{tab:inher} Social Media Variables}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.21\columnwidth}\centering
+Social Media Variable\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Coca-Cola\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
+Pepsi\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
+McDonald's\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
+Taco Bell\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
+Jobs\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
 \toprule
 \begin{minipage}[b]{0.21\columnwidth}\centering
 Social Media Variable\strut
@@ -593,7 +615,7 @@ x\strut
 \section*{Exploratory Data Analysis}\label{methodology-descriptive}}
 \addcontentsline{toc}{section}{Exploratory Data Analysis}
 
-In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it is important to conduct exploratory analysis on these variables. Analyzing all the variables prior to modeling allows us to better understand trends in our variables. Identifying these trends can aid in the interpretation of our forecasting results. In this section, we provide a brief analysis of each variable and highlight trends that could be of value when predicting the demand for Coca-Cola bag orders.
+In order to ensure maximum utility of the collected social media data and produce accurate Coca-Cola bag order forecasts, it was important to conduct exploratory analysis on these variables. Analyzing all the variables prior to modeling allowed us to better understand trends in our variables, which aided in the interpretation of our forecasting results. In this section, we provide a brief analysis of each variable and highlight trends that were valuable when predicting the demand for Coca-Cola bag orders.
 
 \hypertarget{monthly-coca-cola-bag-orders}{%
 \subsection*{Monthly Coca-Cola Bag Orders}\label{monthly-coca-cola-bag-orders}}
@@ -606,7 +628,7 @@ In order to ensure maximum utility of the collected social media data and produc
 
 \caption{Monthly Coca-Cola Bag Orders Time-series Plot}\label{fig:TSCoke}
 \end{figure}
-Above is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to October 2019. At a glance, we observe an annual seasonal pattern with no consistent trend over time. Overall, the bag quantity orders show a mean of 7,521,158 per month. Expectedly, Scholle IPN experience the highest volume of Coca-Cola bag orders during summer months (June-August) with averages over eight million ordered bags. The only other month with an average of over eight million Coca-Cola bags is during the month of March.
+Figure 3 is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to October 2019. We observed an annual seasonal pattern with no consistent trend over time. Overall, the bag quantity orders showed a mean of 7,521,158 per month. Expectedly, Scholle IPN experienced the highest volume of Coca-Cola bag orders during summer months (June-August) with averages of over eight million ordered bags (Figure 4). The only other month with an average of over eight million Coca-Cola bags ordered is during the month of March.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=1.5]{figure/AveCokeBagOrderPerMonth} 
@@ -619,7 +641,7 @@ Above is a time plot of monthly Coca-Cola syrup bag orders from October 2009 to 
 \subsection*{User-generated Tweets}\label{user-generated-tweets}}
 \addcontentsline{toc}{subsection}{User-generated Tweets}
 
-User-generated tweets provides our forecasting models with information regarding how frequently Twitter users talk about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. When looking at the average monthly tweet mentions for each term, the term ``jobs'' surprisingly appeared the most. Jobs-related tweets in the dataset represent 42.7\% of all the user-generated tweets collected. The visual below of the average monthly tweet volume for each selected term demonstrates how ``jobs'' represented the majority of the collected user-level data.
+User-generated tweets provided our forecasting models with information regarding how frequently Twitter users talked about Coca-Cola, Pepsi, McDonald's, Taco Bell, and ``jobs''. When looking at the average monthly tweet mentions for each term, the term ``jobs'' surprisingly appeared the most. Jobs-related tweets in the dataset represented 42.7\% of all the user-generated tweets collected. Figure 5 demonstrate how ``jobs'' represented the majority of the collected user-level data.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/AveUserTweets} 
@@ -628,14 +650,11 @@ User-generated tweets provides our forecasting models with information regarding
 
 \caption{Average User tweets by month}\label{fig:AveUserTweet}
 \end{figure}
-The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information). Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms. This finding provides value to our analysis as the term ``jobs'' has a large sample size. This can potentially give us better indication on how economic activity in North America impacts Coca-Cola bag orders. However, a lower total of user-generated tweets for all other relevant terms resulted. Limited sample size for these variables could adversely impact their ability to forecast Coca-Cola bag orders.
+The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information). Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms. This finding provided value to our analysis as the term ``jobs'' has a large sample size. This gave us better indication on how economic activity in North America impacted Coca-Cola bag orders. However, a lower total of user-generated tweets for all other relevant terms resulted. Generally, limited sample size for variables could adversely impact its ability to predict.
 
 \hypertarget{company-generated-tweets}{%
 \subsection*{Company-generated Tweets}\label{company-generated-tweets}}
 \addcontentsline{toc}{subsection}{Company-generated Tweets}
-\begin{verbatim}
-To continue the exploration of covariates, we explore company-generated tweets.  This set of social media variables provides us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies).  A total of 24,442 such tweets were collected between October 2009 to October 2018.  Among the four companies, the official Twitter accounts of Coca-Cola and McDonald’s were the most active in terms of posting Twitter content.  The time series plots below (not built to scale) clearly show a general trend among all four companies.  
-\end{verbatim}
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/CompanyTweets} 
@@ -644,7 +663,9 @@ To continue the exploration of covariates, we explore company-generated tweets. 
 
 \caption{Company Tweet Volume Time-series Plot}\label{fig:CompanyTweets}
 \end{figure}
-For each company, the total number of tweets per month were low in the beginning portion of the time plot. This was followed by a surge in tweet volume in the middle part of the decade suggesting how all four companies started to heavily utilize Twitter as a promotional tool. This change in behavior from companies could be attributed to the increased use of Twitter by social media consumers around the same time. The time plots below (not built to scale) of total consumer reactions (replies, likes, retweets) is a representation of how Twitter users who engaged with each company reacted to their tweets over time.
+To continue the exploration of covariates, we explored company-generated tweets. This set of social media variables provided us information about promotional behavior for these selected companies (monthly tweets) and the subsequent consumer reaction to these promotions (monthly likes, retweets and replies). A total of 24,442 such tweets were collected between October 2009 to October 2018. Among the four companies, the official Twitter accounts of Coca-Cola and McDonald's were the most active in terms of posting Twitter content. The time series plots in Figure 6 (not built to scale) clearly showed a general trend among all four companies.
+
+For each company, the total number of tweets per month were low in the beginning portion of the time plot. This was followed by a surge in tweet volume in the middle part of the decade suggesting how all four companies started to heavily utilize Twitter as a promotional tool. This change in behavior from companies could be attributed to the increased use of Twitter by social media consumers around the same time. Figure 7 are time plots (not built to scale) of total consumer reactions (replies, likes, retweets) to company Twitter posts over time.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/ConsumerReactionTweets} 
@@ -659,8 +680,8 @@ Noticeably, Twitter users became much more engaged with these Twitter accounts t
 \subsection*{Google Trends}\label{google-trends}}
 \addcontentsline{toc}{subsection}{Google Trends}
 
-Although Google Trends is not a social media platform, it does provide an easily attainable source of data regarding general interest in Coca-Cola, Pepsi, McDonald's, Taco Bell, and `jobs'. This could provide useful information when forecasting Coca-Cola bag orders.
-Above are time series plots for each term and their monthly Google Trend value from October 2009 to October 2018. Generally, there seems to be a seasonal trend that appear for each search term. It is interesting to note that the two quick service restaurants, McDonald's and Taco Bell, experienced an increasing trend over time.
+Although Google Trends is not a social media platform, it provided an easily attainable source of data regarding general interest in Coca-Cola, Pepsi, McDonald's, Taco Bell, and `jobs'. This provided useful information when forecasting Coca-Cola bag orders.
+The time series plots in Figure 8 are each topic's monthly Google Trend value from October 2009 to October 2018. Generally, there seems to be a seasonal trend that appear for each search term. It is interesting to note that the two quick service restaurants, McDonald's and Taco Bell, experienced an increasing trend over time.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/GoogleTrends} 
@@ -669,7 +690,7 @@ Above are time series plots for each term and their monthly Google Trend value f
 
 \caption{Google Trends (by topic) Time-series Plot}\label{fig:GoogleTrends}
 \end{figure}
-When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered. This strict rule could fail in certain instances where a single term could have different meanings. For example, an unusual spike can be observed in the time series plot for `jobs' in October 2011. After conducting additional research, this spike can be attributed to a sudden interest in Steve Jobs when he passed away. For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner. These outliers are imputed with a value that fit the distribution of the rest of the dataset.
+When using Google Trends, it is important to consider that trend values are calculated strictly based on the search term entered. This strict rule could fail in certain instances where a single term could have different meanings. For example, an unusual spike was observed in the time series plot for `jobs' in October 2011. After conducting additional research, this spike was attributed to a sudden interest in Steve Jobs passing away in that same month. For Pepsi, a spike in April 2017 was traced back due to its connection to a controversial advertisement involving the celebrity Kendall Jenner. These outliers were imputed with a value that fit the distribution of the rest of the dataset.
 
 \newpage
 
@@ -677,28 +698,67 @@ When using Google Trends, it is important to consider that trend values are calc
 \section*{Modeling Framework}\label{modeling-framework}}
 \addcontentsline{toc}{section}{Modeling Framework}
 
-\textbf{Metrics}
+\hypertarget{metrics}{%
+\subsection*{Metrics}\label{metrics}}
+\addcontentsline{toc}{subsection}{Metrics}
 
-The following metrics are used to measure the forecasting models built using social media variables.
+The following metrics were used to measure the forecasting models built using social media variables.
 \begin{itemize}
+\tightlist
 \item
   Symmetric Mean Absolute Percent Error (sMAPE) - A measure based on percentage (or relative) errors.
+\end{itemize}
+\noindent \[ \sum_{i=1}^N (1 - |\frac{F_t - A_t}{A_t}|)(100)\]
+\begin{itemize}
+\tightlist
 \item
   Root Mean Square Error (RMSE) - Standard deviation of the mean squared error.
+\end{itemize}
+\noindent \[ \sum_{i=1}^N\sqrt{(F_t - A_t)^2} \]
+\begin{itemize}
+\tightlist
 \item
   Mean Accuracy - Measures the forecast accuracy.
+\end{itemize}
+\noindent \[ \frac{100}{n}\sum_{i=1}^N\frac{F_t - A_t}{(|F_t| + |A_t|)^2}\]
+\begin{itemize}
+\tightlist
 \item
   Percentage (\%) Bias - Measures the percentage of times the dependent variable was over- or under-estimated.
 \end{itemize}
-\textbf{Selection of Forecasting Models}
+\noindent \[ \frac{ P_O}{P_T}\]
 
-In this section, we describe the forecasting models used to determine if social media variables have any impact Coca-Cola bag order forecasts. We will build three types of models - baseline model, challenger models, and ensemble model. Each forecasting model is set to have a forecasting window of 18 months. The baseline model is a forecasting model using only the monthly Coca-Cola bag orders. The challenger models is a set of three different forecasting models that utilizes the social media variables. The ensemble model is a model that combines all three challenger models.
+where,
+P = Count of predictions
+O = Overestimated and
+T = Total.
 
-The baseline model is used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data. The baseline model is built by using a seasonal Arima model. A sliding-window cross validation of two-years, four-years, and six-years is used to determine the optimal number of observations used for training the rest of our models.
+\hypertarget{selection-of-forecasting-models}{%
+\subsection*{Selection of Forecasting Models}\label{selection-of-forecasting-models}}
+\addcontentsline{toc}{subsection}{Selection of Forecasting Models}
 
-The challenger models selected for this project are: Regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM). Each challenger model is trained using 48 months of training observations (see Baseline Model Results). In addition, each challenger model will be trained on two sets of social media variables. The first set of social media variables are the difference variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The second set of of social media variables are the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The Regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depend on external variables selected (Hyndman, 2018). The XGBoost model is a more complex `regularized boosting' technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run (Chen, 2016). The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information (Hochreiter, 1997). This model LSTM selectively chooses what it ``remembers'', and what to ``forget.'' In addition, LSTM selects how much of its memory it should output.
-The next model used is ensemble model of all three challenger models. We compare how the challenger models and ensemble model perform against the baseline model using the metrics defined in the previous section. Furthermore, Scholle IPN is hosting other researchers from the University of Chicago to predict Coca-Cola bag orders using other external variables. The two other research teams are using related products data and economic/demographic data. The best models from these two research teams will be ensembled with the best performing social media model.
+In this section, we describe the forecasting models used to determine if social media variables have any impact on Coca-Cola bag order forecasts. We built three types of models - baseline model, challenger models, and ensemble models. Each forecasting model was set to have a forecasting window of 18 months. The baseline model is a forecasting model using only the monthly Coca-Cola bag orders. The challenger models is a set of three different forecasting models that utilized the social media variables. The ensemble model is a model that combined all three challenger models.
 
+The baseline model was used to compare how challenger models that utilize social media data fare against a forecasting model that does not utilize this additional data. The baseline model is built by using a seasonal Arima model. A sliding-window cross validation of two-years, four-years, and six-years was used to determine the optimal number of observations used for training the models.
+
+The challenger models selected for this project were: regression with Arima errors, XGBoost, and Long Short-Term Memory (LSTM). The regression with Arima errors assumes that Coca-Cola bag sales does not only depend on the dependent variable, but also depended on the external variables selected (Hyndman, 2018). The XGBoost model is a more complex `regularized boosting' technique that seeks a good bias-variance tradeoff to reduce overfitting. It allows cross-validation at each iteration of the boosting process and thus it is easy to get the exact optimum number of boosting iterations in a single run (Chen, 2016). The final challenger model, LSTM, is a special kind of recurrent neural network that is capable of learning long-term dependencies by using adaptive, non-linear gates to update cell state information (Hochreiter, 1997). This model selectively chooses what it ``remembers'', and what to ``forget.'' In addition, LSTM selects how much of its memory it should output. Each challenger model was trained using 48 months of training observations (see Baseline Model Results). In addition, each challenger model was trained on two sets of social media variables. The first set of social media variables were the differenced variables identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The second set of social media variables were the principal components identified to be cross-correlated with Coca-Cola bag orders (see Dimension Reduction section). The set of social media variables that produced the better challenger model results were used for the ensemble models (Figure 9).
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/socialmedia_ensemble_framework} 
+
+}
+
+\caption{Ensemble Framework}\label{fig:GoogleTrends2}
+\end{figure}
+The next type of models built were ensemble models of all three challenger models. For ensemble modeling, the predictions of the three challenger models were used as training observations. The ensemble models built were the `average of all models', linear regression model, and random forest model. The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply took the average of all predicted values from all the challenger models. Meanwhile, the linear model ensemble model assigned a weight to each challenger model's results. The more a challenger model contributes to the predicted results, the more weight the linear model assigned it. Finally, the random forest ensemble model is the most complex and least interpretable among the three ensemble models. The results of each ensemble model were evaluated using the same metrics as the baseline and challenger models. Furthermore, Scholle IPN hosted other researchers from the University of Chicago to predict Coca-Cola bag orders using other external variables. The two other research teams used related products data and economic/demographic data. The same ensembling model framework was used to combine the winning models from each indiviudal team to produce the final Scholle forecasting model. In addition to the best models from each team, the Scholle baseline model was also included in this final ensemble model (Figure 10).
+\begin{figure}
+
+{\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/coke_ensemble_framework} 
+
+}
+
+\caption{Coca-Cola Teams Ensemble Framework}\label{fig:GoogleTrends3}
+\end{figure}
 \hypertarget{scholle-system-integration}{%
 \section*{Scholle System Integration}\label{scholle-system-integration}}
 \addcontentsline{toc}{section}{Scholle System Integration}
@@ -715,7 +775,7 @@ The next model used is ensemble model of all three challenger models. We compare
 \section*{Baseline Model Results}\label{baseline-model-results}}
 \addcontentsline{toc}{section}{Baseline Model Results}
 
-Before we test for the impact of social media variables in forecasting Coca-Cola bag orders, we must first establish baseline metrics. We will use a seasonal Arima model that uses only the dependent variable to establish our baseline model. Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0){[}12{]}. Implementing cross validation with a sliding window of two-years, four-years, and six-years was then conducted. The purpose of cross validation is to establish the metric that the challenger models will be compared against and to find the point in the forecast horizon in which the predictions ``flatten out''. The chart below is a plot of the forecast horizon against each model's sMAPE values.
+Before we tested for the impact of social media variables in forecasting Coca-Cola bag orders, we first established baseline metrics. We used a seasonal Arima model incorporating only the Scholle IPN's Coca-Cola bad order data to establish our baseline model. Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0){[}12{]}. Figure 11 is a plot of the forecast horizon against each model's sMAPE values.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.1]{figure/SMAPEvsHorizon} 
@@ -724,7 +784,7 @@ Before we test for the impact of social media variables in forecasting Coca-Cola
 
 \caption{sMAPE vs. Horizon Plot}\label{fig:SMAPEvsHorizon}
 \end{figure}
-It is clear that the two-year window model is considerably worse than either the four-year and six-year sliding window models. When you look at a plot of each model against the average sMAPE value for each forecast window, you can observe that the sMAPE values flatten out at the four year mark. There is no considerable improvement in sMAPE values between the four-year window model and the six-year window mode. Therefore, the best baseline model is the four-year sliding window model.
+Figure 11 clearly showed how prediction results flatten out after a certain point in time for each sliding window model (2, 4 and 6 years). For this baseline model, the prediction results flattened out after twelve months. In other words, this baseline model provides the most value with a forecast horizon capped at twelve months. In addition, figure 11 clearly showed that the two-year window model is considerably worse than either the four-year and six-year sliding window models. Overall, there was no considerable improvement in sMAPE values from the four-year window model to the six-year window model. Since there was not much improvement observed when using six years worth of data over four years, the baseline model selected is the seasonal Arima model trained on four years worth of observations.
 \begin{longtable}[]{@{}ccccc@{}}
 \toprule
 \begin{minipage}[b]{0.22\columnwidth}\centering
@@ -779,7 +839,7 @@ Bias (\%)\strut
 \section*{Regression with ARIMA Errors Results}\label{regression-with-arima-errors-results}}
 \addcontentsline{toc}{section}{Regression with ARIMA Errors Results}
 
-By evaluating the residuals and metrics, we found that regression with Arima errors produced the best results using the lagged principal components. With a sMAPE value of 9.76\% and RMSE value of 888,544, which is an improvement compared to the Scholle Coca-Cola baseline model.
+By evaluating the residuals and metrics, we found that regression with Arima errors produced the best results using the lagged principal components. With a sMAPE value of 9.76\% and RMSE value of 888,544, which was an improvement compared to the Scholle Coca-Cola baseline model.
 \begin{longtable}[]{@{}lcccc@{}}
 \toprule
 \begin{minipage}[b]{0.27\columnwidth}\raggedright
@@ -812,7 +872,7 @@ Lagged Principal Components\strut
 \section*{XGBoost Results}\label{xgboost-results}}
 \addcontentsline{toc}{section}{XGBoost Results}
 
-For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality. The XGBoost performed better using the lagged social media variables producing a sMAPE value of 6.21\% and RMSE value of 597,983, which is the best performing model.
+For the XGBoost model, we introduced a month of year variable to allow the model to learn seasonality. The XGBoost performed better using the lagged social media variables. This model produced a sMAPE value of 6.21\% and RMSE value of 597,983, which is the best performing challenger model.
 \begin{longtable}[]{@{}lcccc@{}}
 \toprule
 \begin{minipage}[b]{0.27\columnwidth}\raggedright
@@ -854,7 +914,7 @@ After running the model, we are able to rank the features based on importance (s
 \section*{Long Short-Term Memory Results}\label{long-short-term-memory-results}}
 \addcontentsline{toc}{section}{Long Short-Term Memory Results}
 
-For the LSTM model, we also introduced a month of year variable to allow the model to learn seasonality. This model also performed better using the lagged social media variables producing a sMAPE value of 12.3\% and RMSE value of 1,023,904. This is the worst performing challenger model.
+For the LSTM model, we also introduced a month of year variable to allow the model to learn seasonality. Similar to XGBoost, this model experienced better performance using the lagged social media variables. The LSTM model using lagged social media variabled produced a sMAPE value of 12.3\% and RMSE value of 1,023,904. Among all the challenger models, the LSTM model had the worst performing metrics.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=1.5]{figure/image17} 
@@ -895,9 +955,7 @@ Lagged Differenced Variables\strut
 \section*{Ensemble Model Results}\label{ensemble-model-results}}
 \addcontentsline{toc}{section}{Ensemble Model Results}
 
-After building challenger models that utilize social media variables, we will now construct an ensemble model. Wel use several ensemble models and compare these results against each individual challenger model. The ensemble models we will build are `average of all models', linear regression, and random forest.
-
-The average of all predictions ensemble model is the most interpretable of all the ensemble models as it simply takes the average of all predicted values among all challenger models. Meanwhile, the linear model ensemble model will assign a weight to each challenger model's results. The more that a model contributes to the predicted results, the more weight the linear model will assign it. Finally, the random forest ensemble model is the most complex among the three. This model will capture how each challenger model's specific weaknesses are in prediction. For the linear regression and random forest models, the predictions of the three challenger models will be used as training observations.
+After building challenger models that utilized social media variables, we constructed ensemble models.
 \begin{longtable}[]{@{}ccccc@{}}
 \toprule
 \begin{minipage}[b]{0.27\columnwidth}\centering
@@ -937,7 +995,7 @@ Linear Regression\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
-Ensembling the three challenger models we built produced more accurate Coca-Cola bag order predictions. The results show that the random forest ensemble model performs the best according to the sMAPE and RMSE metrics. However, since the linear model produced the most stable results, this will be selected as the champion model. Below is a graph visualizing our individual model forecasts against the actual quantity (black).
+Ensembling the three challenger models we built produced more accurate Coca-Cola bag order predictions. The results show that the random forest ensemble model performs the best according to the sMAPE and RMSE metrics. However, since the linear model produced the most stable results, this will be selected as the champion model. Figure 14 is a visualizing of our challenger model forecasts against the actual quantity of Coca-Cola bag orders.
 \begin{figure}
 
 {\centering \includegraphics[width=200px,angle = 0, scale=2.5]{figure/timeplot} 
@@ -1024,25 +1082,26 @@ Random Forest\strut
 \chapter*{Conclusion}\label{conclusion}}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-In summary, we learned that social media variables improved Scholle IPN's forecsts of Coca-Cola bag orders. Even though sentiment analysis is an effective way of converting textual social media data into numerical data, we found that sentiment scores is largely dependent upon the text data available. Our user tweet data was not evenly distributed leading to a biased average sentiment score for each topic. This rendered these variables to be inconclusive for predicting Coca-Cola bag orders. Additionally, identifying the social media variables that were cross-correlated with Coca-Cola bag orders were found to improve the XGBoost and LSTM models. According to XGBoost, the most important features are Taco Bell account tweets (t-1), Pepsi account tweets (t-6), and McDonald account replies (t-5). Meanwhile, the principal component variables were effective in improving Coca-Cola bag predictions for the regression with Arima errors model. Furthermore, using an ensemble approach to modeling provides better overall results. The results for ensembling the social media challenger models (Regression with Arima errors, XGBoost, and LSTM) were considerably better than any of the individual model results. In addition, the ensemble model of the best performing models for each Scholle IPN research teams produced the best overall Coca-Cola forecasting model.
+In summary, we learned that social media variables improved Scholle IPN's forecasts of Coca-Cola bag orders. Even though sentiment analysis is an effective way of converting textual social media data into numerical data, we found that sentiment scores are largely dependent upon the text data available. Our user tweet data was not evenly distributed, which led to biased sentiment scores. This rendered these variables to be inconclusive for predicting Coca-Cola bag orders. Additionally, social media variables identified to be cross-correlated with Coca-Cola bag orders improved the XGBoost and LSTM models. According to XGBoost, the top three features were variables derived from company-generated tweets, which were Taco Bell account tweets (t-1), Pepsi account tweets (t-6), and McDonald account replies (t-5). Meanwhile, the regression with Arima errors model experienced improved accuracy when cross-correlated principal component variables were used. Furthermore, using an ensemble approach provided better overall forecasting results. The results from ensembling the social media challenger models (Regression with Arima errors, XGBoost, and LSTM) were considerably better than any of the individual model results. In addition, the ensemble model of the best performing models for each Scholle IPN research teams produced the best overall Coca-Cola forecasting model.
 
 \hypertarget{recommendations}{%
 \chapter*{Recommendations}\label{recommendations}}
 \addcontentsline{toc}{chapter}{Recommendations}
 
-Based on this research, our team recommends the following:
+Based on this research, our team recommends the following actions for Scholle IPN:
 \begin{itemize}
-\tightlist
 \item
-  Use data from the social media accounts of Coca-Cola's main competitors and top quick service restaurants for building forecasting model.
+  Leverage Google Trends and Twitter as primary tools to forecast Coca-Cola bag orders. These are data sources that are easily accessible and provide high returns in predictive power.
 \item
-  Collect more historical user-level tweets for each topic to generate a represenative average sentiment score for the forecasting model.
+  Emphasis should be placed on the collection of data from social media accounts of Coca-Cola's competitors and their partnered quick service restaurants.
+\item
+  Ensure that social media models are trained using more recent data. Our research indicated that social media data from 2009 to 2013 were less accurate in predicting Coca-Cola bag orders.
 \end{itemize}
 \hypertarget{future-work}{%
 \chapter*{Future Work}\label{future-work}}
 \addcontentsline{toc}{chapter}{Future Work}
 
-For this project, we focused our data collection on only a handful of quick service restaurants and competitors. Our analysis found that the top variables related to Pepsi, Taco Bell, and McDonald's. For future work, collecting social media data from additional Coca-Cola competitors could present an opportunity to improve the existing forecasting model. Hence, it may bring better accuracy in predicting the Coca-Cola bag sales for Scholle IPN. Additionally, increasing the transparency and easiness of the models. Machine learning models carry more parameters, require more setup, and take longer steps than the current forecasting decision-making protocol. Therefore, it is essential for C-suite to fully grasp the importances of each single external variable on a more granular level. If the significance of each input is needed, we recommend to introduce Shapley Values for better interpretability, as it gives the average marginal contribution of a feature value across all possible coalitions (Molnar, 2019).
+Our analysis found that the top variables were related to Pepsi, Taco Bell, and McDonald's. Collecting social media data from additional Coca-Cola competitors could present an opportunity to improve the existing forecasting model. These variables could provide incremental gains in predicting more accurate Coca-Cola bag sales. However, caution must be used when adding additional features to model. It is important for C-suite executives to thoroughly understand the factors that impact predictions in order to make sound business decisions. Shapley Values for better interpretability, as it gives the average marginal contribution of a feature value across all possible coalitions (Molnar, 2019).
 
 \newpage
 

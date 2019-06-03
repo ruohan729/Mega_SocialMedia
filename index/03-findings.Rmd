@@ -3,13 +3,13 @@
 
 ## Baseline Model Results  {.unnumbered}
 
-Before we tested for the impact of social media variables in forecasting Coca-Cola bag orders, we first established baseline metrics.  We used a seasonal Arima model incorporating only the Scholle IPN's Coca-Cola bad order data to establish our baseline model.  Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0)[12].   Figure 11 is a plot of the forecast horizon against each model’s sMAPE values.
+Before we tested for the impact of social media variables in forecasting Coca-Cola bag orders, we first established baseline metrics.  We used a seasonal Arima model incorporating only the Scholle IPN's Coca-Cola bag order data to establish our baseline model.  Our analysis found that the best seasonal Arima model had an order of (3,0,1)(1,0,0)[12].   Figure 12 is a plot of the forecast horizon against each model’s sMAPE values.
 
 ```{r SMAPEvsHorizon, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="sMAPE vs. Horizon Plot", echo=FALSE}
 include_graphics(path = "figure/SMAPEvsHorizon.png")
 ```
 
-Figure 11 clearly showed how prediction results flatten out after a certain point in time for each sliding window model (2, 4 and 6 years).  For this baseline model, the prediction results flattened out after twelve months.  In other words, this baseline model provides the most value with a forecast horizon capped at twelve months.  In addition, figure 11 clearly showed that the two-year window model is considerably worse than either the four-year and six-year sliding window models. Overall, there was no considerable improvement in sMAPE values from the four-year window model to the six-year window model. Since there was not much improvement observed when using six years worth of data over four years, the baseline model selected is the seasonal Arima model trained on four years worth of observations.
+Figure 12 clearly showed how prediction results flatten out after a certain point in time for each sliding window model (2, 4 and 6 years).  For this baseline model, the prediction results flattened out after twelve months.  In other words, this baseline model provided the most value with a forecast horizon capped at twelve months.  In addition, figure 12 clearly showed that the two-year window model is considerably worse than either the four-year and six-year sliding window models. Overall, there was no considerable improvement in sMAPE values from the four-year window model to the six-year window model. Since there was not much improvement observed when using six years worth of data over four years, the baseline model selected was the seasonal Arima model trained on four years worth of observations.
 
 ----------------------------------------------------------------------------------------------------------
   Sliding Window                   sMAPE             RMSE            Mean Accuracy       Bias (%)
@@ -27,7 +27,7 @@ By evaluating the residuals and metrics, we found that regression with Arima err
 -------------------------------------------------------------------------------------------------------------------
 Social Media Variable                       sMAPE            RMSE            Mean Accuracy           Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
-Differenced Variables                        
+Differenced Variables                        30.84%       2,793,003            73.24%                55.00%
 Principal Components                         9.76%         888,544             90.20%                33.00%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
@@ -41,14 +41,22 @@ Differenced Variables                      6.21%            597,983            9
 Principal Components                       7.27%            701,980            93.01%                38.89%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
-After running the model, we are able to rank the features based on importance (see below).
+After running the model, we are able to rank the features based on importance (Figure 13).
 ```{r FeatureImportance, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="XGBoost Feature Importance", echo=FALSE}
 include_graphics(path = "figure/FeatureImportance.png")
 ```
 
+Furthermore, we used the better performing XGBoost model (differenced variables) and conducted a cross validation with a sliding window of fourty-eight months from May 2010 to April 2013. This exercise displayed how predictive power increased as the the sliding window moved forward (Figure 14).  
+
+```{r slidingwindow, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.1", fig.cap="XGBoost sMAPE vs. Sliding Window Iteration", echo=FALSE}
+include_graphics(path = "figure/slidingwindow.png")
+```
+
+In other words, training the XGBoost model on the early parts of the decade was not very predictive. However, as the decade continues, and presumably when user engagement on Twitter increased, the XGBoost model began to perform better.
+
 ## Long Short-Term Memory Results  {.unnumbered}
 
-For the LSTM model, we also introduced a month of year variable to allow the model to learn seasonality.  Similar to XGBoost, this model experienced better performance using the lagged social media variables.  The LSTM model using lagged social media variabled produced a sMAPE value of 12.3% and RMSE value of 1,023,904. Among all the challenger models, the LSTM model had the worst performing metrics.
+For the LSTM model, we also introduced a month of year variable to allow the model to learn seasonality.  Similar to XGBoost, this model produced better performance using the lagged social media variables.  The LSTM model using lagged social media variabled produced a sMAPE value of 12.3% and RMSE value of 1,023,904. Among all the challenger models, the LSTM model had the worst performing metrics.
 
 ```{r image17, out.width="200px", fig.align="center",out.extra="angle = 0, scale=1.5", fig.cap="LSTM Epoch vs. Loss Function", echo=FALSE}
 include_graphics(path = "figure/image17.png")
@@ -63,25 +71,44 @@ Principal Components                    13.46%              1,145,561           
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
 ## Ensemble Model  Results  {.unnumbered}
+
 After building challenger models that utilized social media variables, we constructed ensemble models.  
 
 --------------------------------------------------------------------------------------------------------------------
  Model                                  sMAPE                RMSE            Mean Accuracy       Bias (%)
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 Scholle Baseline Model                   7.43%            667,832             92.84%               27.78%
+  
+Average of Challenger Models             6.99%            676,394             93.11%               44.00%
 
-Linear Regression                        5.82%            541,989             94.17%               55.00%
+Linear Regression                        5.69%            542,203             94.25%               50.00%
+ 
+Random Forest                            2.80%             271,128             97.15%               66.00%
 ----------------------------------- ---------------- ------------------ --------------------- ---------------------
 
-Ensembling the three challenger models we built produced more accurate Coca-Cola bag order predictions. The results show that the random forest ensemble model performs the best according  to the sMAPE and RMSE metrics.  However, since the linear model produced the most stable results, this will be selected as the champion model. Figure 14 is a visualizing of our challenger model forecasts against the actual quantity of Coca-Cola bag orders.
+Ensembling the three challenger models we built produced more accurate Coca-Cola bag order predictions. The results showed that the random forest ensemble model performs the best according  to the sMAPE and RMSE metrics.  However, since the linear model produced the most stable results, this will be selected as the champion model. Figure 16 is a visualization of our challenger model forecasts against the actual quantity of Coca-Cola bag orders.
 
 ```{r timeplot, out.width="200px", fig.align="center",out.extra="angle = 0, scale=2.5", fig.cap="Model Predictions vs. Forecast Window", echo=FALSE}
 include_graphics(path = "figure/timeplot.png")
 ```
 
+### Residual Analysis  {.unnumbered}
+
+The linear regression ensemble model is selected as the best social media forecasting model to predict Coca-Cola bag orders.  We further evaluated the results of this model through residual analysis.  The main assumption for a stable model is that the residuals is centered around a mean of zero.  The mean of the residuals of the champion model is 35,118.  The skewness of the residuals is -0.56, which means that it is left-skewed, which we can see by looking at the residual density plot (Figure 17). 
+
+```{r residualdistribution, out.width="200px", fig.align="center",out.extra="angle = 0, scale=1", fig.cap="Social Media Ensemble Model Residual Density Function Plot", echo=FALSE}
+include_graphics(path = "figure/residual_distribution.png")
+```
+
+When looking at an autocorrelation plot of the residuals (Figure 18), we observed that it observed white noise meaning that is uncorrelated, mean of zero, and has a constant variance.  This means that there is little additional information that we can draw based from the residuals.
+
+```{r residualacf, out.width="200px", fig.align="center",out.extra="angle = 0, scale=1", fig.cap="Social Media Ensemble Model Residual ACF Plot", echo=FALSE}
+include_graphics(path = "figure/residual_acf.png")
+```
+
 ## Coca-Cola Ensemble Model  Results  {.unnumbered}
 
-To further demonstrate the strength of ensemble modeling, this method was also used to combine models generated by other Scholle IPN capstone teams.  Other teams were solving the same business problem by using a different set of covariates (related products and economy).  The idea is that ensembling all the team’s models will compensate for each model’s weaknesses and produce a strong overall model.   The final model generated incremental gains from our best ensemble model. The results are outlined below.
+To further demonstrate the strength of ensemble modeling, this method was also used to combine models generated by other Scholle IPN Coca-Cola research teams. Other teams were solving the same business problem by using a different set of covariates (related products and economy). The idea is that ensembling all the team’s models will compensate for each model’s weaknesses and produce a strong overall model. The best performing ensemble model is the linear regression model with a sMAPE of 1.05% and RMSE of 119,437.  A summary of the model’s evaluation metrics are outlined below. 
 
 --------------------------------------------------------------------------------------------------------------------
             Model                       sMAPE                RMSE            Mean Accuracy       Bias (%)

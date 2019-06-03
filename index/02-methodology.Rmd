@@ -8,7 +8,7 @@ Twitter is a widely used social media platform in the United States and Canada t
 
 Google Trends gave us an opportunity to see how frequently internet users search for Coca-Cola, Pepsi, McDonald’s, Pepsi, and ‘jobs’ in Google.  The main advantage of Google Trends is the ease in which we are able to collect this data.  Google Trends allowed us to select the aggregate level (monthly, annual), location, and date range for each query.  The main disadvantage of Google Trends is that the raw data used to generate the trend value is not available.  This made it challenging to validate unusual trends in a search query. 
 
-Additional information on how search queries were configured are available in appendix A.  Table 3 is a summary table of the monthly social media variables:
+Additional information on how search queries were configured are available in the appendix.  Table 3 is a summary table of the monthly social media variables:
 
 -----------------------------------------------------------------------------------------------------------------------------------
  Social Media Variable             Coca-Cola           Pepsi            McDonald's             Taco Bell               Jobs
@@ -62,7 +62,7 @@ include_graphics(path = "figure/AveUserTweets.png")
 ```
 
 
-The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the Appendix for more information).  Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms.  This finding provided value to our analysis as the term “jobs” has a large sample size.  This gave us better indication on how economic activity in North America impacted Coca-Cola bag orders.  However, a lower total of user-generated tweets for all other relevant terms resulted.  Generally, limited sample size for variables could adversely impact its ability to predict.
+The disparity on tweet volume across topics can be explained by the limitations imposed by the Twitter Search API (please refer to the appendix for more information).  Originally, we did not anticipate the general public to engage in job-related conversation on a social media platform compared to the other relevant terms.  This finding provided value to our analysis as the term “jobs” has a large sample size.  This gave us better indication on how economic activity in North America impacted Coca-Cola bag orders.  However, a lower total of user-generated tweets for all other relevant terms resulted.  Generally, limited sample size for variables could adversely impact its ability to predict.
 
 
 ###  Company-generated Tweets {.unnumbered}
@@ -117,6 +117,9 @@ The following metrics were used to measure the forecasting models built using so
 \noindent $$ \frac{ P_O}{P_T}$$
 
 where,
+F = forecast,
+A = actual,
+t = time-step,
 P = Count of predictions,
 O = Overestimated, and 
 T = Total.

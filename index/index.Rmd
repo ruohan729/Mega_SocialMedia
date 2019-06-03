@@ -96,7 +96,7 @@ The purpose of this research is to forecast Coca-Cola bag orders by utilizing so
 
 ## Variables and Scope {.unnumbered}
 
-The scope of this forecasting project is limited to predicting the future monthly bag orders for Coca-Cola in the United States and Canada.  All variables were aggregated or averaged at the monthly level.  The forecasting window for this project was 18 months for all models to accommodate Scholle’s business needs.  The main social media variables used to predict Coca-Cola bag orders were collected from Twitter and Google Trends.  For Twitter, we focused our project on the following variables: tweet text, number of likes, number of retweets, and number of replies.  For Google Trends, we extracted monthly trend values for selected topics at the monthly level.  Additional data retrieval rules were applied to ensure that Twitter and Google Trends data are from the United States and Canada (see Appendix A).
+The scope of this forecasting project is limited to predicting the future monthly bag orders for Coca-Cola in the United States and Canada.  All variables were aggregated or averaged at the monthly level.  The forecasting window for this project was 18 months for all models to accommodate Scholle’s business needs.  The main social media variables used to predict Coca-Cola bag orders were collected from Twitter and Google Trends.  For Twitter, we focused our project on the following variables: tweet text, number of likes, number of retweets, and number of replies.  For Google Trends, we extracted monthly trend values for selected topics at the monthly level.  Additional data retrieval rules were applied to ensure that Twitter and Google Trends data are from the United States and Canada (see appendix).
 
 
 
